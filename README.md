@@ -1,2 +1,0 @@
-# documentation
-Tyro documentation
