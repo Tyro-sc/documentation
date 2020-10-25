@@ -111,6 +111,7 @@
                         <toc>left</toc>
                         <icons>font</icons>
                         <linkcss>true</linkcss>
+                        <docinfo1>true</docinfo1>
                     </attributes>
                 </configuration>
                 <executions>
