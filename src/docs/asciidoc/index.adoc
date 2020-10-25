@@ -3,6 +3,7 @@
 :homepage: https://www.tyro.sc
 :desc: The Tyro documentation
 :imagesdir: images
+:docinfo1:
 :toc:
 :toclevels: 3
 :docinfo1:
