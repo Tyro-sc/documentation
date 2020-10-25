@@ -6,7 +6,7 @@ GITHUB_TOKEN=$1
 REPO_REMOTE_URL=$(git config --get remote.origin.url)
 PROJECT_DIR=${PWD}
 DOC_TEMPLATE="${PROJECT_DIR}/.github/actions/template"
-DOC_DIRECTORY="src/docs"
+DOC_DIRECTORY="src/docs/asciidoc"
 GENERATED_DOC_DIRECTORY=""
 VERSION=$(./mvnw -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
 
