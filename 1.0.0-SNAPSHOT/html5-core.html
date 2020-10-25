@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Html5 - Tyro equivalence</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_html5_tyro_equivalence">Html5 - Tyro equivalence</a>
+<ul class="sectlevel2">
+<li><a href="#_html5_tyro_equivalence_2">Html5 - Tyro equivalence</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_html5_tyro_equivalence">Html5 - Tyro equivalence</h2>
+<div class="sectionbody">
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Reminder : States shared by all Tyro components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled, disabled, available, missing, hidden, visible, contains, displays</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_html5_tyro_equivalence_2">Html5 - Tyro equivalence</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>for input html5 tags : see next section</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Html tag</th>
+<th class="tableblock halign-left valign-top">Tyro core component</th>
+<th class="tableblock halign-left valign-top">State</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+<th class="tableblock halign-left valign-top">Tyro web component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">button</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Button">[Button]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DropDown">[DropDown]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label, <em>number of items</em>, items, <em>number of groups</em>, groups, selectedItem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select (multiple)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListBox">[ListBox]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label, <em>number of items</em>, items, selectedItem, <em>number of visible items</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultiSelect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">textarea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TextField">[TextField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">empty, filled, readOnly, required, optional, valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text, label, placeholder, value, length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill, clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TextArea</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optgroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Group">[Group]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value, items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptionGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">option</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Item">[Item]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">selected, unselected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select, unselect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Option</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Form">[Form]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reset, submit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h1, h2, h3, h4, h5, h6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Heading">[Heading]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H1, H2,H3, H4, H5, H6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">img</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Image">[Image]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Img</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Link">[Link]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text, reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ul</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListView">[ListView]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items, <em>number of items</em></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ul</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ListView">[ListView]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items, <em>number of items</em></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">li</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Item">[Item]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Li</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">div</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Panel">[Panel]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Div</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">table</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Datagrid">[Datagrid]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rows, columns</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">th</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Column">[Column]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells, title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Th</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tr</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Row">[Row]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells, title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tr</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">td</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Cell">[Cell]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Td</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paragraphs</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Article</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aside</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">footer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Label</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paragraphs, articles</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">span</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Span</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_html5_input_tags">Html5 input tags</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Html tag</th>
+<th class="tableblock halign-left valign-top">Tyro core component</th>
+<th class="tableblock halign-left valign-top">State</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+<th class="tableblock halign-left valign-top">Tyro web component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checkbox</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CheckBox">[CheckBox]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked, unchecked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check, uncheck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeCheckBox</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">radio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Radio">[Radio]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked, unchecked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeRadio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"></td>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong><em>Shared by all Tyro Field components</em></strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>All below components inherit from Field</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">empty, filled, readOnly, required, optional, valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text,label, placeholder, value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill, clear</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TextField">[TextField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeText</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ColorField">[ColorField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeColor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime-local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DateTimeField">[DateTimeField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeDateTime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DateField">[DateField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeDate</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TimeField">[TimeField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeTime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#MonthField">[MonthField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeMonth</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#WeekField">[WeekField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeWeek</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EmailField">[EmailField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeEmail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#PasswordField">[PasswordField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypePassword</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#NumberField">[NumberField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">range</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#RangeField">[RangeField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeRange</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#PhoneField">[PhoneField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeTel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SearchField">[SearchField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeSearch</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#URLField">[URLField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeURL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-10-25 01:00:49 UTC
+</div>
+</div>
+</body>
+</html>

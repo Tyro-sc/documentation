@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="David Avenante, Stephanie Parisot">
+<title>Tyro Reference Documentation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Tyro Reference Documentation</h1>
+<div class="details">
+<span id="author" class="author">David Avenante, Stephanie Parisot</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">1. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_introduction">1.1. Introduction</a></li>
+<li><a href="#_why_tyro_is_unique">1.2. Why Tyro is unique</a></li>
+</ul>
+</li>
+<li><a href="#_getting_started">2. Getting started</a>
+<ul class="sectlevel2">
+<li><a href="#_quick_start_from_a_template">2.1. Quick start from a template</a></li>
+</ul>
+</li>
+<li><a href="#_first_examples">3. First examples</a>
+<ul class="sectlevel2">
+<li><a href="#_a_simple_specification_test">3.1. A simple specification test</a></li>
+<li><a href="#_a_simple_functional_test">3.2. A simple functional test</a></li>
+</ul>
+</li>
+<li><a href="#_functional_vs_specification_tests">4. Functional vs Specification tests</a>
+<ul class="sectlevel2">
+<li><a href="#_the_functional_tests">4.1. The Functional tests</a></li>
+<li><a href="#_the_specification_tests">4.2. The Specification tests</a></li>
+</ul>
+</li>
+<li><a href="#_finding_components">5. Finding components</a></li>
+<li><a href="#_interacting_with_components">6. Interacting with components</a>
+<ul class="sectlevel2">
+<li><a href="#_the_imperative_way">6.1. The imperative way</a></li>
+<li><a href="#_the_functional_way">6.2. The functional way</a></li>
+</ul>
+</li>
+<li><a href="#_domain_components">7. Domain Components</a>
+<ul class="sectlevel2">
+<li><a href="#_button">7.1. Button</a></li>
+<li><a href="#_checkbox">7.2. CheckBox</a></li>
+<li><a href="#_radio">7.3. Radio</a></li>
+<li><a href="#_dropdown">7.4. Dropdown</a></li>
+<li><a href="#_group">7.5. Group</a></li>
+<li><a href="#_listbox">7.6. ListBox</a></li>
+<li><a href="#_listview">7.7. ListView</a></li>
+<li><a href="#_item">7.8. Item</a>
+<ul class="sectlevel3">
+<li><a href="#_item_in_listbox_or_dropdown">7.8.1. Item in ListBox or Dropdown</a></li>
+<li><a href="#_item_in_listview">7.8.2. Item in ListView</a></li>
+</ul>
+</li>
+<li><a href="#_link">7.9. Link</a></li>
+<li><a href="#_form">7.10. Form</a></li>
+<li><a href="#_field">7.11. Field</a>
+<ul class="sectlevel3">
+<li><a href="#_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">7.11.1. TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</a></li>
+<li><a href="#_rangefield_and_its_variations_datefield_numberfield">7.11.2. RangeField and its variations (DateField, NumberField)</a></li>
+<li><a href="#_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">7.11.3. Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</a></li>
+</ul>
+</li>
+<li><a href="#_panel">7.12. Panel</a></li>
+<li><a href="#_image">7.13. Image</a></li>
+<li><a href="#_heading">7.14. Heading</a></li>
+<li><a href="#_datagrid">7.15. Datagrid</a>
+<ul class="sectlevel3">
+<li><a href="#_column">7.15.1. Column</a></li>
+<li><a href="#_row">7.15.2. Row</a></li>
+<li><a href="#_cell">7.15.3. Cell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_html5_tyro_equivalence">8. Html5 - Tyro equivalence</a>
+<ul class="sectlevel2">
+<li><a href="#_html5_tyro_equivalence_2">8.1. Html5 - Tyro equivalence</a>
+<ul class="sectlevel3">
+<li><a href="#_html5_input_tags">8.1.1. Html5 input tags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock text-left">
+<div class="content">
+<img src="images/logo-white.svg" alt="Tyro" width="30%">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview">1. Overview</h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p>The goal of this document is to provide comprehensive reference documentation for developers, analysts or QA who want to write User Interface tests with <strong>Tyro</strong>.
+It also explains how to write good UI tests scenarios.</p>
+</div>
+<div class="sect2">
+<h3 id="_introduction">1.1. Introduction</h3>
+<div class="paragraph">
+<p><strong>Tyro</strong> is a web user interface testing tool providing a framework to test any html5 application.</p>
+</div>
+<div class="paragraph">
+<p>What makes it stand out from the crowd is its beautiful and highly expressive language.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tyro</strong> provides, on one hand, an abstraction of the UI business domain through an expressive API and, on the other hand, a way to express this domain via a DSL (a button semantically stays a button, whatever the technology).</p>
+</div>
+<div class="paragraph">
+<p>With <strong>Tyro</strong>, you can therefore write tests with a seldom achieved level of expressiveness and make those tests INDEPENDENT of the underlying technology.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tyro</strong> is built on top of the <a href="https://www.selenium.dev/">WebDriver</a> browser automation library, which means that Tyro can work with any browser that WebDriver supports.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tyro</strong> plays very well with <a href="https://junit.org/junit5/">JUnit</a>, <a href="https://cucumber.io/">Cucumber</a>, <a href="https://gauge.org/">Gauge</a> et many others testing tools.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_tyro_is_unique">1.2. Why Tyro is unique</h3>
+<div class="paragraph">
+<p><strong>Tyro</strong> is the result of numerous real-world observations of developers in the trenches in the area of GUI testing.
+Working for many years to promote the <strong>TDD/BDD</strong> approaches, we often faced difficulties in their implementation for the graphical layer of applications.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>"TEST FIRST"</strong> principle excludes all scenario recorder based approaches that only allow you to write "at posteriori" tests.
+Our experience has taught us that this path is a dead-end.</p>
+</div>
+<div class="paragraph">
+<p>Another problem is UI tests are brittle and costly! We do think that this is due to the lack of abstraction in existing UI testing tools.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, <strong>Tyro</strong> can transform tests in real assets, present throughout the life of the application and always in tune with the latest version of the application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tyro</strong> is an opinionated tool. It forces the user to see and use the domain layer as a composition and aggregation of UI components (in Tyro, everything is a UI component).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">2. Getting started</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_quick_start_from_a_template">2.1. Quick start from a template</h3>
+<div class="paragraph">
+<p><strong>Tyro</strong> comes with a <a href="https://github.com/Tyro-sc/tyro-starters">bunch of starters</a> for different combinations of testing tools (<strong>JUnit4, JUni5, Cucumber&#8230;&#8203;</strong>).</p>
+</div>
+<div class="paragraph">
+<p>These starters give you a good taste of the power and flexibility of <strong>Tyro</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_first_examples">3. First examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s have a look at some simple examples of <strong>Tyro</strong> use.</p>
+</div>
+<div class="sect2">
+<h3 id="_a_simple_specification_test">3.1. A simple specification test</h3>
+<div class="paragraph">
+<p>A simple form like this :</p>
+</div>
+<div class="imageblock text-left">
+<div class="content">
+<img src="images/sample_1.png" alt="Specification">
+</div>
+</div>
+<div class="paragraph">
+<p>can be specified like this :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td>
+  <td class="code"><pre>field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>).should {
+    be visible
+    be empty
+}
+
+field(<span class="string"><span class="delimiter">'</span><span class="content">Password</span><span class="delimiter">'</span></span>).should {
+    be visible
+    be empty
+}
+
+dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>).should {
+    be visible
+    have <span class="integer">2</span>.items
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
+    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
+}</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_a_simple_functional_test">3.2. A simple functional test</h3>
+<div class="paragraph">
+<p>The check/uncheck behavior of the following choice :</p>
+</div>
+<div class="imageblock text-left">
+<div class="content">
+<img src="images/sample_2.png" alt="Functional">
+</div>
+</div>
+<div class="paragraph">
+<p>can be tested like this :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be unchecked }
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be checked }
+
+check radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>)
+
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be checked }
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be unchecked }</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_functional_vs_specification_tests">4. Functional vs Specification tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the UI test area you need to face with two type of tests: Functional tests and Specification tests.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_functional_tests">4.1. The Functional tests</h3>
+<div class="paragraph">
+<p>This type of tests describes the user intention.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As a user I want to log in my application</p>
+</li>
+<li>
+<p>As a user I want to send a message</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These tests focus on the interaction between the user and the UI.</p>
+</div>
+<div class="paragraph">
+<p>In the case of a login scenario you want to describe something like :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User fills his my username.</p>
+</li>
+<li>
+<p>User fills his password.</p>
+</li>
+<li>
+<p>User clicks on login button.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Generally it&#8217;s a black box testing.
+You have a state before the action and a state after.
+The well-known pattern on it is the famous <a href="https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language">Gherkin language</a> <strong>Given-When-Then</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_specification_tests">4.2. The Specification tests</h3>
+<div class="paragraph">
+<p>This type of test describes the design language between the user and the application.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A field should be visible</p>
+</li>
+<li>
+<p>A field should be disabled by default</p>
+</li>
+<li>
+<p>A field should have expected label</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This type of tests are very useful to check the expected state of the screen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_finding_components">5. Finding components</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interacting_with_components">6. Interacting with components</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_imperative_way">6.1. The imperative way</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_the_functional_way">6.2. The functional way</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_domain_components">7. Domain Components</h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><strong>Tyro</strong> provides a set of UI Domain Objects.
+With them, you have the most useful components to write a UI test.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<div class="title">The following states are shared by all Tyro components :</div>
+<p>enabled, disabled, available, missing, hidden, visible, contains, displays</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_button">7.1. Button</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Button.png" alt="Button">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>button</strong> refers to any graphical control element that provides the user a simple way to trigger an event,
+like searching for a query at a search engine, or to interact with dialog boxes, like confirming an action.
+</blockquote>
+<div class="attribution">
+&#8212; Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">button.should { have text(<span class="string"><span class="delimiter">'</span><span class="content">Submit</span><span class="delimiter">'</span></span>) }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checkbox">7.2. CheckBox</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/CheckBox.png" alt="CheckBox">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>checkBox</strong> is a small box that, when selected by the user, shows that a particular feature has been enabled
+  or a particular option chosen. Check boxes are commonly used when more than one option may need to be selected.
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Oxford dictionaries definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchecked</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uncheck</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">checkbox_1.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
+    be enabled
+    be unchecked
+}
+
+checkbox_2.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
+    be enabled
+    be checked
+}
+
+checkbox_3.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
+    be disabled
+    be unchecked
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_radio">7.3. Radio</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Radio.png" alt="Radio">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>radio button</strong> allows the user to choose only one of a predefined set of options. Radio buttons are
+arranged in groups of two or more and displayed on screen as, for example, a list of circular holes that can contain
+white space (for unselected) or a dot (for selected). Each radio button is normally accompanied by a label describing
+the choice that the radio button represents.
+The choices are mutually exclusive; when the user selects a radio button, any previously selected radio button in the
+same group becomes deselected (making it so only one can be selected).
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchecked</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">radio_1.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
+    be enabled
+    be unchecked
+}
+
+radio_2.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
+    be enabled
+    be checked
+}
+
+radio_3.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
+    be disabled
+    be unchecked
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dropdown">7.4. Dropdown</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Dropdown.png" alt="Dropdown">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>dropdown</strong> allows the user to choose one value from a list. When a dropdown is inactive, it displays a
+single value. When activated, it displays (drops down) a list of values, that can be eventually grouped by a theme, from which the user may select one.
+When the user selects a new value, the control reverts to its inactive state, displaying the selected value.
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">groups</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dropdown.should {
+    be visible
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
+    have <span class="integer">2</span>.items
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
+    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
+    <span class="integer">0</span>.groups
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group">7.5. Group</h3>
+<div class="paragraph">
+<p><strong>Group</strong> is used for groups of items in dropDowns.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Group.png" alt="Group">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">os.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">OS</span><span class="delimiter">'</span></span>)
+    have <span class="integer">5</span>.items
+    have <span class="integer">2</span>.groups
+}
+
+os.group(<span class="string"><span class="delimiter">'</span><span class="content">Linux</span><span class="delimiter">'</span></span>).should {
+    have <span class="integer">3</span>.items
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">Ubuntu</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Debian</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Gentoo</span><span class="delimiter">'</span></span>)
+}
+
+os.group(<span class="string"><span class="delimiter">'</span><span class="content">Windows</span><span class="delimiter">'</span></span>).should {
+    have <span class="integer">2</span>.items
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">8</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">10</span><span class="delimiter">'</span></span>)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listbox">7.6. ListBox</h3>
+<div class="paragraph">
+<p><span class="image"><img src="images/components/ListBox.png" alt="ListBox"></span></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>listBox</strong> allows the user to select one or more items from a list contained within a static, multiple line
+text box. The user clicks inside the box on an item to select it, sometimes in combination with the ⇧ Shift or Ctrl
+in order to make multiple selections. "Control-clicking" an item that has already been selected, unselects it.
+</blockquote>
+<div class="attribution">
+&#8212; Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">selectedItems</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visibleItems</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">cities.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">Cities</span><span class="delimiter">'</span></span>)
+    have <span class="integer">4</span>.items
+    have <span class="integer">4</span>.visibleItems
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Montreal</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+    have selectedItems(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+}
+
+cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should { be disabled }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listview">7.7. ListView</h3>
+<div class="paragraph">
+<p><span class="image"><img src="images/components/ListView.png" alt="ListView"></span></p>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>listView</strong> allows the user to display items in a list format (with bullet points or numbers, indentation,&#8230;&#8203;).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">list.should {
+    have <span class="integer">5</span>.items
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_item">7.8. Item</h3>
+<div class="paragraph">
+<p><strong>Item</strong> is used for the elements listed in Dropdown, ListBox and ListView</p>
+</div>
+<div class="sect3">
+<h4 id="_item_in_listbox_or_dropdown">7.8.1. Item in ListBox or Dropdown</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">selected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unselected</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unselect</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">cities.items()[<span class="integer">0</span>].should {
+    have value(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>)
+    be selected
+}
+
+cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should {
+    be disabled
+    be unselected
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_item_in_listview">7.8.2. Item in ListView</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">list.items()[<span class="integer">0</span>].should { have value(<span class="string"><span class="delimiter">'</span><span class="content">Item 1</span><span class="delimiter">'</span></span>) }
+list.item(<span class="string"><span class="delimiter">'</span><span class="content">Item 2</span><span class="delimiter">'</span></span>).should { be visible }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_link">7.9. Link</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Link.png" alt="Link">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>:  a <strong>link</strong> allows the user to navigate from page to page.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">link.should {
+    have text(<span class="string"><span class="delimiter">'</span><span class="content">My Link to Google</span><span class="delimiter">'</span></span>)
+    have reference(<span class="string"><span class="delimiter">'</span><span class="content">https://www.google.com/</span><span class="delimiter">'</span></span>)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_form">7.10. Form</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Form.png" alt="Form">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>:  a <strong>form</strong> allows the user to collect user input.
+Form elements are filled with different types of input elements, checkboxes, radio buttons, submit buttons, and more.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">valid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">invalid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">submit</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">form.should { be invalid }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field">7.11. Field</h3>
+<div class="paragraph">
+<p>This is the base component for all types of fields.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">empty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">readOnly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">placeholder</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">valid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">invalid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>All following types of fields inherit these states, properties and intentions.</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">7.11.1. TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/TextField.png" alt="TextField">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>textfield</strong> allows the user to enter text information to be used by the program.
+It can be a single-line text box when only one line of input is required, and a multi-lines text box if more than one line
+of input may be required.
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">textField.should { have length(<span class="integer">74</span>) }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rangefield_and_its_variations_datefield_numberfield">7.11.2. RangeField and its variations (DateField, NumberField)</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/RangeField.png" alt="RangeField">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>rangeField</strong> is used for fields that must contain a value within a range.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outOfRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimum</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">step</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">rangeField.should {
+    have minimum(<span class="integer">0</span>)
+    have maximum(<span class="integer">100</span>)
+    have value(<span class="integer">76</span>)
+    have step(<span class="integer">2</span>)
+    be inRange
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">7.11.3. Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</h4>
+<div class="paragraph">
+<p>No specific states, properties or intentions for these ones.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_panel">7.12. Panel</h3>
+<div class="quoteblock">
+<blockquote>
+a <strong>panel</strong> is a particular arrangement of information grouped together for presentation to the user.
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Wikipedia definition
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_image">7.13. Image</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Image.png" alt="Image">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>:  an <strong>image</strong> allows the user to insert an image (gif, jpg, png,&#8230;&#8203;) from a source file</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">image.should { have reference(<span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8080/img/seahorse.jpg</span><span class="delimiter">'</span></span>)}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_heading">7.14. Heading</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/Heading.png" alt="Heading">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>:  a <strong>heading</strong> allows the user to put a title for a page or a paragraph.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datagrid">7.15. Datagrid</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/components/DataGrid.png" alt="DataGrid">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>datagrid</strong> is a component that allows user to present data in a tabular view, with cells organized in rows and columns.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rows</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">columns</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.should {
+    have <span class="integer">3</span>.columns
+    have <span class="integer">3</span>.rows
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_column">7.15.1. Column</h4>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>column</strong> is the vertical element of a datagrid ; it is composed of cells and can have a title.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.columns()[<span class="integer">1</span>].should {
+    have title(<span class="string"><span class="delimiter">'</span><span class="content">Firstname</span><span class="delimiter">'</span></span>)
+    have <span class="integer">3</span>.cells
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_row">7.15.2. Row</h4>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>row</strong> is the horizontal element of a datagrid ; it is composed of cells and can have a title.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.rows()[<span class="integer">1</span>].should {
+    have title(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
+    have <span class="integer">2</span>.cells
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cell">7.15.3. Cell</h4>
+<div class="paragraph">
+<p><em>Definition</em>: a <strong>cell</strong> is the finest element of a datagrid.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">States</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong><em>Usage</em></strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.rows()[<span class="integer">0</span>].cells()[<span class="integer">1</span>].should {
+    have value(<span class="string"><span class="delimiter">'</span><span class="content">Black</span><span class="delimiter">'</span></span>)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_html5_tyro_equivalence">8. Html5 - Tyro equivalence</h2>
+<div class="sectionbody">
+<hr>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Reminder : States shared by all Tyro components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled, disabled, available, missing, hidden, visible, contains, displays</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_html5_tyro_equivalence_2">8.1. Html5 - Tyro equivalence</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>for input html5 tags : see next section</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Html tag</th>
+<th class="tableblock halign-left valign-top">Tyro core component</th>
+<th class="tableblock halign-left valign-top">State</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+<th class="tableblock halign-left valign-top">Tyro web component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">button</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_button">Button</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DropDown">[DropDown]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label, <em>number of items</em>, items, <em>number of groups</em>, groups, selectedItem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select (multiple)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_listbox">ListBox</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label, <em>number of items</em>, items, selectedItem, <em>number of visible items</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultiSelect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">textarea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TextField">[TextField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">empty, filled, readOnly, required, optional, valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text, label, placeholder, value, length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill, clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TextArea</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optgroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_group">Group</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value, items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptionGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">option</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_item">Item</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">selected, unselected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select, unselect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Option</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_form">Form</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reset, submit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h1, h2, h3, h4, h5, h6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_heading">Heading</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H1, H2,H3, H4, H5, H6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">img</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_image">Image</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Img</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_link">Link</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text, reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ul</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_listview">ListView</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items, <em>number of items</em></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ul</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_listview">ListView</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items, <em>number of items</em></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">li</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_item">Item</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Li</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">div</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_panel">Panel</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Div</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">table</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_datagrid">Datagrid</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rows, columns</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">th</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_column">Column</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells, title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Th</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tr</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_row">Row</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells, title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tr</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">td</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_cell">Cell</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Td</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paragraphs</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Article</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aside</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">footer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Label</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paragraphs, articles</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">span</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Span</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_html5_input_tags">8.1.1. Html5 input tags</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Html tag</th>
+<th class="tableblock halign-left valign-top">Tyro core component</th>
+<th class="tableblock halign-left valign-top">State</th>
+<th class="tableblock halign-left valign-top">Properties</th>
+<th class="tableblock halign-left valign-top">Intentions</th>
+<th class="tableblock halign-left valign-top">Tyro web component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checkbox</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_checkbox">CheckBox</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked, unchecked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check, uncheck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeCheckBox</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">radio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_radio">Radio</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked, unchecked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeRadio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"></td>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong><em>Shared by all Tyro Field components</em></strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>All below components inherit from Field</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">empty, filled, readOnly, required, optional, valid, invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text,label, placeholder, value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fill, clear</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TextField">[TextField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeText</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ColorField">[ColorField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeColor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime-local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DateTimeField">[DateTimeField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeDateTime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DateField">[DateField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeDate</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#TimeField">[TimeField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeTime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#MonthField">[MonthField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeMonth</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#WeekField">[WeekField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeWeek</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EmailField">[EmailField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeEmail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#PasswordField">[PasswordField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypePassword</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#NumberField">[NumberField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">range</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#RangeField">[RangeField]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inRange, outofRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum, minimum, step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeRange</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#PhoneField">[PhoneField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeTel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SearchField">[SearchField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeSearch</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#URLField">[URLField]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InputTypeURL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-10-25 01:00:49 UTC
+</div>
+</div>
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</body>
+</html>
