@@ -4,7 +4,6 @@
 
 GITHUB_TOKEN=$1
 REPO_REMOTE_URL=$(git config --get remote.origin.url)
-POM="documentation/pom.xml"
 PROJECT_DIR=${PWD}
 DOC_TEMPLATE="${PROJECT_DIR}/.github/actions/template"
 DOC_DIRECTORY="src/docs"
@@ -26,7 +25,7 @@ configure_documentation() {
 
 generate_documentation() {
     echo "============ ✅ Generate Documentation ================"
-    ./mvnw -f ${POM} --batch-mode clean package
+    ./mvnw --batch-mode clean package
     EXIT_CODE=$?
     if [[ ${EXIT_CODE} -gt 0 ]]; then
         echo "============ 🔴 Documentation generation has failed =="
