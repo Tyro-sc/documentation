@@ -7,7 +7,7 @@ REPO_REMOTE_URL=$(git config --get remote.origin.url)
 POM="documentation/pom.xml"
 PROJECT_DIR=${PWD}
 DOC_TEMPLATE="${PROJECT_DIR}/.github/actions/template"
-DOC_DIRECTORY="documentation/src/main/asciidoc"
+DOC_DIRECTORY="src/docs"
 GENERATED_DOC_DIRECTORY=""
 VERSION=$(./mvnw -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
 
@@ -145,4 +145,4 @@ copy_documentation
 
 generate_current_documentation_link
 generate_versions_file
-push_documentation
+#push_documentation
