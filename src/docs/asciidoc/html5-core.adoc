@@ -30,7 +30,7 @@ for input html5 tags : see next section
 |Button
 
 |select
-|<<DropDown>>
+|<<Dropdown>>
 |
 |label, _number of items_, items, _number of groups_, groups, selectedItem
 |select
@@ -44,7 +44,7 @@ for input html5 tags : see next section
 |MultiSelect
 
 |textarea
-|<<TextField>>
+|<<Field>>
 |empty, filled, readOnly, required, optional, valid, invalid
 |text, label, placeholder, value, length
 |fill, clear
@@ -241,98 +241,98 @@ for input html5 tags : see next section
 |
 
 |text
-|<<TextField>>
+|TextField
 |
 |length
 |
 |InputTypeText
 
 |color
-|<<ColorField>>
+|ColorField
 |
 |
 |
 |InputTypeColor
 
 |datetime-local
-|<<DateTimeField>>
+|DateTimeField
 |
 |
 |
 |InputTypeDateTime
 
 |date
-|<<DateField>>
+|DateField
 |inRange, outofRange
 |maximum, minimum, step
 |set
 |InputTypeDate
 
 |time
-|<<TimeField>>
+|TimeField
 |
 |
 |
 |InputTypeTime
 
 |month
-|<<MonthField>>
+|MonthField
 |
 |
 |
 |InputTypeMonth
 
 |week
-|<<WeekField>>
+|WeekField
 |
 |
 |
 |InputTypeWeek
 
 |email
-|<<EmailField>>
+|EmailField
 |
 |length
 |
 |InputTypeEmail
 
 |password
-|<<PasswordField>>
+|PasswordField
 |
 |length
 |
 |InputTypePassword
 
 |number
-|<<NumberField>>
+|NumberField
 |inRange, outofRange
 |maximum, minimum, step
 |set
 |InputTypeNumber
 
 |range
-|<<RangeField>>
+|RangeField
 |inRange, outofRange
 |maximum, minimum, step
 |set
 |InputTypeRange
 
 |tel
-|<<PhoneField>>
+|PhoneField
 |
 |
 |
 |InputTypeTel
 
 |search
-|<<SearchField>>
+|SearchField
 |
 |length
 |
 |InputTypeSearch
 
 |url
-|<<URLField>>
+|URLField
 |
 |length
 |
