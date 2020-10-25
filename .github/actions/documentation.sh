@@ -38,8 +38,8 @@ generate_documentation() {
 checkout_documentation_branch() {
     echo "============ ✅ Documentation Branch Initialization ==="
     # Checkout the gh-pages branch of this repository in a new folder
-    git clone "${REPO_REMOTE_URL}" ../documentation
-    cd ../documentation || exit
+    git clone "${REPO_REMOTE_URL}" ../gh-pages
+    cd ../gh-pages || exit
 
     DOC_BRANCH_EXIST=$(git ls-remote --heads "${REPO_REMOTE_URL}" gh-pages | wc -l)
 
