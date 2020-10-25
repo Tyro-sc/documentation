@@ -98,7 +98,7 @@ copy_documentation() {
     info "Documentation" "Create documentation directory (${GENERATED_DOC_DIRECTORY})"
     mkdir "${GENERATED_DOC_DIRECTORY}"
     cp "${DOC_TEMPLATE}/favicon.png" "${GENERATED_DOC_DIRECTORY}"
-    cp -r "${PROJECT_DIR}/documentation/target/generated-docs/." "./${GENERATED_DOC_DIRECTORY}"
+    cp -r "${PROJECT_DIR}/target/generated-docs/." "./${GENERATED_DOC_DIRECTORY}"
 }
 
 generate_current_documentation_link() {
