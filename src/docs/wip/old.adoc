@@ -68,12 +68,4 @@
 //
 //include::language.adoc[]
 //
-//include::html5-core.adoc[]
-//
-//include::factories_pattern.adoc[]
-//
-//include::component_selection.adoc[]
-//
-//include::selector_shorcut.adoc[]
-//
 //include::custom_components.adoc[]
