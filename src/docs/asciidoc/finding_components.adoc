@@ -1,22 +1,22 @@
 == Finding components
 
-One of the most important feature of Tyro it's his flexibility and power to find UI components.
-As we discussed earlier Tyro is based on an abstraction of the UI. So to give you the best experience Tyro have 2 ways
-to find components.
+One of the most important Tyro's features is its flexibility and power to find UI components.
+As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience, Tyro have 2 ways
+to find components, the imperative way and the functional way.
 
 === The imperative way
 
-This way give you a low level api to access to UI components.
-In a normal testing process this way *SHOULD NOT* be privileged.
+This way gives you a low level api to access UI components.
+In a normal testing process this way *SHOULD NOT* be the most recommended.
 
 ==== The $ function
 
-The $ function is the access point for fetching component on the page. The $ function accepts a selector to target your component.
+The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
 Tyro is base on an abstraction but comes with a default implementation: the Web implementation based on Selenium.
 
-This base implementation accept the powerful https://api.jquery.com/category/selectors/[JQuery selectors] to find components in your page.
+This base implementation accepts the powerful https://api.jquery.com/category/selectors/[JQuery selectors] to find components in your page.
 
-The expression is pretty simple and follow the same pattern.
+The expression is pretty simple and always follows the same pattern:
 [source, groovy]
 ----
     Abstraction component = $('*the selector*') as Implementation
@@ -29,7 +29,7 @@ attribute, or an id. In all these cases, a css3 selector is more than enough.
 
 [NOTE]
 ====
-The $ function *NEEDS* to target a *UNIQUE* component. If Tyro find many components for the selector he simply fails.
+The $ function *NEEDS* to target a *UNIQUE* component. If Tyro finds several components for the selector it simply fails!
 For multiple selection use $$ function.
 ====
 
@@ -42,7 +42,7 @@ For multiple selection use $$ function.
     TextField textfield = $('#myId') as InputTypeText // Shortcut
 ----
 
-*[green]#TextField#* is the abstraction and *[blue]#InputTypeText#* it's the implementation in the selected technologie targeted (in this case Html5)
+*[green]#TextField#* is the abstraction and *[blue]#InputTypeText#* is the implementation for the targeted technology (in this case Html5)
 
 [IMPORTANT]
 ====
@@ -85,10 +85,10 @@ the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuer
 ----
      Button go_button =  $('*[name="chButSubmit"]:eq(2)*') as org.testatoo.bundle.html5.Button
 ----
-*The first DataGrid in the form with 'operationForm' as name.*
+*The first DataGrid in the form with 'operationForm' name.*
 [source, groovy]
 ----
-      DataGrid getOperationTable = $('*[name="OperationImmediateForm"]* > table:eq(0)') as Table
+      DataGrid getOperationTable = $('*[name="OperationForm"]* > table:eq(0)') as Table
 ----
 
 [IMPORTANT]
@@ -98,7 +98,7 @@ The selected component *MUST BE TYPED* through the *"as"* keyword.
 
 ==== The $$ function
 
-The $$ function follow the sames rule of $ function except it return a list of components.
+The $$ function follows the sames rules of $ function except it returns a list of components.
 
 [IMPORTANT]
 ====
@@ -108,17 +108,30 @@ These components need to be of the same type.
 ===== Examples
 
 *A List of Items.*
+
+[source, html]
+----
+  <html>
+    <select>
+      <option>New-York</option>
+      <option>Montpellier</option>
+      <option>Chicago</option>
+    </select>
+  </html>
+----
+
+
 [source, groovy]
 ----
     List<Item> items = $$('select option') as Option
 ----
 
-In this sample we return  the list of Html5 components Option under the Html5 Select component as Item.
+In this example we take the list of Html5 Option components under the Html5 Select component (the 3 towns) and we return them as a list of Items.
 
 
 === The functional way
 
-This way give you a high level and semantic api to access to UI components.
+This way gives you a high level and semantic api to access to UI components.
 In a normal testing process this way *SHOULD* be privileged.
 
 Tyro comes with a bunch of components factories.
