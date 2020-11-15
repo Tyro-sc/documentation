@@ -1,1 +1,241 @@
 == Finding components
+
+One of the most important Tyro's features is its flexibility and power to find UI components.
+As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience, Tyro have 2 ways
+to find components, the imperative way and the functional way.
+
+=== The imperative way
+
+This way gives you a low level api to access UI components.
+In a normal testing process this way *SHOULD NOT* be the most recommended.
+
+==== The $ function
+
+The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
+Tyro is base on an abstraction but comes with a default implementation: the Web implementation based on Selenium.
+
+This base implementation accepts the powerful https://api.jquery.com/category/selectors/[JQuery selectors] to find components in your page.
+
+The expression is pretty simple and always follows the same pattern:
+[source, groovy]
+----
+    Abstraction component = $('*the selector*') as Implementation
+----
+
+Our experience demonstrated that *we never need complex selector.* If you write tests first, we use the semantic
+carried by the tested component. In the code, this is reflected by a custom tag, the sequence in the page, a role
+attribute, or an id. In all these cases, a css3 selector is more than enough.
+
+
+[NOTE]
+====
+The $ function *NEEDS* to target a *UNIQUE* component. If Tyro finds several components for the selector it simply fails!
+For multiple selection use $$ function.
+====
+
+===== Examples
+
+*A TextField by id.*
+[source, groovy]
+----
+    TextField textfield = $('[id="myId"]') as InputTypeText
+    TextField textfield = $('#myId') as InputTypeText // Shortcut
+----
+
+*[green]#TextField#* is the abstraction and *[blue]#InputTypeText#* is the implementation for the targeted technology (in this case Html5)
+
+[IMPORTANT]
+====
+the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuery_)
+====
+
+*A TextField by class.*
+[source, groovy]
+----
+    TextField textfield = $('[class="myClass"]') as InputTypeText
+    TextField textfield = $('.myClass') as InputTypeText // Shortcut
+----
+
+*A TextField by name.*
+[source, groovy]
+----
+    TextField textfield = $('[name="myName"]') as InputTypeText
+----
+
+*A TextField by data-role.*
+[source, groovy]
+----
+    TextField textfield = $('[data-role="myRole"]') as InputTypeText
+----
+
+*The second TextField with type = 'text'.*
+[source, groovy]
+----
+    TextField last_name = $('*input:eq(1)*') as InputTypeText
+----
+
+*The first Heading element in the page.*
+[source, groovy]
+----
+    Heading sectionSubTitle = $('*h3:eq(0)*') as H3
+----
+
+*The third Button in the page with 'chButSubmit' name.*
+[source, groovy]
+----
+     Button go_button =  $('*[name="chButSubmit"]:eq(2)*') as org.testatoo.bundle.html5.Button
+----
+*The first DataGrid in the form with 'operationForm' name.*
+[source, groovy]
+----
+      DataGrid getOperationTable = $('*[name="OperationForm"]* > table:eq(0)') as Table
+----
+
+[IMPORTANT]
+====
+The selected component *MUST BE TYPED* through the *"as"* keyword.
+====
+
+==== The $$ function
+
+The $$ function follows the sames rules of $ function except it returns a list of components.
+
+[IMPORTANT]
+====
+These components need to be of the same type.
+====
+
+===== Examples
+
+*A List of Items.*
+
+[source, html]
+----
+  <html>
+    <select>
+      <option>New-York</option>
+      <option>Montpellier</option>
+      <option>Chicago</option>
+    </select>
+  </html>
+----
+
+
+[source, groovy]
+----
+    List<Item> items = $$('select option') as Option
+----
+
+In this example we take the list of Html5 Option components under the Html5 Select component (the 3 towns) and we return them as a list of Items.
+
+
+=== The functional way
+
+This way gives you a high level and semantic api to access to UI components.
+In a normal testing process this way *SHOULD* be privileged.
+
+Tyro comes with a bunch of components factories.
+
+==== Specific factories
+
+*Find Button by his text.*
+[source, groovy]
+----
+    Button button =  button('Submit')
+----
+
+*Find Radio by his label.*
+[source, groovy]
+----
+    Radio radio =  radio('label')
+----
+
+*Find CheckBox by his label.*
+[source, groovy]
+----
+    CheckBox checkbox =  checkbox('label')
+----
+
+*Find Dropdown by his label.*
+[source, groovy]
+----
+    Dropdown dropdown =  dropdown('label')
+----
+
+*Find Field by his label.*
+[source, groovy]
+----
+    Field field =  field('label')
+    TextField field =  field('label', TextField)
+----
+
+*Find ListBox by his label.*
+[source, groovy]
+----
+    ListBox listBox =  listBox('label')
+----
+
+*Find Group by his value.*
+[source, groovy]
+----
+    Group group =  group('value')
+----
+
+*Find Item by his value.*
+[source, groovy]
+----
+    Item item =  item('value')
+----
+
+*Find Heading by his text.*
+[source, groovy]
+----
+    Heading heading =  heading('text')
+----
+
+*Find Panel by his title.*
+[source, groovy]
+----
+    Panel panel =  panel('title')
+----
+
+*Find Link by his text.*
+[source, groovy]
+----
+    Link link =  link('text')
+----
+
+==== General factories
+
+Here again you need to follow the same pattern.
+[source, groovy]
+----
+    Abstraction component = $('*the selector*') as Implementation
+----
+
+
+*Find Component by his text.*
+[source, groovy]
+----
+    Component myComponent = findByText('text', Component)
+----
+
+*Find Component by his label.*
+[source, groovy]
+----
+    Component myComponent = findByLabel('label', Component)
+----
+
+*Find Component by his value.*
+[source, groovy]
+----
+    Component myComponent = findByValue('value', Component)
+----
+
+*Find Component by his title.*
+[source, groovy]
+----
+    Component myComponent = findByTitle('value', Component)
+----
+
+
