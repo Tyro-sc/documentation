@@ -138,68 +138,68 @@ Tyro comes with a bunch of components factories.
 
 ==== Specific factories
 
-*Find Button by his text.*
+*Find Button using its text.*
 [source, groovy]
 ----
     Button button =  button('Submit')
 ----
 
-*Find Radio by his label.*
+*Find Radio using its label.*
 [source, groovy]
 ----
     Radio radio =  radio('label')
 ----
 
-*Find CheckBox by his label.*
+*Find CheckBox using its label.*
 [source, groovy]
 ----
     CheckBox checkbox =  checkbox('label')
 ----
 
-*Find Dropdown by his label.*
+*Find Dropdown using its label.*
 [source, groovy]
 ----
     Dropdown dropdown =  dropdown('label')
 ----
 
-*Find Field by his label.*
+*Find Field using its label.*
 [source, groovy]
 ----
     Field field =  field('label')
     TextField field =  field('label', TextField)
 ----
 
-*Find ListBox by his label.*
+*Find ListBox using its label.*
 [source, groovy]
 ----
     ListBox listBox =  listBox('label')
 ----
 
-*Find Group by his value.*
+*Find Group using its value.*
 [source, groovy]
 ----
     Group group =  group('value')
 ----
 
-*Find Item by his value.*
+*Find Item using its value.*
 [source, groovy]
 ----
     Item item =  item('value')
 ----
 
-*Find Heading by his text.*
+*Find Heading using its text.*
 [source, groovy]
 ----
     Heading heading =  heading('text')
 ----
 
-*Find Panel by his title.*
+*Find Panel using its title.*
 [source, groovy]
 ----
     Panel panel =  panel('title')
 ----
 
-*Find Link by his text.*
+*Find Link using its text.*
 [source, groovy]
 ----
     Link link =  link('text')
@@ -207,32 +207,32 @@ Tyro comes with a bunch of components factories.
 
 ==== General factories
 
-Here again you need to follow the same pattern.
+Once again you need to follow the same pattern.
 [source, groovy]
 ----
     Abstraction component = $('*the selector*') as Implementation
 ----
 
 
-*Find Component by his text.*
+*Find Component using its text.*
 [source, groovy]
 ----
     Component myComponent = findByText('text', Component)
 ----
 
-*Find Component by his label.*
+*Find Component using its label.*
 [source, groovy]
 ----
     Component myComponent = findByLabel('label', Component)
 ----
 
-*Find Component by his value.*
+*Find Component using its value.*
 [source, groovy]
 ----
     Component myComponent = findByValue('value', Component)
 ----
 
-*Find Component by his title.*
+*Find Component using its title.*
 [source, groovy]
 ----
     Component myComponent = findByTitle('value', Component)
