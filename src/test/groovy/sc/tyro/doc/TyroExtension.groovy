@@ -18,7 +18,6 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
     private static Javalin app
     private static WebDriver webDriver
 
-
     @Override
     void beforeAll(ExtensionContext extensionContext) throws Exception {
         app = Javalin.create({
@@ -30,8 +29,8 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
         // Add -DbrowserType=firefox/chrome/... to you VM Option to select the browser
         String browser = System.getProperty("browserType")
         if (!browser) {
-            println "No browser selected. Use Firefox"
-            browser = FIREFOX
+            println "No browser selected. Use Chrome"
+            browser = CHROME
         }
 
         switch (browser) {
