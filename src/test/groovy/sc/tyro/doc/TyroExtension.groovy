@@ -7,7 +7,9 @@ import org.junit.jupiter.api.extension.BeforeAllCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.firefox.FirefoxOptions
 import sc.tyro.web.WebBundle
 
 import static org.openqa.selenium.remote.BrowserType.CHROME
@@ -30,16 +32,20 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
         String browser = System.getProperty("browserType")
         if (!browser) {
             println "No browser selected. Use Chrome"
-            browser = CHROME
+            browser = FIREFOX
         }
 
         switch (browser) {
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup()
-                webDriver = new FirefoxDriver()
+                FirefoxOptions options = new FirefoxOptions()
+                options.setHeadless(true)
+                webDriver = new FirefoxDriver(options)
                 break
             case CHROME:
                 WebDriverManager.chromedriver().setup()
+                ChromeOptions options = new ChromeOptions()
+                options.setHeadless(true)
                 webDriver = new ChromeDriver()
                 break
         }
