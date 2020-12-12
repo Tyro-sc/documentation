@@ -30,12 +30,13 @@ import sc.tyro.core.component.field.RangeField
 import sc.tyro.core.component.field.TextField
 
 import static sc.tyro.core.Tyro.*
+import static sc.tyro.doc.TyroExtension.PORT
 
 @ExtendWith(TyroExtension)
 class ComponentTest {
     @BeforeAll
     static void before() {
-        visit 'http://localhost:8080/components.html'
+        visit 'http://localhost:' + PORT + '/components.html'
     }
 
     @Test
@@ -242,7 +243,7 @@ class ComponentTest {
     void image() {
         Image image = $('#image') as Img
         // tag::image[]
-        image.should { have reference('http://localhost:8080/img/seahorse.jpg')}
+        image.should { have reference('http://localhost:' + PORT + '/img/seahorse.jpg')}
         // end::image[]
     }
 
