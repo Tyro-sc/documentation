@@ -16,7 +16,6 @@ import static org.openqa.selenium.remote.BrowserType.CHROME
 import static org.openqa.selenium.remote.BrowserType.FIREFOX
 
 class TyroExtension implements BeforeAllCallback, AfterAllCallback {
-    public static int PORT
     private static Javalin app
     private static WebDriver webDriver
 
@@ -24,9 +23,7 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
     void beforeAll(ExtensionContext extensionContext) throws Exception {
         app = Javalin.create({
             config -> config.addStaticFiles("/webapp")
-        }).start(0)
-
-        PORT = app.port()
+        }).start(8080)
 
         // Add -DbrowserType=firefox/chrome/... to you VM Option to select the browser
         String browser = System.getProperty("browserType")
