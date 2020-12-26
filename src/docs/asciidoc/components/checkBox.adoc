@@ -8,7 +8,7 @@ image::components/CheckBox.png[CheckBox]
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |checked
 |label
@@ -16,7 +16,7 @@ image::components/CheckBox.png[CheckBox]
 
 |unchecked
 |
-|uncheck
+|unCheck
 |===
 
 *_Usage_*:

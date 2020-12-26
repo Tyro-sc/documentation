@@ -4,7 +4,7 @@ This is the base component for all types of fields.
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |empty
 |text
@@ -51,7 +51,7 @@ of input may be required."
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |length
@@ -75,7 +75,7 @@ _Definition_: a *rangeField* is used for fields that must contain a value within
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |inRange
 |maximum

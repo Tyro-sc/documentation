@@ -7,7 +7,7 @@ Form elements are filled with different types of input elements, checkboxes, rad
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |valid
 |

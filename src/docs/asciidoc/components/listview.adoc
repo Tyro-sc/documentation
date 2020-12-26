@@ -7,7 +7,7 @@ _Definition_: a *listView* allows the user to display items in a list format (wi
 [cols="3*", options="header"]
 |===
 
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |items

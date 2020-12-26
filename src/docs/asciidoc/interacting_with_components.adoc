@@ -1,7 +1,35 @@
 == Interacting with components
+'''
+
+In Tyro interacting with component is very easy and powerful.
+Tyro have 2 ways to interact with components, the imperative way and the functional way.
+
+[NOTE]
+====
+.The following actions are shared by all Tyro components :
+click, rightClick, doubleClick, mouseOver, drag
+====
 
 === The imperative way
 
+This way gives you a low level api to interact with components.
+In a normal testing process this way *SHOULD NOT* be the most recommended.
+
+==== Mouse
+
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=button,indent=0]
+----
+
+
+// tag::mouse[]
+
+
+
+==== Keyboard
 
 
 === The functional way

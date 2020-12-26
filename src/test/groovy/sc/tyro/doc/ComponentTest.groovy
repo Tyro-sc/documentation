@@ -30,12 +30,14 @@ import sc.tyro.core.component.field.RangeField
 import sc.tyro.core.component.field.TextField
 
 import static sc.tyro.core.Tyro.*
+import static sc.tyro.doc.TyroExtension.BASE_URL
 
 @ExtendWith(TyroExtension)
+@DisplayName("Component Tests")
 class ComponentTest {
     @BeforeAll
     static void before() {
-        visit 'http://localhost:8080/components.html'
+        visit BASE_URL + '/components.html'
     }
 
     @Test
@@ -242,7 +244,7 @@ class ComponentTest {
     void image() {
         Image image = $('#image') as Img
         // tag::image[]
-        image.should { have reference('http://localhost:8080/img/seahorse.jpg')}
+        image.should { have reference(BASE_URL + '/img/seahorse.jpg')}
         // end::image[]
     }
 

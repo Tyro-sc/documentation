@@ -13,7 +13,7 @@ same group becomes deselected (making it so only one can be selected)."
 [cols="3*", options="header"]
 |===
 
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |checked
 |label

@@ -1,4 +1,5 @@
 == Finding components
+'''
 
 One of the most important Tyro's features is its flexibility and power to find UI components.
 As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience, Tyro have 2 ways

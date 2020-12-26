@@ -5,7 +5,7 @@
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |title
