@@ -36,7 +36,11 @@ It's a good way to minimize common side effects on UI tests.
 This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
 So for example, if you try to check a component already checked, an exception is thrown.
 
-This action applies on *Checkable* components. Syntax is : check <_component_>
+This action applies on *Checkable* components. 
+[NOTE]
+====
+Syntax is : *check <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -50,7 +54,11 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,i
 This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
 So for example, if you try to uncheck a component already unchecked, an exception is thrown.
 
-This action applies on *UnCheckable* components. Syntax is : uncheck <_component_>
+This action applies on *UnCheckable* components. 
+[NOTE]
+====
+Syntax is : *uncheck <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -65,7 +73,11 @@ With this action you can fill a field directly without passing by the keyboard.
 This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
 In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".
 
-This action applies on *Field* Components. Syntax is : fill <_field_> with <_value_>
+This action applies on *Field* Components. 
+[NOTE]
+====
+Syntax is : *fill <__field__> with <__value__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -78,7 +90,11 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,in
 
 This action is used to clear a field. Here again it's done directly without passing by the keyboard (just changing the value of the field).
 
-This action applies on *Field* Components. Syntax is : clear <_field_>
+This action applies on *Field* Components. 
+[NOTE]
+====
+Syntax is : *clear <__field__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -91,7 +107,11 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,i
 
 This is the same action as <<fill>>. It's just a better word to suite components like Range, DatePicket, ColorPicker...
 
-This action applies to some *Field* Components. Syntax is : set <_field_> with <_value_>
+This action applies to some *Field* Components.
+[NOTE]
+====
+Syntax is : *set <__field__> to <__value__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -104,7 +124,11 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,ind
 
 This action is used to *submit* a form. It tries to find the expected submit button attached to the form and clicks on it if it's available or fails if it's not.
 
-This action applies on *Submissible* Components. Syntax is : submit <_component_>
+This action applies on *Submissible* Components. 
+[NOTE]
+====
+Syntax is : *submit <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -117,7 +141,11 @@ submit myForm
 
 This action is used to *reset* a form. It tries to find the expected reset button attached to the form and clicks on it if it's available or fails if it's not.
 
-This action applies on *Resettable* Components. Syntax is : reset <_component_>
+This action applies on *Resettable* Components.
+[NOTE]
+====
+Syntax is : *reset <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -130,7 +158,11 @@ reset myForm
 
 This is the same action as <<check>>. It's just a better word to suite components like Switch ...
 
-This action applies on *Switchable* components. Syntax is : switchOn <_component_>
+This action applies on *Switchable* components. 
+[NOTE]
+====
+Syntax is : *switchOn <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -143,7 +175,11 @@ switchOn darkTheme
 
 This is the same action as <<uncheck>>. It's just a better word to suite components like Switch ...
 
-This action applies on *UnSwitchable* components. Syntax is : switchOff <_component_>
+This action applies on *UnSwitchable* components. 
+[NOTE]
+====
+Syntax is : *switchOff <__component__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -157,7 +193,11 @@ switchOff darkTheme
 This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already selected*.
 So for example if you try to select an item already selected an exception is thrown.
 
-This action applies on *Item*. Syntax is : select <_item_>
+This action applies on *Item*. 
+[NOTE]
+====
+Syntax is : *select <__item__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -172,7 +212,11 @@ select myItem_1, myItem_2
 This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already unselected*.
 So for example if you try to unselect an item already unselected an exception is thrown.
 
-This action applies on *Item*. Syntax is : unselect <_item_>
+This action applies on *Item*. 
+[NOTE]
+====
+Syntax is : *unselect <__item__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -184,8 +228,10 @@ unselect myItem_1, myItem_2
 
 This action is just a pass through (a function who returns the passed component).
 It's here to improve readability of a test. 
-Syntax is : on <_component_> select <_item_>
-or:         on <_component_> unselect <_item_>
+[NOTE]
+====
+Syntax is : *on <__component__> select <__item__>*   or    *on <__component__> unselect <__item__>*
+====
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
