@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 import sc.tyro.bundle.html5.Div
 import sc.tyro.bundle.html5.input.InputTypeRange
 import sc.tyro.core.component.CheckBox
+import sc.tyro.core.component.Dropdown
 import sc.tyro.core.component.Panel
 import sc.tyro.core.component.field.EmailField
 import sc.tyro.core.component.field.Field
@@ -96,7 +97,6 @@ class InteractionTest {
         emailField.should { be empty }
         // end::clear[]
 
-
         // tag::set[]
         RangeField range = field('Range', InputTypeRange)
 
@@ -106,6 +106,15 @@ class InteractionTest {
 
         range.should { have value(20) }
         // end::set[]
+
+        // tag::on[]
+        Dropdown language = dropdown('Language')
+        language.should { have selectedItem('EN') }
+
+        on language select 'FR'
+
+        language.should { have selectedItem('FR') }
+        // end::on[]
 
 
     }

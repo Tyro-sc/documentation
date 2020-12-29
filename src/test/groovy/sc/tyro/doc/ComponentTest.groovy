@@ -300,23 +300,4 @@ class ComponentTest {
         }
         // end::cell[]
     }
-
-    // ========================================================
-
-//    @Test
-//    void should_be_able_to_interact_with_keyboard() {
-//        // tag::keyboard[]
-//        type('tyro') // tyro
-//        type(SHIFT + 'tyro') // => TYRO
-//        type(CTRL + ALT + SHIFT + 'x')
-//        // end::keyboard[]
-//    }
-
-//    @Test
-//    void test_text_area() {
-//        // tag::text_area[]
-//        TextField textarea = $('') as TextArea
-//        textarea.should { have length(350) }
-//        // end::text_area[]
-//    }
 }

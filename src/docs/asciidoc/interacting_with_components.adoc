@@ -153,12 +153,43 @@ switchOff darkTheme
 [[select]]
 ==== select
 
+This action does some assertions and verify that the item is *visible*, *not deactivated* and *not already selected*.
+So for example if you try to select an item already selected an exception is thrown.
+
+This action applies on *Item*.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+select myItem_1, myItem_2
+----
+
+
 [[unselect]]
 ==== unselect
 
-on Item
+This action does some assertions and verify that the item is *visible*, *not deactivated* and *not already unselected*.
+So for example if you try to unselect an item already unselected an exception is thrown.
+
+This action applies on *Item*.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+unselect myItem_1, myItem_2
+----
 
 ==== on
+
+This action is jut a pass through (a function who return the passed component).
+It's here to improve readability of a test.
+
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=on,indent=0]
+----
 
 
 
