@@ -13,7 +13,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 
 |
 |label
-|select
+|<<select>>
 
 |
 |items

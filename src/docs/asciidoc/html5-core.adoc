@@ -214,7 +214,7 @@ for input html5 tags : see next section
 |Tyro core component
 |State
 |Properties
-|Intentions
+|Actions
 |Tyro HTML class
 
 |checkbox
