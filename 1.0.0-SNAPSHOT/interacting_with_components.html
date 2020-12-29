@@ -85,7 +85,21 @@ It&#8217;s a good way to minimize common side effects on UI tests.</p>
 So for example, if you try to check a component already checked, an exception is thrown.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Checkable</strong> components. Syntax is : check &lt;_component_&gt;</p>
+<p>This action applies on <strong>Checkable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>check &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -105,7 +119,21 @@ checkBox.should { be checked }</code></pre>
 So for example, if you try to uncheck a component already unchecked, an exception is thrown.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>UnCheckable</strong> components. Syntax is : uncheck &lt;_component_&gt;</p>
+<p>This action applies on <strong>UnCheckable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>uncheck &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -125,7 +153,21 @@ This must be the preferred way to set value on a field in a form, because most o
 In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Field</strong> Components. Syntax is : fill &lt;_field_&gt; with &lt;_value_&gt;</p>
+<p>This action applies on <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>fill &lt;<em>field</em>&gt; with &lt;<em>value</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -148,7 +190,21 @@ emailField.should {
 <p>This action is used to clear a field. Here again it&#8217;s done directly without passing by the keyboard (just changing the value of the field).</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Field</strong> Components. Syntax is : clear &lt;_field_&gt;</p>
+<p>This action applies on <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>clear &lt;<em>field</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -169,7 +225,21 @@ emailField.should { be empty }</code></pre>
 <p>This is the same action as <a href="#fill">fill</a>. It&#8217;s just a better word to suite components like Range, DatePicket, ColorPicker&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>This action applies to some <strong>Field</strong> Components. Syntax is : set &lt;_field_&gt; with &lt;_value_&gt;</p>
+<p>This action applies to some <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>set &lt;<em>field</em>&gt; to &lt;<em>value</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -189,7 +259,21 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 <p>This action is used to <strong>submit</strong> a form. It tries to find the expected submit button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Submissible</strong> Components. Syntax is : submit &lt;_component_&gt;</p>
+<p>This action applies on <strong>Submissible</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>submit &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -203,7 +287,21 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 <p>This action is used to <strong>reset</strong> a form. It tries to find the expected reset button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Resettable</strong> Components. Syntax is : reset &lt;_component_&gt;</p>
+<p>This action applies on <strong>Resettable</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>reset &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -217,7 +315,21 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 <p>This is the same action as <a href="#check">check</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Switchable</strong> components. Syntax is : switchOn &lt;_component_&gt;</p>
+<p>This action applies on <strong>Switchable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>switchOn &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -231,7 +343,21 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 <p>This is the same action as <a href="#uncheck">uncheck</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>UnSwitchable</strong> components. Syntax is : switchOff &lt;_component_&gt;</p>
+<p>This action applies on <strong>UnSwitchable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>switchOff &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -246,7 +372,21 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 So for example if you try to select an item already selected an exception is thrown.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Item</strong>. Syntax is : select &lt;_item_&gt;</p>
+<p>This action applies on <strong>Item</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>select &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -261,7 +401,21 @@ So for example if you try to select an item already selected an exception is thr
 So for example if you try to unselect an item already unselected an exception is thrown.</p>
 </div>
 <div class="paragraph">
-<p>This action applies on <strong>Item</strong>. Syntax is : unselect &lt;_item_&gt;</p>
+<p>This action applies on <strong>Item</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>unselect &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -273,9 +427,21 @@ So for example if you try to unselect an item already unselected an exception is
 <h4 id="_on">on</h4>
 <div class="paragraph">
 <p>This action is just a pass through (a function who returns the passed component).
-It&#8217;s here to improve readability of a test.
-Syntax is : on &lt;_component_&gt; select &lt;_item_&gt;
-or:         on &lt;_component_&gt; unselect &lt;_item_&gt;</p>
+It&#8217;s here to improve readability of a test.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>on &lt;<em>component</em>&gt; select &lt;<em>item</em>&gt;</strong>   or    <strong>on &lt;<em>component</em>&gt; unselect &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -294,7 +460,7 @@ language.should { have selectedItem(<span class="string"><span class="delimiter"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-29 17:26:09 UTC
+Last updated 2020-12-29 18:02:00 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
