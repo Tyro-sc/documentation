@@ -8,11 +8,11 @@ This is the base component for all types of fields.
 
 |empty
 |text
-|fill
+|<<fill>>
 
 |filled
 |label
-|clear
+|<<clear>>
 
 |readOnly
 |placeholder
@@ -79,7 +79,7 @@ _Definition_: a *rangeField* is used for fields that must contain a value within
 
 |inRange
 |maximum
-|set
+|<<set>>
 
 |outOfRange
 |minimum

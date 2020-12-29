@@ -17,7 +17,7 @@ same group becomes deselected (making it so only one can be selected)."
 
 |checked
 |label
-|check
+|<<check>>
 
 |unchecked
 |

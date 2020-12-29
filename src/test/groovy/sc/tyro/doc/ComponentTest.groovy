@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import sc.tyro.bundle.html5.A
 import sc.tyro.bundle.html5.Img
+import sc.tyro.bundle.html5.P
+import sc.tyro.bundle.html5.heading.H1
 import sc.tyro.bundle.html5.input.InputTypeRange
 import sc.tyro.bundle.html5.list.Ul
 import sc.tyro.bundle.html5.table.Table
@@ -248,6 +250,24 @@ class ComponentTest {
         // end::image[]
     }
 
+    @Test
+    @DisplayName("Should have expected states and properties supported by Heading")
+    void heading() {
+        Heading heading = $('h1') as H1
+        // tag::heading[]
+        heading.should { have text('Heading')}
+        // end::heading[]
+    }
+
+
+    @Test
+    @DisplayName("Should have expected states and properties supported by Paragraph")
+    void paragraph() {
+        Paragraph paragraph = $('p') as P
+        // tag::paragraph[]
+        paragraph.should { have text('My paragraph content.')}
+        // end::paragraph[]
+    }
 
     @Test
     @DisplayName("Should have expected states and properties supported by DataGrid")
@@ -282,22 +302,6 @@ class ComponentTest {
     }
 
     // ========================================================
-
-//
-//    @Test
-//    void should_be_able_to_interact_with_mouse() {
-//        Button button = $('') as Button
-//        Image image = $('') as Image
-//        Panel panel = $('') as Panel
-//
-//        // tag::mouse[]
-//        clickOn button
-//        doubleClickOn button
-//        rightClickOn button
-//        hoveringMouseOn button
-//        drag image on panel
-//        // end::mouse[]
-//    }
 
 //    @Test
 //    void should_be_able_to_interact_with_keyboard() {

@@ -11,11 +11,11 @@ Form elements are filled with different types of input elements, checkboxes, rad
 
 |valid
 |
-|reset
+|<<reset>>
 
 |invalid
 |
-|submit
+|<<submit>>
 
 |===
 

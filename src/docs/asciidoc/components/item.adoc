@@ -9,11 +9,11 @@
 
 |selected
 |value
-|select
+|<<select>>
 
 |unselected
 |
-|unselect
+|<<unselect>>
 
 |===
 

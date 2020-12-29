@@ -14,7 +14,7 @@ in order to make multiple selections. "Control-clicking" an item that has alread
 
 |
 |label
-|select
+|<<select>>
 
 |
 |items

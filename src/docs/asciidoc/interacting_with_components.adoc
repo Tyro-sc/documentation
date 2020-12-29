@@ -2,7 +2,6 @@
 '''
 
 In Tyro interacting with component is very easy and powerful.
-Tyro have 2 ways to interact with components, the imperative way and the functional way.
 
 [NOTE]
 ====
@@ -10,26 +9,160 @@ Tyro have 2 ways to interact with components, the imperative way and the functio
 click, rightClick, doubleClick, mouseOver, drag
 ====
 
-=== The imperative way
-
-This way gives you a low level api to interact with components.
-In a normal testing process this way *SHOULD NOT* be the most recommended.
-
-==== Mouse
-
+=== With Mouse
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=button,indent=0]
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=0]
 ----
 
+=== With Keyboard
 
-// tag::mouse[]
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,indent=0]
+----
+
+=== With Actions
+
+Tyro offer an advanced interaction feature. It allows a functional way to interact with components.
+It's a good way to minimized common side effects on UI tests.
+
+[[check]]
+==== check
+
+This action does some assertions and verify that the component is *visible*, *not deactivated* and *not already in the expected state*.
+So for example if you try to check a component already checked an exception is thrown.
+
+This action applies on *Checkable* components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent=0]
+----
+
+[[uncheck]]
+==== uncheck
+
+This action does some assertions and verify that the component is *visible*, *not deactivated* and *not already in the expected state*.
+So for example if you try to unCheck a component already unChecked an exception is thrown.
+
+This action applies on *UnCheckable* components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=0]
+----
+
+[[fill]]
+==== fill
+
+With this action you can fill a field directly without passing by the keyboard.
+This is useful in the most case when you set value on a field in a form (Most of the time the validation occur when you leave the field).
+
+This action apply to *Field* Components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,indent=0]
+----
+
+[[clear]]
+==== clear
+
+This action it's to clear a field. Here again it's done directly without passing by the keyboard (just changing the value of the field).
+
+This action apply to *Clearable* Components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,indent=0]
+----
+
+[[set]]
+==== set
+
+Set in the same action as <<fill>>. It's just a better word to suite components like Range, DatePicket, ColorPicker...
+
+This action apply to *Field* Components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,indent=0]
+----
+
+[[submit]]
+==== submit
+
+This action is to *submit* a form. It tries to find the expected submit button attached to the form and click on it if available or fail if not available.
+
+This action apply to *Submissible* Components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+submit myForm
+----
+
+[[reset]]
+==== reset
+
+This action is to *reset* a form. It tries to find the expected reset button attached to the form and click on it if available or fail if not available.
+
+This action apply to *Resettable* Components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+reset myForm
+----
+
+[[switchOn]]
+==== switchOn
+
+Set in the same action as <<check>>. It's just a better word to suite components like Switch ...
+
+This action applies on *Switchable* components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+switchOn darkTheme
+----
+
+[[switchOff]]
+==== switchOff
+
+Set in the same action as <<uncheck>>. It's just a better word to suite components like Switch ...
+
+This action applies on *UnSwitchable* components.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+switchOff darkTheme
+----
+
+[[select]]
+==== select
+
+[[unselect]]
+==== unselect
+
+on Item
+
+==== on
 
 
 
-==== Keyboard
 
 
-=== The functional way
+
+

@@ -38,4 +38,6 @@ include::components/image.adoc[]
 
 include::components/heading.adoc[]
 
+include::components/paragraph.adoc[]
+
 include::components/datagrid.adoc[]

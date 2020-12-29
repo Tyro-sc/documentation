@@ -2,15 +2,10 @@
 '''
 
 One of the most important Tyro's features is its flexibility and power to find UI components.
-As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience, Tyro have 2 ways
-to find components, the imperative way and the functional way.
+As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience Tyro have many ways
+to find components. it's your to use that suite your case.
 
-=== The imperative way
-
-This way gives you a low level api to access UI components.
-In a normal testing process this way *SHOULD NOT* be the most recommended.
-
-==== The $ function
+=== The $ function
 
 The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
 Tyro is base on an abstraction but comes with a default implementation: the Web implementation based on Selenium.
@@ -34,7 +29,7 @@ The $ function *NEEDS* to target a *UNIQUE* component. If Tyro finds several com
 For multiple selection use $$ function.
 ====
 
-===== Examples
+==== Examples
 
 *A TextField by id.*
 [source, groovy]
@@ -81,15 +76,15 @@ the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuer
     Heading sectionSubTitle = $('*h3:eq(0)*') as H3
 ----
 
-*The third Button in the page with 'chButSubmit' name.*
+*The third Button in the page with 'myName' name.*
 [source, groovy]
 ----
-     Button go_button =  $('*[name="chButSubmit"]:eq(2)*') as org.testatoo.bundle.html5.Button
+     Button go_button =  $('*[name="myName"]:eq(2)*') as org.testatoo.bundle.html5.Button
 ----
-*The first DataGrid in the form with 'operationForm' name.*
+*The first DataGrid in the form with 'myName' name.*
 [source, groovy]
 ----
-      DataGrid getOperationTable = $('*[name="OperationForm"]* > table:eq(0)') as Table
+      DataGrid getOperationTable = $('*[name="myName"]* > table:eq(0)') as Table
 ----
 
 [IMPORTANT]
@@ -97,7 +92,7 @@ the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuer
 The selected component *MUST BE TYPED* through the *"as"* keyword.
 ====
 
-==== The $$ function
+=== The $$ function
 
 The $$ function follows the sames rules of $ function except it returns a list of components.
 
@@ -106,7 +101,7 @@ The $$ function follows the sames rules of $ function except it returns a list o
 These components need to be of the same type.
 ====
 
-===== Examples
+==== Examples
 
 *A List of Items.*
 
@@ -129,91 +124,76 @@ These components need to be of the same type.
 
 In this example we take the list of Html5 Option components under the Html5 Select component (the 3 towns) and we return them as a list of Items.
 
-
-=== The functional way
-
-This way gives you a high level and semantic api to access to UI components.
-In a normal testing process this way *SHOULD* be privileged.
+=== Using factories
 
 Tyro comes with a bunch of components factories.
-
-==== Specific factories
 
 *Find Button using its text.*
 [source, groovy]
 ----
-    Button button =  button('Submit')
+    Button button = button('Submit')
 ----
 
-*Find Radio using its label.*
+*Find Radio using its label or placeholder.*
 [source, groovy]
 ----
-    Radio radio =  radio('label')
+    Radio radio = radio('label')
 ----
 
-*Find CheckBox using its label.*
+*Find CheckBox using its label or placeholder.*
 [source, groovy]
 ----
-    CheckBox checkbox =  checkbox('label')
+    CheckBox checkbox = checkbox('label')
 ----
 
-*Find Dropdown using its label.*
+*Find Dropdown using its label or placeholder.*
 [source, groovy]
 ----
-    Dropdown dropdown =  dropdown('label')
+    Dropdown dropdown = dropdown('label')
 ----
 
-*Find Field using its label.*
+*Find Field using its label or placeholder.*
 [source, groovy]
 ----
-    Field field =  field('label')
-    TextField field =  field('label', TextField)
+    Field field = field('label')
+    TextField field = field('label', TextField)
 ----
 
-*Find ListBox using its label.*
+*Find ListBox using its label or placeholder.*
 [source, groovy]
 ----
-    ListBox listBox =  listBox('label')
+    ListBox listBox = listBox('label')
 ----
 
 *Find Group using its value.*
 [source, groovy]
 ----
-    Group group =  group('value')
+    Group group = group('value')
 ----
 
 *Find Item using its value.*
 [source, groovy]
 ----
-    Item item =  item('value')
+    Item item = item('value')
 ----
 
 *Find Heading using its text.*
 [source, groovy]
 ----
-    Heading heading =  heading('text')
+    Heading heading = heading('text')
 ----
 
 *Find Panel using its title.*
 [source, groovy]
 ----
-    Panel panel =  panel('title')
+    Panel panel = panel('title')
 ----
 
 *Find Link using its text.*
 [source, groovy]
 ----
-    Link link =  link('text')
+    Link link = link('text')
 ----
-
-==== General factories
-
-Once again you need to follow the same pattern.
-[source, groovy]
-----
-    Abstraction component = $('*the selector*') as Implementation
-----
-
 
 *Find Component using its text.*
 [source, groovy]

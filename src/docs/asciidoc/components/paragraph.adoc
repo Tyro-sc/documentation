@@ -1,0 +1,25 @@
+=== Paragraph
+
+image::components/Paragraph.png[Paragraph]
+
+_Definition_:  A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.
+-- inspired from Wikipedia definition
+
+[cols="3*", options="header"]
+|===
+|States|Properties|Actions
+
+|
+|text
+|
+
+|===
+
+*_Usage_*:
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=paragraph,indent=0]
+----
+
+

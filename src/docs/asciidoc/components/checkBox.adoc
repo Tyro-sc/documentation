@@ -12,11 +12,11 @@ image::components/CheckBox.png[CheckBox]
 
 |checked
 |label
-|check
+|<<check>>
 
 |unchecked
 |
-|unCheck
+|<<uncheck>>
 |===
 
 *_Usage_*:
