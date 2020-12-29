@@ -29,7 +29,7 @@ for input html5 tags : see next section
 |
 |Button
 
-|<<select>>
+|select
 |<<Dropdown>>
 |
 |label, _number of items_, items, _number of groups_, groups, selectedItem
