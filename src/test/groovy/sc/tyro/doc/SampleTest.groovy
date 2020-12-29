@@ -5,13 +5,14 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 import static sc.tyro.core.Tyro.*
+import static sc.tyro.doc.TyroExtension.BASE_URL
 
 @ExtendWith(TyroExtension)
 @DisplayName("Sample 1")
 class SampleTest {
     @Test
     void sample_1() {
-        visit 'http://localhost:8080/sample_1.html'
+        visit BASE_URL + '/sample_1.html'
 
         // tag::sample_1[]
         field('Email').should {
@@ -35,16 +36,16 @@ class SampleTest {
 
     @Test
     void sample_2() {
-        visit 'http://localhost:8080/sample_2.html'
+        visit BASE_URL + '/sample_2.html'
 
         // tag::sample_2[]
-        radio("Male").should { be unchecked }
-        radio("Female").should { be checked }
-
-        check radio("Male")
-
         radio("Male").should { be checked }
         radio("Female").should { be unchecked }
+
+        check radio("Female")
+
+        radio("Male").should { be unchecked }
+        radio("Female").should { be checked }
         // end::sample_2[]
     }
 }

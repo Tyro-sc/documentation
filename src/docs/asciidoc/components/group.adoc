@@ -7,7 +7,7 @@ image::components/Group.png[Group]
 [cols="3*", options="header"]
 |===
 
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |value

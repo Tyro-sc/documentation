@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import sc.tyro.bundle.html5.A
 import sc.tyro.bundle.html5.Img
+import sc.tyro.bundle.html5.P
+import sc.tyro.bundle.html5.heading.H1
 import sc.tyro.bundle.html5.input.InputTypeRange
 import sc.tyro.bundle.html5.list.Ul
 import sc.tyro.bundle.html5.table.Table
@@ -30,12 +32,14 @@ import sc.tyro.core.component.field.RangeField
 import sc.tyro.core.component.field.TextField
 
 import static sc.tyro.core.Tyro.*
+import static sc.tyro.doc.TyroExtension.BASE_URL
 
 @ExtendWith(TyroExtension)
+@DisplayName("Component Tests")
 class ComponentTest {
     @BeforeAll
     static void before() {
-        visit 'http://localhost:8080/components.html'
+        visit BASE_URL + '/components.html'
     }
 
     @Test
@@ -242,10 +246,28 @@ class ComponentTest {
     void image() {
         Image image = $('#image') as Img
         // tag::image[]
-        image.should { have reference('http://localhost:8080/img/seahorse.jpg')}
+        image.should { have reference(BASE_URL + '/img/seahorse.jpg')}
         // end::image[]
     }
 
+    @Test
+    @DisplayName("Should have expected states and properties supported by Heading")
+    void heading() {
+        Heading heading = $('h1') as H1
+        // tag::heading[]
+        heading.should { have text('Heading')}
+        // end::heading[]
+    }
+
+
+    @Test
+    @DisplayName("Should have expected states and properties supported by Paragraph")
+    void paragraph() {
+        Paragraph paragraph = $('p') as P
+        // tag::paragraph[]
+        paragraph.should { have text('My paragraph content.')}
+        // end::paragraph[]
+    }
 
     @Test
     @DisplayName("Should have expected states and properties supported by DataGrid")
@@ -278,39 +300,4 @@ class ComponentTest {
         }
         // end::cell[]
     }
-
-    // ========================================================
-
-//
-//    @Test
-//    void should_be_able_to_interact_with_mouse() {
-//        Button button = $('') as Button
-//        Image image = $('') as Image
-//        Panel panel = $('') as Panel
-//
-//        // tag::mouse[]
-//        clickOn button
-//        doubleClickOn button
-//        rightClickOn button
-//        hoveringMouseOn button
-//        drag image on panel
-//        // end::mouse[]
-//    }
-
-//    @Test
-//    void should_be_able_to_interact_with_keyboard() {
-//        // tag::keyboard[]
-//        type('tyro') // tyro
-//        type(SHIFT + 'tyro') // => TYRO
-//        type(CTRL + ALT + SHIFT + 'x')
-//        // end::keyboard[]
-//    }
-
-//    @Test
-//    void test_text_area() {
-//        // tag::text_area[]
-//        TextField textarea = $('') as TextArea
-//        textarea.should { have length(350) }
-//        // end::text_area[]
-//    }
 }

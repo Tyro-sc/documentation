@@ -6,7 +6,7 @@ _Definition_:  a *heading* allows the user to put a title for a page or a paragr
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |text

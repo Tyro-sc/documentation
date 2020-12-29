@@ -15,12 +15,12 @@ for input html5 tags : see next section
 
 [cols="1,1,1,2,1,1", options="header"]
 |===
-|Html tag
+|HTML tag
 |Tyro core component
 |State
 |Properties
-|Intentions
-|Tyro web component
+|Actions
+|Tyro HTML class
 
 |button
 |<<Button>>
@@ -29,25 +29,25 @@ for input html5 tags : see next section
 |
 |Button
 
-|select
+|<<select>>
 |<<Dropdown>>
 |
 |label, _number of items_, items, _number of groups_, groups, selectedItem
-|select
+|<<select>>
 |Select
 
 |select (multiple)
 |<<ListBox>>
 |
 |label, _number of items_, items, selectedItem, _number of visible items_
-|select
+|<<select>>
 |MultiSelect
 
 |textarea
 |<<Field>>
 |empty, filled, readOnly, required, optional, valid, invalid
 |text, label, placeholder, value, length
-|fill, clear
+|<<fill>>, <<clear>>
 |TextArea
 
 |optgroup
@@ -61,14 +61,14 @@ for input html5 tags : see next section
 |<<Item>>
 |selected, unselected
 |value
-|select, unselect
+|<<select>>, <<unselect>>
 |Option
 
 |form
 |<<Form>>
 |valid, invalid
 |
-|reset, submit
+|<<reset>>, <<submit>>
 |Form
 
 |h1, h2, h3, h4, h5, h6
@@ -184,7 +184,7 @@ for input html5 tags : see next section
 |Label
 
 |p
-|Component
+|<<Paragraph>>
 |
 |text
 |
@@ -210,25 +210,25 @@ for input html5 tags : see next section
 
 [cols="1,1,1,2,1,1", options="header"]
 |===
-|Html tag
+|HTML tag
 |Tyro core component
 |State
 |Properties
-|Intentions
-|Tyro web component
+|Actions
+|Tyro HTML class
 
 |checkbox
 |<<CheckBox>>
 |checked, unchecked
 |label
-|check, uncheck
+|<<check>>, <<uncheck>>
 |InputTypeCheckBox
 
 |radio
 |<<Radio>>
 |checked, unchecked
 |label
-|check
+|<<check>>
 |InputTypeRadio
 
 2+|
@@ -237,7 +237,7 @@ for input html5 tags : see next section
 2+|*All below components inherit from Field*
 |empty, filled, readOnly, required, optional, valid, invalid
 |text,label, placeholder, value
-|fill, clear
+|<<fill>>, <<clear>>
 |
 
 |text
@@ -265,7 +265,7 @@ for input html5 tags : see next section
 |DateField
 |inRange, outofRange
 |maximum, minimum, step
-|set
+|<<set>>
 |InputTypeDate
 
 |time
@@ -307,14 +307,14 @@ for input html5 tags : see next section
 |NumberField
 |inRange, outofRange
 |maximum, minimum, step
-|set
+|<<set>>
 |InputTypeNumber
 
 |range
 |RangeField
 |inRange, outofRange
 |maximum, minimum, step
-|set
+|<<set>>
 |InputTypeRange
 
 |tel

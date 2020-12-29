@@ -4,15 +4,15 @@ This is the base component for all types of fields.
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |empty
 |text
-|fill
+|<<fill>>
 
 |filled
 |label
-|clear
+|<<clear>>
 
 |readOnly
 |placeholder
@@ -37,7 +37,7 @@ This is the base component for all types of fields.
 
 [IMPORTANT]
 ====
-*All following types of fields inherit these states, properties and intentions.*
+*All following types of fields inherit these states, properties and actions.*
 ====
 
 ==== TextField and all its variations (EmailField, PasswordField, URLField, SearchField)
@@ -51,7 +51,7 @@ of input may be required."
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |length
@@ -75,11 +75,11 @@ _Definition_: a *rangeField* is used for fields that must contain a value within
 
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |inRange
 |maximum
-|set
+|<<set>>
 
 |outOfRange
 |minimum
@@ -100,5 +100,5 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=rangeFiel
 
 ==== Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)
 
-No specific states, properties or intentions for these ones.
+No specific states, properties or actions for these.
 

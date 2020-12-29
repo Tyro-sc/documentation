@@ -10,11 +10,11 @@ in order to make multiple selections. "Control-clicking" an item that has alread
 [cols="3*", options="header"]
 |===
 
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |label
-|select
+|<<select>>
 
 |
 |items

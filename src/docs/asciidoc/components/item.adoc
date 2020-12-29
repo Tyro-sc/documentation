@@ -5,15 +5,15 @@
 ==== Item in ListBox or Dropdown
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |selected
 |value
-|select
+|<<select>>
 
 |unselected
 |
-|unselect
+|<<unselect>>
 
 |===
 
@@ -27,7 +27,7 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=item,inde
 ==== Item in ListView
 [cols="3*", options="header"]
 |===
-|States|Properties|Intentions
+|States|Properties|Actions
 
 |
 |value
