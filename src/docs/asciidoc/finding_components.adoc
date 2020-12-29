@@ -2,13 +2,13 @@
 '''
 
 One of the most important Tyro's features is its flexibility and power to find UI components.
-As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience Tyro have many ways
-to find components. it's your to use that suite your case.
+As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience Tyro has many ways
+to find components. It's yours to use what suits your case.
 
 === The $ function
 
 The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
-Tyro is base on an abstraction but comes with a default implementation: the Web implementation based on Selenium.
+Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.
 
 This base implementation accepts the powerful https://api.jquery.com/category/selectors/[JQuery selectors] to find components in your page.
 
@@ -18,14 +18,14 @@ The expression is pretty simple and always follows the same pattern:
     Abstraction component = $('*the selector*') as Implementation
 ----
 
-Our experience demonstrated that *we never need complex selector.* If you write tests first, we use the semantic
-carried by the tested component. In the code, this is reflected by a custom tag, the sequence in the page, a role
-attribute, or an id. In all these cases, a css3 selector is more than enough.
+Our experience demonstrated that *we never need complex selector.* Especially if you write tests first, a simple finding expression will push you to write clean html components (example : only one button with a given label in the same page). 
+
+In the code, this is reflected by a custom tag, the sequence in the page, a role attribute, or an id. In all these cases, a css3 selector is more than enough.
 
 
 [NOTE]
 ====
-The $ function *NEEDS* to target a *UNIQUE* component. If Tyro finds several components for the selector it simply fails!
+The $ function *NEEDS* to target a *UNIQUE* component. If Tyro finds several components for the selector, it simply fails!
 For multiple selection use $$ function.
 ====
 
@@ -64,13 +64,13 @@ the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuer
     TextField textfield = $('[data-role="myRole"]') as InputTypeText
 ----
 
-*The second TextField with type = 'text'.*
+*The second TextField in the page corresponding to an input html tag with type = 'text'.*
 [source, groovy]
 ----
     TextField last_name = $('*input:eq(1)*') as InputTypeText
 ----
 
-*The first Heading element in the page.*
+*The first Heading element in the page corresponding to an h3 html tag.*
 [source, groovy]
 ----
     Heading sectionSubTitle = $('*h3:eq(0)*') as H3
