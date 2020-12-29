@@ -1,7 +1,7 @@
 == Interacting with components
 '''
 
-In Tyro interacting with component is very easy and powerful.
+In Tyro, interacting with components is very easy and powerful.
 
 [NOTE]
 ====
@@ -27,16 +27,16 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboar
 
 === With Actions
 
-Tyro offer an advanced interaction feature. It allows a functional way to interact with components.
-It's a good way to minimized common side effects on UI tests.
+Tyro offers an advanced interaction feature. It allows a functional way to interact with components.
+It's a good way to minimize common side effects on UI tests.
 
 [[check]]
 ==== check
 
-This action does some assertions and verify that the component is *visible*, *not deactivated* and *not already in the expected state*.
-So for example if you try to check a component already checked an exception is thrown.
+This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
+So for example, if you try to check a component already checked, an exception is thrown.
 
-This action applies on *Checkable* components.
+This action applies on *Checkable* components. Syntax is : check <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -47,10 +47,10 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,i
 [[uncheck]]
 ==== uncheck
 
-This action does some assertions and verify that the component is *visible*, *not deactivated* and *not already in the expected state*.
-So for example if you try to unCheck a component already unChecked an exception is thrown.
+This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
+So for example, if you try to uncheck a component already unchecked, an exception is thrown.
 
-This action applies on *UnCheckable* components.
+This action applies on *UnCheckable* components. Syntax is : uncheck <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -62,9 +62,10 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck
 ==== fill
 
 With this action you can fill a field directly without passing by the keyboard.
-This is useful in the most case when you set value on a field in a form (Most of the time the validation occur when you leave the field).
+This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
+In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".
 
-This action apply to *Field* Components.
+This action applies on *Field* Components. Syntax is : fill <_field_> with <_value_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -75,9 +76,9 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,in
 [[clear]]
 ==== clear
 
-This action it's to clear a field. Here again it's done directly without passing by the keyboard (just changing the value of the field).
+This action is used to clear a field. Here again it's done directly without passing by the keyboard (just changing the value of the field).
 
-This action apply to *Clearable* Components.
+This action applies on *Field* Components. Syntax is : clear <_field_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -88,9 +89,9 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,i
 [[set]]
 ==== set
 
-Set in the same action as <<fill>>. It's just a better word to suite components like Range, DatePicket, ColorPicker...
+This is the same action as <<fill>>. It's just a better word to suite components like Range, DatePicket, ColorPicker...
 
-This action apply to *Field* Components.
+This action applies to some *Field* Components. Syntax is : set <_field_> with <_value_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -101,9 +102,9 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,ind
 [[submit]]
 ==== submit
 
-This action is to *submit* a form. It tries to find the expected submit button attached to the form and click on it if available or fail if not available.
+This action is used to *submit* a form. It tries to find the expected submit button attached to the form and clicks on it if it's available or fails if it's not.
 
-This action apply to *Submissible* Components.
+This action applies on *Submissible* Components. Syntax is : submit <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -114,9 +115,9 @@ submit myForm
 [[reset]]
 ==== reset
 
-This action is to *reset* a form. It tries to find the expected reset button attached to the form and click on it if available or fail if not available.
+This action is used to *reset* a form. It tries to find the expected reset button attached to the form and clicks on it if it's available or fails if it's not.
 
-This action apply to *Resettable* Components.
+This action applies on *Resettable* Components. Syntax is : reset <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -127,9 +128,9 @@ reset myForm
 [[switchOn]]
 ==== switchOn
 
-Set in the same action as <<check>>. It's just a better word to suite components like Switch ...
+This is the same action as <<check>>. It's just a better word to suite components like Switch ...
 
-This action applies on *Switchable* components.
+This action applies on *Switchable* components. Syntax is : switchOn <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -140,9 +141,9 @@ switchOn darkTheme
 [[switchOff]]
 ==== switchOff
 
-Set in the same action as <<uncheck>>. It's just a better word to suite components like Switch ...
+This is the same action as <<uncheck>>. It's just a better word to suite components like Switch ...
 
-This action applies on *UnSwitchable* components.
+This action applies on *UnSwitchable* components. Syntax is : switchOff <_component_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -153,10 +154,10 @@ switchOff darkTheme
 [[select]]
 ==== select
 
-This action does some assertions and verify that the item is *visible*, *not deactivated* and *not already selected*.
+This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already selected*.
 So for example if you try to select an item already selected an exception is thrown.
 
-This action applies on *Item*.
+This action applies on *Item*. Syntax is : select <_item_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -168,10 +169,10 @@ select myItem_1, myItem_2
 [[unselect]]
 ==== unselect
 
-This action does some assertions and verify that the item is *visible*, *not deactivated* and *not already unselected*.
+This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already unselected*.
 So for example if you try to unselect an item already unselected an exception is thrown.
 
-This action applies on *Item*.
+This action applies on *Item*. Syntax is : unselect <_item_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
@@ -181,9 +182,10 @@ unselect myItem_1, myItem_2
 
 ==== on
 
-This action is jut a pass through (a function who return the passed component).
-It's here to improve readability of a test.
-
+This action is just a pass through (a function who returns the passed component).
+It's here to improve readability of a test. 
+Syntax is : on <_component_> select <_item_>
+or:         on <_component_> unselect <_item_>
 
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
