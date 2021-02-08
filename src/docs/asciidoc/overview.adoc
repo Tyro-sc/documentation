@@ -1,6 +1,7 @@
 == Overview
 
 '''
+This page and all Tyro open source projects are on image:Ei-sc-github.svg[Github,align="right",width="5%"] https://github.com/Tyro-sc
 
 The goal of this document is to provide comprehensive reference documentation for developers, analysts or QA who want to write User Interface tests with *Tyro*.
 It also explains how to write good UI tests scenarios.
@@ -23,6 +24,8 @@ With *Tyro*, you can therefore write tests with a seldom achieved level of expre
 === Why Tyro is unique
 
 *Tyro* is the result of numerous real-world observations of developers in the trenches in the area of GUI testing.
+The first version was named "Web Test Tools" and was created at Axa Insurances. Then it evolved to become "Testatoo" used on several projects at Desjardins.
+Finally it was renamed TYRO when including the last improvements.
 
 Working for many years to promote the *TDD/BDD* approaches, we often faced difficulties in their implementation for the graphical layer of applications.
 
