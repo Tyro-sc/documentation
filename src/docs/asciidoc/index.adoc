@@ -22,5 +22,3 @@ include::interacting_with_components.adoc[]
 include::domain_components.adoc[]
 
 include::html5-core.adoc[]
-
-include::faq.adoc[]
