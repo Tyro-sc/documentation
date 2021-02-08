@@ -105,7 +105,7 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,i
 [[set]]
 ==== set
 
-This is the same action as <<fill>>. It's just a better word to suite components like Range, DatePicket, ColorPicker...
+This is the same action as <<fill>>. It's just a better word for suite components like Range, DatePicker, ColorPicker...
 
 This action applies to some *Field* Components.
 [NOTE]

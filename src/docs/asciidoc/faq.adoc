@@ -1,0 +1,117 @@
+== Frequently Ask Questions
+'''
+
+Here questions and answers about use of Tyro in your projects.
+
+=== Tests granularity
+
+[quote]
+____
+What type of tests should I write with Tyro when testing a CRUD application ?
+____
+
+[TIP]
+====
+.You can test almost everything with Tyro but our advice is to focus on tests :
+** with great added value
+** on sensible part of the application
+
+For example : Test the labels or the size of fields can be done manually
+====
+[TIP]
+====
+.Example of tests on a creation page :
+** *inital state of page* : empty fields, default value in dropdowns, explanation messages, buttons and their state, ...
+** *format of the components* : maxlength, authorized caracters, choices in dropdowns, ...
+** *behavior on the page* : when check radio, when choose value in dropdowns, when focus out fields, ...
+** *error messages* : all the different messages, combination of them and error behavior of the page
+** *happy path* : consequence of a correct creation (ex: return to a list with added created element)
+
+Note : the tests scenarios involving several screens can be made with Cucumber
+====
+
+[quote]
+____
+Should I do the tests scenarios with Tyro directly or should I write them with Cucumber ?
+____
+
+[TIP]
+====
+.The answer depends on several factors :
+** if you have very little time, using only Tyro is faster
+** if you want to check your scenarios with your Product Owner, the Cucumber features are easy to understand
+** Cucumber scenarios can play the role of the first regression tests level to be passed in a few minutes (whereas all Tyro test can take hours)
+====
+
+=== Multi-language applications
+[quote]
+____
+If I have a multi-language application, should I test it in every language?
+____
+
+[TIP]
+====
+.We don't recommand to duplicate tests in every language:
+** the behavior application is not dependant on the language
+** you can do most of the tests in one chosen language
+** (optional) you can write some tests to check navigation on happy path with other languages
+====
+
+=== Environments, configuration and Data
+[quote]
+____
+How to write tests with different environments with different data ?
+____
+
+[TIP]
+====
+.The ideal would be to have the same data in the different environments, but when it is not possible:
+** use a property file for each environment containing specific data
+** if data is too big for properties file : use junit conditional tags to run specific test. Example :
+*** System.setProperty("TEST_ENV", <env def in properties file>)
+*** tag tests with @EnabledIfSystemProperty(named = "TEST_ENV", matches = "integ1")  for test specific to integ1 environment
+====
+
+[quote]
+____
+How to prepare or reset my data for my Tyro tests ?
+____
+
+[TIP]
+====
+.The ideal would be to flush and rebuild all your data at each test, but when it is not possible:
+** be sure to delete, update or create the necessary data at the beginning of each test
+** don't forget to return to a correct state after the test :
+*** the method with tag @AfterAll will be called even if the test failed
+====
+
+[quote]
+____
+My Tyro tests are too fast for my application, what can I do?
+____
+
+[TIP]
+====
+.You can configure the number of seconds (3 by default) that Tyro tries to check the condition :
+** Config.waitUntil = 5 seconds
+** can be added where your configure Tyro (ex:TyroExtension in the Tyro starters for JUnit5)
+
+.Sometimes you really need to wait for a few seconds (ex: url redirection) :
+** in this case, use sleep method  (should be exceptional)
+====
+
+=== Browser tests possibilities
+
+[quote]
+____
+Am I able to switch between browser windows in Tyro tests ?
+____
+
+[TIP]
+====
+.Yes, you can use Tyro method browser() which returns a Browser object. On this browser, you can :
+** wait for second windows opened : waituntil ({browser().windows().size() == 2})
+** switch to the second window : browser().switchTo (browser().windows[1])
+** close the second window : browser().windows[1].close()
+** other useful methods of Browser class : back, forward, refresh, ...
+====
