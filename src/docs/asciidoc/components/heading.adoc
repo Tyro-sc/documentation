@@ -1,4 +1,6 @@
 === Heading
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image::components/Heading.png[Heading]
 
@@ -18,7 +20,7 @@ _Definition_:  a *heading* allows the user to put a title for a page or a paragr
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=heading,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=heading,indent=0]
 ----
 
 

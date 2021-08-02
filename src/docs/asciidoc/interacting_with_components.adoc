@@ -1,4 +1,7 @@
 == Interacting with components
+:imagesdir: images
+:sourcedir: ../../test
+
 '''
 
 In Tyro, interacting with components is very easy and powerful.
@@ -14,7 +17,7 @@ click, rightClick, doubleClick, mouseOver, drag
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=0]
 ----
 
 === With Keyboard
@@ -22,7 +25,7 @@ include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,i
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,indent=0]
 ----
 
 === With Actions
@@ -45,7 +48,7 @@ Syntax is : *check <__component__>*
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent=0]
 ----
 
 [[uncheck]]
@@ -63,7 +66,7 @@ Syntax is : *uncheck <__component__>*
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=0]
 ----
 
 [[fill]]
@@ -82,7 +85,7 @@ Syntax is : *fill <__field__> with <__value__>*
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,indent=0]
 ----
 
 [[clear]]
@@ -99,7 +102,7 @@ Syntax is : *clear <__field__>*
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,indent=0]
 ----
 
 [[set]]
@@ -116,7 +119,7 @@ Syntax is : *set <__field__> to <__value__>*
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,indent=0]
 ----
 
 [[submit]]
@@ -205,7 +208,6 @@ Syntax is : *select <__item__>*
 select myItem_1, myItem_2
 ----
 
-
 [[unselect]]
 ==== unselect
 
@@ -236,7 +238,7 @@ Syntax is : *on <__component__> select <__item__>*   or    *on <__component__> u
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/InteractionTest.groovy[tags=on,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=on,indent=0]
 ----
 
 

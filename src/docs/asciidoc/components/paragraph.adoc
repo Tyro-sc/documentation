@@ -1,4 +1,6 @@
 === Paragraph
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image::components/Paragraph.png[Paragraph]
 
@@ -19,7 +21,7 @@ _Definition_:  A paragraph is a self-contained unit of discourse in writing deal
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=paragraph,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=paragraph,indent=0]
 ----
 
 

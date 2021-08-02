@@ -1,4 +1,6 @@
 === ListView
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image:components/ListView.png[ListView]
 
@@ -19,5 +21,5 @@ _Definition_: a *listView* allows the user to display items in a list format (wi
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listView,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listView,indent=0]
 ----

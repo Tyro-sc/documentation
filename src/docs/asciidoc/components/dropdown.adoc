@@ -1,4 +1,6 @@
 === Dropdown
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image::components/Dropdown.png[Dropdown]
 
@@ -29,7 +31,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=dropdown,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=dropdown,indent=0]
 ----
 
 

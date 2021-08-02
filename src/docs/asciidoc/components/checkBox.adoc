@@ -1,4 +1,6 @@
 === CheckBox
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image::components/CheckBox.png[CheckBox]
 
@@ -23,5 +25,5 @@ image::components/CheckBox.png[CheckBox]
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=checkBox,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=checkBox,indent=0]
 ----

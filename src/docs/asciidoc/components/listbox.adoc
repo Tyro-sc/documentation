@@ -1,4 +1,6 @@
 === ListBox
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image:components/ListBox.png[ListBox]
 
@@ -34,6 +36,6 @@ in order to make multiple selections. "Control-clicking" an item that has alread
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listBox,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listBox,indent=0]
 ----
 
