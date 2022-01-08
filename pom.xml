@@ -107,7 +107,7 @@
                     <attributes>
                         <encoding>UTF-8</encoding>
                         <source-highlighter>coderay</source-highlighter>
-                        <sourcedir>${project.basedir}/src</sourcedir>
+                        <sourcedir>${project.basedir}/src/test</sourcedir>
                         <toc>left</toc>
                         <icons>font</icons>
                         <linkcss>true</linkcss>
