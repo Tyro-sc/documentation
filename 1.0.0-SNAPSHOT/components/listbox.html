@@ -76,14 +76,22 @@ in order to make multiple selections. "Control-clicking" an item that has alread
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> listbox.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listBox,indent=<span class="integer">0</span>]</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">cities.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">Cities</span><span class="delimiter">'</span></span>)
+    have <span class="integer">4</span>.items
+    have <span class="integer">4</span>.visibleItems
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Montreal</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+    have selectedItems(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+}
+
+cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should { be disabled }</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-08 23:26:11 UTC
+Last updated 2022-01-08 23:52:26 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">

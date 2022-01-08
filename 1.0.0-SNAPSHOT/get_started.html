@@ -73,8 +73,38 @@
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
 </pre></td>
-  <td class="code"><pre>Unresolved directive <span class="keyword">in</span> get_started.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_1,indent=<span class="integer">0</span>]</pre></td>
+  <td class="code"><pre>field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>).should {
+    be visible
+    be empty
+}
+
+field(<span class="string"><span class="delimiter">'</span><span class="content">Password</span><span class="delimiter">'</span></span>).should {
+    be visible
+    be empty
+}
+
+dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>).should {
+    be visible
+    have <span class="integer">2</span>.items
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
+    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
+}</pre></td>
 </tr></table></code></pre>
 </div>
 </div>
@@ -96,8 +126,20 @@
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
 </pre></td>
-  <td class="code"><pre>Unresolved directive <span class="keyword">in</span> get_started.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_2,indent=<span class="integer">0</span>]</pre></td>
+  <td class="code"><pre>radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be checked }
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be unchecked }
+
+check radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>)
+
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be unchecked }
+radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be checked }</pre></td>
 </tr></table></code></pre>
 </div>
 </div>
@@ -186,7 +228,7 @@ The well-known pattern used is the famous <a href="https://en.wikipedia.org/wiki
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-08 23:26:11 UTC
+Last updated 2022-01-08 23:52:26 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">

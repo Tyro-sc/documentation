@@ -133,7 +133,7 @@ of input may be required.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> fields.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=textField,indent=<span class="integer">0</span>]</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">textField.should { have length(<span class="integer">74</span>) }</code></pre>
 </div>
 </div>
 </div>
@@ -183,7 +183,13 @@ of input may be required.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> fields.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=rangeField,indent=<span class="integer">0</span>]</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">rangeField.should {
+    have minimum(<span class="integer">0</span>)
+    have maximum(<span class="integer">100</span>)
+    have value(<span class="integer">76</span>)
+    have step(<span class="integer">2</span>)
+    be inRange
+}</code></pre>
 </div>
 </div>
 </div>
@@ -197,7 +203,7 @@ of input may be required.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-08 23:26:11 UTC
+Last updated 2022-01-08 23:52:26 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
