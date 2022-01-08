@@ -52,10 +52,7 @@
 <h3 id="_with_mouse">With Mouse</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">clickOn component
-doubleClickOn component
-rightClickOn component
-drag panel on dropZone</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -63,12 +60,7 @@ drag panel on dropZone</code></pre>
 <h3 id="_with_keyboard">With Keyboard</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Field</span> emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>, EmailField)
-
-emailField.should { have value(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>) }
-clickOn emailField <span class="comment">// To get the focus</span>
-type SHIFT + <span class="string"><span class="delimiter">'</span><span class="content">tyro</span><span class="delimiter">'</span></span>
-emailField.should { have value(<span class="string"><span class="delimiter">'</span><span class="content">TYRO</span><span class="delimiter">'</span></span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -103,12 +95,7 @@ So for example, if you try to check a component already checked, an exception is
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">CheckBox checkBox = checkbox(<span class="string"><span class="delimiter">'</span><span class="content">Checkbox Label</span><span class="delimiter">'</span></span>)
-checkBox.should { be unchecked }
-
-check checkBox
-
-checkBox.should { be checked }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -137,11 +124,7 @@ So for example, if you try to uncheck a component already unchecked, an exceptio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">checkBox.should { be checked }
-
-uncheck checkBox
-
-checkBox.should { be unchecked }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -171,16 +154,7 @@ In the case you want a validation when entering caracters in the field, you must
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">EmailField emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>)
-
-emailField.should { be empty }
-
-fill emailField with <span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>
-
-emailField.should {
-    be filled
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -208,14 +182,7 @@ emailField.should {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">emailField.should {
-    be filled
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
-}
-
-clear emailField
-
-emailField.should { be empty }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -243,13 +210,7 @@ emailField.should { be empty }</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">RangeField range = field(<span class="string"><span class="delimiter">'</span><span class="content">Range</span><span class="delimiter">'</span></span>, InputTypeRange)
-
-range.should { have value(<span class="integer">10</span>) }
-
-set range to <span class="integer">20</span>
-
-range.should { have value(<span class="integer">20</span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -445,12 +406,7 @@ It&#8217;s here to improve readability of a test.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Dropdown language = dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
-language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>) }
-
-on language select <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>
-
-language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=on,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -460,7 +416,7 @@ language.should { have selectedItem(<span class="string"><span class="delimiter"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-08 00:19:24 UTC
+Last updated 2022-01-08 23:26:11 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">

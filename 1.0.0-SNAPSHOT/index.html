@@ -251,7 +251,7 @@ It also explains how to write good UI tests scenarios.</p>
 <div class="sect2">
 <h3 id="_introduction">1.1. Introduction</h3>
 <div class="paragraph">
-<p><strong>Tyro</strong> is a web user interface testing tool providing a framework to test any html5 application.</p>
+<p><strong>Tyro</strong> is a web user interface testing tool to test any web application.</p>
 </div>
 <div class="paragraph">
 <p>What makes it stand out from the crowd is its beautiful and highly expressive language.</p>
@@ -266,7 +266,7 @@ It also explains how to write good UI tests scenarios.</p>
 <p><strong>Tyro</strong> is built on top of the <a href="https://www.selenium.dev/">WebDriver</a> browser automation library, which means that Tyro can work with any browser that WebDriver supports.</p>
 </div>
 <div class="paragraph">
-<p><strong>Tyro</strong> plays very well with <a href="https://junit.org/junit5/">JUnit</a>, <a href="https://cucumber.io/">Cucumber</a>, <a href="https://gauge.org/">Gauge</a> and many others testing tools.</p>
+<p><strong>Tyro</strong> plays very well with <a href="https://junit.org/junit4/">JUnit4</a> <a href="https://junit.org/junit5/">JUnit5</a>, <a href="https://cucumber.io/">Cucumber</a>, <a href="https://gauge.org/">Gauge</a> and many others testing tools.</p>
 </div>
 </div>
 <div class="sect2">
@@ -330,38 +330,8 @@ Our experience has taught us that this path is a dead-end.</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
 </pre></td>
-  <td class="code"><pre>field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>).should {
-    be visible
-    be empty
-}
-
-field(<span class="string"><span class="delimiter">'</span><span class="content">Password</span><span class="delimiter">'</span></span>).should {
-    be visible
-    be empty
-}
-
-dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>).should {
-    be visible
-    have <span class="integer">2</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
-    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
-}</pre></td>
+  <td class="code"><pre>Unresolved directive <span class="keyword">in</span> get_started.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_1,indent=<span class="integer">0</span>]</pre></td>
 </tr></table></code></pre>
 </div>
 </div>
@@ -383,20 +353,8 @@ dropdown(<span class="string"><span class="delimiter">'</span><span class="conte
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-7
 </pre></td>
-  <td class="code"><pre>radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be checked }
-radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be unchecked }
-
-check radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>)
-
-radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Male</span><span class="delimiter">&quot;</span></span>).should { be unchecked }
-radio(<span class="string"><span class="delimiter">&quot;</span><span class="content">Female</span><span class="delimiter">&quot;</span></span>).should { be checked }</pre></td>
+  <td class="code"><pre>Unresolved directive <span class="keyword">in</span> get_started.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_2,indent=<span class="integer">0</span>]</pre></td>
 </tr></table></code></pre>
 </div>
 </div>
@@ -494,11 +452,7 @@ to find components. It&#8217;s yours to use what suits your case.</p>
 <div class="sect2">
 <h3 id="_the_function">5.1. The $ function</h3>
 <div class="paragraph">
-<p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
-Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.</p>
-</div>
-<div class="paragraph">
-<p>This base implementation accepts the powerful <a href="https://api.jquery.com/category/selectors/">JQuery selectors</a> to find components in your page.</p>
+<p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.</p>
 </div>
 <div class="paragraph">
 <p>The expression is pretty simple and always follows the same pattern:</p>
@@ -507,6 +461,29 @@ Tyro is based on an abstraction but comes with a default implementation: the Web
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">    Abstraction component = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*the selector*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Implementation</code></pre>
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Tyro</strong> is typed.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>$</strong> selector is to find/locate the component, the <strong>as</strong> is to verify that the component is the expected type.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.</p>
+</div>
+<div class="paragraph">
+<p>This base implementation accepts the powerful <a href="https://api.jquery.com/category/selectors/">JQuery selectors</a> to find components in your page.</p>
 </div>
 <div class="paragraph">
 <p>Our experience demonstrated that <strong>we never need complex selector.</strong> Especially if you write tests first, a simple finding expression will push you to write clean html components (example : only one button with a given label in the same page).</p>
@@ -587,7 +564,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> last_name = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*input:eq(1)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> last_name = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">input:eq(1)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -595,7 +572,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    Heading sectionSubTitle = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*h3:eq(0)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> H3</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    Heading sectionSubTitle = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">h3:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> H3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -603,7 +580,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">     <span class="predefined-type">Button</span> go_button =  <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*[name=&quot;myName&quot;]:eq(2)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> org.testatoo.bundle.html5.Button</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">     <span class="predefined-type">Button</span> go_button =  <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[name=&quot;myName&quot;]:eq(2)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> org.testatoo.bundle.html5.Button</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -611,7 +588,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">      DataGrid getOperationTable = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*[name=&quot;myName&quot;]* &gt; table:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Table</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">      DataGrid getOperationTable = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">form[name=&quot;myName&quot;] &gt; table:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Table</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -667,7 +644,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">List</span>&lt;Item&gt; items = <span class="error">$</span><span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">select option</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> <span class="predefined-type">Option</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">List</span>&lt;Item&gt; items = <span class="error">$</span><span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">select option</span><span class="delimiter">'</span></span>, <span class="predefined-type">Option</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -678,7 +655,9 @@ For multiple selection use $$ function.</p>
 <div class="sect2">
 <h3 id="_using_factories">5.3. Using factories</h3>
 <div class="paragraph">
-<p>Tyro comes with a bunch of components factories.</p>
+<p>Tyro comes with a bunch of components factories.
+Factories should be used as the first way to find components.
+In TDD approach this will drive your page design with the best semantic and structure.</p>
 </div>
 <div class="paragraph">
 <p><strong>Find Button using its text.</strong></p>
@@ -830,10 +809,7 @@ For multiple selection use $$ function.</p>
 <h3 id="_with_mouse">6.1. With Mouse</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">clickOn component
-doubleClickOn component
-rightClickOn component
-drag panel on dropZone</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -841,12 +817,7 @@ drag panel on dropZone</code></pre>
 <h3 id="_with_keyboard">6.2. With Keyboard</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Field</span> emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>, EmailField)
-
-emailField.should { have value(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>) }
-clickOn emailField <span class="comment">// To get the focus</span>
-type SHIFT + <span class="string"><span class="delimiter">'</span><span class="content">tyro</span><span class="delimiter">'</span></span>
-emailField.should { have value(<span class="string"><span class="delimiter">'</span><span class="content">TYRO</span><span class="delimiter">'</span></span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -881,12 +852,7 @@ So for example, if you try to check a component already checked, an exception is
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">CheckBox checkBox = checkbox(<span class="string"><span class="delimiter">'</span><span class="content">Checkbox Label</span><span class="delimiter">'</span></span>)
-checkBox.should { be unchecked }
-
-check checkBox
-
-checkBox.should { be checked }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -915,11 +881,7 @@ So for example, if you try to uncheck a component already unchecked, an exceptio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">checkBox.should { be checked }
-
-uncheck checkBox
-
-checkBox.should { be unchecked }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -949,16 +911,7 @@ In the case you want a validation when entering caracters in the field, you must
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">EmailField emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>)
-
-emailField.should { be empty }
-
-fill emailField with <span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>
-
-emailField.should {
-    be filled
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=fill,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -986,14 +939,7 @@ emailField.should {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">emailField.should {
-    be filled
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
-}
-
-clear emailField
-
-emailField.should { be empty }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=clear,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1021,13 +967,7 @@ emailField.should { be empty }</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">RangeField range = field(<span class="string"><span class="delimiter">'</span><span class="content">Range</span><span class="delimiter">'</span></span>, InputTypeRange)
-
-range.should { have value(<span class="integer">10</span>) }
-
-set range to <span class="integer">20</span>
-
-range.should { have value(<span class="integer">20</span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=set,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1223,12 +1163,7 @@ It&#8217;s here to improve readability of a test.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">Dropdown language = dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
-language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>) }
-
-on language select <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>
-
-language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> interacting_with_components.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/InteractionTest.groovy[tags=on,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1262,7 +1197,7 @@ With them, you have the most useful components to write a UI test.</p>
 <h3 id="_button">7.1. Button</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Button.png" alt="Button">
+<img src="../images/components/Button.png" alt="Button">
 </div>
 </div>
 <div class="quoteblock">
@@ -1300,7 +1235,7 @@ like searching for a query at a search engine, or to interact with dialog boxes,
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">button.should { have text(<span class="string"><span class="delimiter">'</span><span class="content">Submit</span><span class="delimiter">'</span></span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/button.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=button,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1308,7 +1243,7 @@ like searching for a query at a search engine, or to interact with dialog boxes,
 <h3 id="_checkbox">7.2. CheckBox</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/CheckBox.png" alt="CheckBox">
+<img src="../images/components/CheckBox.png" alt="CheckBox">
 </div>
 </div>
 <div class="quoteblock">
@@ -1351,23 +1286,7 @@ a <strong>checkBox</strong> is a small box that, when selected by the user, show
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">checkbox_1.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
-    be enabled
-    be unchecked
-}
-
-checkbox_2.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
-    be enabled
-    be checked
-}
-
-checkbox_3.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
-    be disabled
-    be unchecked
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/checkBox.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=checkBox,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1375,7 +1294,7 @@ checkbox_3.should {
 <h3 id="_radio">7.3. Radio</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Radio.png" alt="Radio">
+<img src="../images/components/Radio.png" alt="Radio">
 </div>
 </div>
 <div class="quoteblock">
@@ -1422,23 +1341,7 @@ same group becomes deselected (making it so only one can be selected).
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">radio_1.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
-    be enabled
-    be unchecked
-}
-
-radio_2.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
-    be enabled
-    be checked
-}
-
-radio_3.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
-    be disabled
-    be unchecked
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/radio.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=radio,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1446,7 +1349,7 @@ radio_3.should {
 <h3 id="_dropdown">7.4. Dropdown</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Dropdown.png" alt="Dropdown">
+<img src="../images/components/Dropdown.png" alt="Dropdown">
 </div>
 </div>
 <div class="quoteblock">
@@ -1495,14 +1398,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dropdown.should {
-    be visible
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
-    have <span class="integer">2</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
-    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
-    <span class="integer">0</span>.groups
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/dropdown.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=dropdown,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1513,7 +1409,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Group.png" alt="Group">
+<img src="../images/components/Group.png" alt="Group">
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -1547,28 +1443,14 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">os.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">OS</span><span class="delimiter">'</span></span>)
-    have <span class="integer">5</span>.items
-    have <span class="integer">2</span>.groups
-}
-
-os.group(<span class="string"><span class="delimiter">'</span><span class="content">Linux</span><span class="delimiter">'</span></span>).should {
-    have <span class="integer">3</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">Ubuntu</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Debian</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Gentoo</span><span class="delimiter">'</span></span>)
-}
-
-os.group(<span class="string"><span class="delimiter">'</span><span class="content">Windows</span><span class="delimiter">'</span></span>).should {
-    have <span class="integer">2</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">8</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">10</span><span class="delimiter">'</span></span>)
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/group.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=group,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_listbox">7.6. ListBox</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/components/ListBox.png" alt="ListBox"></span></p>
+<p><span class="image"><img src="../images/components/ListBox.png" alt="ListBox"></span></p>
 </div>
 <div class="quoteblock">
 <blockquote>
@@ -1621,22 +1503,14 @@ in order to make multiple selections. "Control-clicking" an item that has alread
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">cities.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">Cities</span><span class="delimiter">'</span></span>)
-    have <span class="integer">4</span>.items
-    have <span class="integer">4</span>.visibleItems
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Montreal</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
-    have selectedItems(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
-}
-
-cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should { be disabled }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/listbox.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listBox,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_listview">7.7. ListView</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/components/ListView.png" alt="ListView"></span></p>
+<p><span class="image"><img src="../images/components/ListView.png" alt="ListView"></span></p>
 </div>
 <div class="paragraph">
 <p><em>Definition</em>: a <strong>listView</strong> allows the user to display items in a list format (with bullet points or numbers, indentation,&#8230;&#8203;).</p>
@@ -1667,9 +1541,7 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">list.should {
-    have <span class="integer">5</span>.items
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/listview.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=listView,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1711,15 +1583,7 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">cities.items()[<span class="integer">0</span>].should {
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>)
-    be selected
-}
-
-cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should {
-    be disabled
-    be unselected
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/item.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=item,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1751,8 +1615,7 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">list.items()[<span class="integer">0</span>].should { have value(<span class="string"><span class="delimiter">'</span><span class="content">Item 1</span><span class="delimiter">'</span></span>) }
-list.item(<span class="string"><span class="delimiter">'</span><span class="content">Item 2</span><span class="delimiter">'</span></span>).should { be visible }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/item.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=item-listview,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1761,7 +1624,7 @@ list.item(<span class="string"><span class="delimiter">'</span><span class="cont
 <h3 id="_link">7.9. Link</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Link.png" alt="Link">
+<img src="../images/components/Link.png" alt="Link">
 </div>
 </div>
 <div class="paragraph">
@@ -1798,10 +1661,7 @@ list.item(<span class="string"><span class="delimiter">'</span><span class="cont
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">link.should {
-    have text(<span class="string"><span class="delimiter">'</span><span class="content">My Link to Google</span><span class="delimiter">'</span></span>)
-    have reference(<span class="string"><span class="delimiter">'</span><span class="content">https://www.google.com/</span><span class="delimiter">'</span></span>)
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/link.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=link,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1809,7 +1669,7 @@ list.item(<span class="string"><span class="delimiter">'</span><span class="cont
 <h3 id="_form">7.10. Form</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Form.png" alt="Form">
+<img src="../images/components/Form.png" alt="Form">
 </div>
 </div>
 <div class="paragraph">
@@ -1847,7 +1707,7 @@ Form elements are filled with different types of input elements, checkboxes, rad
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">form.should { be invalid }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/form.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=form,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1925,7 +1785,7 @@ Form elements are filled with different types of input elements, checkboxes, rad
 <h4 id="_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">7.11.1. TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/TextField.png" alt="TextField">
+<img src="../images/components/TextField.png" alt="TextField">
 </div>
 </div>
 <div class="quoteblock">
@@ -1964,7 +1824,7 @@ of input may be required.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">textField.should { have length(<span class="integer">74</span>) }</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/fields.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=textField,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -1972,7 +1832,7 @@ of input may be required.
 <h4 id="_rangefield_and_its_variations_datefield_numberfield">7.11.2. RangeField and its variations (DateField, NumberField)</h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/RangeField.png" alt="RangeField">
+<img src="../images/components/RangeField.png" alt="RangeField">
 </div>
 </div>
 <div class="paragraph">
@@ -2014,13 +1874,7 @@ of input may be required.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">rangeField.should {
-    have minimum(<span class="integer">0</span>)
-    have maximum(<span class="integer">100</span>)
-    have value(<span class="integer">76</span>)
-    have step(<span class="integer">2</span>)
-    be inRange
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/fields.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=rangeField,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2067,7 +1921,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 <h3 id="_image">7.13. Image</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Image.png" alt="Image">
+<img src="../images/components/Image.png" alt="Image">
 </div>
 </div>
 <div class="paragraph">
@@ -2099,7 +1953,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">image.should { have reference(BASE_URL + <span class="string"><span class="delimiter">'</span><span class="content">/img/seahorse.jpg</span><span class="delimiter">'</span></span>)}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/image.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=image,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2107,7 +1961,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 <h3 id="_heading">7.14. Heading</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Heading.png" alt="Heading">
+<img src="../images/components/Heading.png" alt="Heading">
 </div>
 </div>
 <div class="paragraph">
@@ -2139,7 +1993,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">heading.should { have text(<span class="string"><span class="delimiter">'</span><span class="content">Heading</span><span class="delimiter">'</span></span>)}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/heading.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=heading,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2147,7 +2001,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 <h3 id="_paragraph">7.15. Paragraph</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Paragraph.png" alt="Paragraph">
+<img src="../images/components/Paragraph.png" alt="Paragraph">
 </div>
 </div>
 <div class="paragraph">
@@ -2179,7 +2033,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">paragraph.should { have text(<span class="string"><span class="delimiter">'</span><span class="content">My paragraph content.</span><span class="delimiter">'</span></span>)}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/paragraph.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=paragraph,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2187,7 +2041,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 <h3 id="_datagrid">7.16. Datagrid</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/DataGrid.png" alt="DataGrid">
+<img src="../images/components/DataGrid.png" alt="DataGrid">
 </div>
 </div>
 <div class="paragraph">
@@ -2224,10 +2078,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.should {
-    have <span class="integer">3</span>.columns
-    have <span class="integer">3</span>.rows
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/datagrid.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=dataGrid,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -2266,10 +2117,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.columns()[<span class="integer">1</span>].should {
-    have title(<span class="string"><span class="delimiter">'</span><span class="content">Firstname</span><span class="delimiter">'</span></span>)
-    have <span class="integer">3</span>.cells
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/datagrid.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=column,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2309,10 +2157,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.rows()[<span class="integer">1</span>].should {
-    have title(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
-    have <span class="integer">2</span>.cells
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/datagrid.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=row,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2347,9 +2192,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dataGrid.rows()[<span class="integer">0</span>].cells()[<span class="integer">1</span>].should {
-    have value(<span class="string"><span class="delimiter">'</span><span class="content">Black</span><span class="delimiter">'</span></span>)
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">Unresolved directive <span class="keyword">in</span> components/datagrid.adoc - <span class="key">include</span>::<span class="regexp"><span class="delimiter">/</span><span class="content">home</span><span class="delimiter">/</span></span>runner/work/documentation/documentation/src/groovy/sc/tyro/doc/ComponentTest.groovy[tags=cell,indent=<span class="integer">0</span>]</code></pre>
 </div>
 </div>
 </div>
@@ -2791,7 +2634,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-08 00:19:24 UTC
+Last updated 2022-01-08 23:26:11 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">

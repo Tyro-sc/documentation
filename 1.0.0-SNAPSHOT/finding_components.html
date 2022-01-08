@@ -38,11 +38,7 @@ to find components. It&#8217;s yours to use what suits your case.</p>
 <div class="sect2">
 <h3 id="_the_function">The $ function</h3>
 <div class="paragraph">
-<p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.
-Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.</p>
-</div>
-<div class="paragraph">
-<p>This base implementation accepts the powerful <a href="https://api.jquery.com/category/selectors/">JQuery selectors</a> to find components in your page.</p>
+<p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.</p>
 </div>
 <div class="paragraph">
 <p>The expression is pretty simple and always follows the same pattern:</p>
@@ -51,6 +47,29 @@ Tyro is based on an abstraction but comes with a default implementation: the Web
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">    Abstraction component = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*the selector*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Implementation</code></pre>
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Tyro</strong> is typed.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>$</strong> selector is to find/locate the component, the <strong>as</strong> is to verify that the component is the expected type.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.</p>
+</div>
+<div class="paragraph">
+<p>This base implementation accepts the powerful <a href="https://api.jquery.com/category/selectors/">JQuery selectors</a> to find components in your page.</p>
 </div>
 <div class="paragraph">
 <p>Our experience demonstrated that <strong>we never need complex selector.</strong> Especially if you write tests first, a simple finding expression will push you to write clean html components (example : only one button with a given label in the same page).</p>
@@ -131,7 +150,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> last_name = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*input:eq(1)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> last_name = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">input:eq(1)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -139,7 +158,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    Heading sectionSubTitle = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*h3:eq(0)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> H3</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    Heading sectionSubTitle = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">h3:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> H3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -147,7 +166,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">     <span class="predefined-type">Button</span> go_button =  <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*[name=&quot;myName&quot;]:eq(2)*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> org.testatoo.bundle.html5.Button</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">     <span class="predefined-type">Button</span> go_button =  <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[name=&quot;myName&quot;]:eq(2)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> org.testatoo.bundle.html5.Button</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -155,7 +174,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">      DataGrid getOperationTable = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*[name=&quot;myName&quot;]* &gt; table:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Table</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">      DataGrid getOperationTable = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">form[name=&quot;myName&quot;] &gt; table:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Table</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -211,7 +230,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">List</span>&lt;Item&gt; items = <span class="error">$</span><span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">select option</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> <span class="predefined-type">Option</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">List</span>&lt;Item&gt; items = <span class="error">$</span><span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">select option</span><span class="delimiter">'</span></span>, <span class="predefined-type">Option</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -222,7 +241,9 @@ For multiple selection use $$ function.</p>
 <div class="sect2">
 <h3 id="_using_factories">Using factories</h3>
 <div class="paragraph">
-<p>Tyro comes with a bunch of components factories.</p>
+<p>Tyro comes with a bunch of components factories.
+Factories should be used as the first way to find components.
+In TDD approach this will drive your page design with the best semantic and structure.</p>
 </div>
 <div class="paragraph">
 <p><strong>Find Button using its text.</strong></p>
@@ -351,7 +372,7 @@ For multiple selection use $$ function.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-08 00:19:24 UTC
+Last updated 2022-01-08 23:26:11 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
