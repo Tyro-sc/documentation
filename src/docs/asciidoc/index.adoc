@@ -2,12 +2,13 @@
 :author: David Avenante, Stephanie Parisot
 :homepage: https://www.tyro.sc
 :desc: The Tyro documentation
-:imagesdir: images
 :toc:
 :toclevels: 3
 :docinfo1:
 :toc-title: Table of contents
 :numbered: {project-version}
+:imagesdir: images
+:sourcedir: ../../test
 
 image::logo-white.svg[Tyro,align="left",width="30%"]
 

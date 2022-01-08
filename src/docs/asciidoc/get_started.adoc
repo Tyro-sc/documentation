@@ -1,4 +1,6 @@
 == Getting started
+:imagesdir: images
+:sourcedir: ../../test
 
 === Quick start from a template
 
@@ -21,7 +23,7 @@ can be specified like this :
 [source,groovy,linenums]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_1,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_1,indent=0]
 ----
 
 === A simple functional test
@@ -35,7 +37,7 @@ can be tested like this :
 [source,groovy,linenums]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_2,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/SampleTest.groovy[tags=sample_2,indent=0]
 ----
 
 == Functional vs Specification tests

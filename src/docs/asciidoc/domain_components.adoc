@@ -1,4 +1,6 @@
 == Domain Components
+:imagesdir: images
+:sourcedir: ../../test
 '''
 
 *Tyro* provides a set of UI Domain Objects.

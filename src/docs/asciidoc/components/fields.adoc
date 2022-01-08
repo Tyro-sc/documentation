@@ -1,4 +1,6 @@
 === Field
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 This is the base component for all types of fields.
 
@@ -63,7 +65,7 @@ of input may be required."
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=textField,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=textField,indent=0]
 ----
 
 
@@ -95,7 +97,7 @@ _Definition_: a *rangeField* is used for fields that must contain a value within
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=rangeField,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=rangeField,indent=0]
 ----
 
 ==== Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)

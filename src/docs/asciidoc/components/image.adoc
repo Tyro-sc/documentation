@@ -1,4 +1,6 @@
 === Image
+:imagesdir: ../images
+:sourcedir: ../../../test
 
 image::components/Image.png[Image]
 
@@ -18,7 +20,7 @@ _Definition_:  an *image* allows the user to insert an image (gif, jpg, png,...)
 [source,groovy,indent=0]
 [subs="verbatim,attributes"]
 ----
-include::{sourcedir}/test/groovy/sc/tyro/doc/ComponentTest.groovy[tags=image,indent=0]
+include::{sourcedir}/groovy/sc/tyro/doc/ComponentTest.groovy[tags=image,indent=0]
 ----
 
 
