@@ -3,7 +3,7 @@
 [cols="1",options="header"]
 |===
 |Reminder : States shared by all Tyro components
-|enabled, disabled, available, missing, hidden, visible, contains, displays
+|enabled, available, visible, contains
 |===
 
 === Html5 - Tyro equivalence
