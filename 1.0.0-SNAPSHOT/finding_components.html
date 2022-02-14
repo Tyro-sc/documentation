@@ -366,13 +366,49 @@ In TDD approach this will drive your page design with the best semantic and stru
 <pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Component</span> myComponent = findByTitle(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>, <span class="predefined-type">Component</span>)</code></pre>
 </div>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Sometimes the UI can contain more than one item with the same test/value/label &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p><strong>Example: Two button with text 'Ok'</strong></p>
+</div>
+<div class="paragraph">
+<p>In this case you can scope your search by passing the parent context to the factory method.</p>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its title scoped in parent context</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="predefined-type">Panel</span> panel = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#parent</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Div
+<span class="predefined-type">Button</span> button = button(<span class="string"><span class="delimiter">'</span><span class="content">Ok</span><span class="delimiter">'</span></span>, panel) <span class="comment">// =&gt; Find button with text Ok only in the panel</span>
+button.should { be visible }</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-16 21:51:41 UTC
+Last updated 2022-02-14 13:50:41 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
