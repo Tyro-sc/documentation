@@ -37,7 +37,7 @@
 
         <!-- Tests -->
         <junit.version>5.7.0</junit.version>
-        <tyro-web.version>1.0.0.RC2</tyro-web.version>
+        <tyro-web.version>1.3.0</tyro-web.version>
         <slf4j-simple.verion>1.7.28</slf4j-simple.verion>
         <javalin.version>3.8.0</javalin.version>
         <webdrivermanager.version>4.1.0</webdrivermanager.version>
