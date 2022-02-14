@@ -235,3 +235,18 @@ In TDD approach this will drive your page design with the best semantic and stru
 ----
 
 
+[IMPORTANT]
+====
+Sometimes the UI can contain more than one item with the same test/value/label ...
+
+*Example: Two button with text 'Ok'*
+
+In this case you can scope your search by passing the parent context to the factory method.
+
+*Find Component using its title scoped in parent context*
+[source,groovy,linenums]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/groovy/sc/tyro/doc/FactoryTest.groovy[tags=factory,indent=0]
+----
+====

@@ -20,18 +20,23 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import sc.tyro.bundle.html5.A
+import sc.tyro.bundle.html5.Div
 import sc.tyro.bundle.html5.Img
 import sc.tyro.bundle.html5.P
 import sc.tyro.bundle.html5.heading.H1
 import sc.tyro.bundle.html5.input.InputTypeRange
 import sc.tyro.bundle.html5.list.Ul
 import sc.tyro.bundle.html5.table.Table
+import sc.tyro.core.Tyro
 import sc.tyro.core.component.*
 import sc.tyro.core.component.datagrid.DataGrid
 import sc.tyro.core.component.field.RangeField
 import sc.tyro.core.component.field.TextField
 
 import static sc.tyro.core.Tyro.*
+
+import static sc.tyro.core.Tyro.button
+import static sc.tyro.core.Tyro.button
 import static sc.tyro.doc.TyroExtension.BASE_URL
 
 @ExtendWith(TyroExtension)
