@@ -1,0 +1,16 @@
+name: CI
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'liberica'
+      - run: ./mvnw test
