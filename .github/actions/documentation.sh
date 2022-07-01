@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-. ${PWD}/.github/actions/logger.sh
-
 GITHUB_TOKEN=$1
 REPO_REMOTE_URL=$(git config --get remote.origin.url)
 PROJECT_DIR=${PWD}
@@ -43,20 +41,20 @@ checkout_documentation_branch() {
     DOC_BRANCH_EXIST=$(git ls-remote --heads "${REPO_REMOTE_URL}" gh-pages | wc -l)
 
     if [[ ${DOC_BRANCH_EXIST} -eq 0 ]]; then
-        warn "Documentation" "Branch gh-pages not available"
-        info "Documentation" "Create gh-pages branch"
+        echo "⚠️ WARN: Branch gh-pages not available"
+        echo "🔵️ ️INFO: Create gh-pages branch"
         git checkout -b gh-pages
         EXIT_CODE=$?
         if [[ ${EXIT_CODE} -gt 0 ]]; then
             echo "============ 🔴 Unable to create documentation branch ="
             exit "${EXIT_CODE}"
         fi
-        echo "Clean visible content"
+        echo "🔵️ ️INFO: Clean visible content"
         for file in *; do
             rm -rf "$file"
         done
 
-        info "Documentation" "Clean hidden content"
+        echo "🔵️ ️INFO: Documentation" "Clean hidden content"
         for file in .*; do
             if [[ "$file" != ".git" ]]; then
                 rm -rf "$file"
@@ -88,14 +86,14 @@ init_documentation_folder() {
 
     # Clean Current documentation
     if [[ -d "${GENERATED_DOC_DIRECTORY}" ]]; then
-        info "Documentation" "Directory (${GENERATED_DOC_DIRECTORY}) already exist -> delete ${GENERATED_DOC_DIRECTORY} directory"
+        echo "🔵️ ️INFO: Directory (${GENERATED_DOC_DIRECTORY}) already exist -> delete ${GENERATED_DOC_DIRECTORY} directory"
         rm -rf "${GENERATED_DOC_DIRECTORY}"
     fi
     rm versions.json
 }
 
 copy_documentation() {
-    info "Documentation" "Create documentation directory (${GENERATED_DOC_DIRECTORY})"
+    echo "🔵️ ️INFO: Create documentation directory (${GENERATED_DOC_DIRECTORY})"
     mkdir "${GENERATED_DOC_DIRECTORY}"
     cp "${DOC_TEMPLATE}/favicon.png" "${GENERATED_DOC_DIRECTORY}"
     cp -r "${PROJECT_DIR}/target/generated-docs/." "./${GENERATED_DOC_DIRECTORY}"
@@ -104,7 +102,7 @@ copy_documentation() {
 generate_current_documentation_link() {
     CURRENT_LINK="current"
     if [[ -L "${CURRENT_LINK}" ]]; then
-        info "Documentation" "Current link exist -> delete link"
+        echo "🔵️ ️INFO: Current link exist -> delete link"
         rm "${CURRENT_LINK}"
     fi
 
@@ -113,7 +111,7 @@ generate_current_documentation_link() {
     if [[ ${LINK_PATH_TARGET} == "" ]]; then
         LINK_PATH_TARGET=${GENERATED_DOC_DIRECTORY}
     fi
-    info "Documentation" "Create symlink to directory ${LINK_PATH_TARGET}"
+    echo "🔵️ ️INFO: Create symlink to directory ${LINK_PATH_TARGET}"
     ln -s "${LINK_PATH_TARGET}" "${CURRENT_LINK}"
 }
 
