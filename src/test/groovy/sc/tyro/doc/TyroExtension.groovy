@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
 import sc.tyro.web.WebBundle
 
+import static io.javalin.http.staticfiles.Location.CLASSPATH
 import static org.openqa.selenium.remote.BrowserType.CHROME
 import static org.openqa.selenium.remote.BrowserType.FIREFOX
 
@@ -23,8 +24,9 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
     @Override
     void beforeAll(ExtensionContext extensionContext) throws Exception {
         app = Javalin.create({
-            config -> config.addStaticFiles("/webapp")
-        }).start()
+            config -> config.addStaticFiles("/webapp", CLASSPATH)
+        }).start(0)
+
 
         BASE_URL = "http://localhost:${app.port()}"
 
