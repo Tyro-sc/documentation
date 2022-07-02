@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Heading</title>
+<title>Link</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,20 +15,20 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_heading">Heading</a></li>
+<li><a href="#_link">Link</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect2">
-<h3 id="_heading">Heading</h3>
+<h3 id="_link">Link</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Heading.png" alt="Heading">
+<img src="images/components/Link.png" alt="Link">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Definition</em>:  a <strong>heading</strong> allows the user to put a title for a page or a paragraph.</p>
+<p><em>Definition</em>:  a <strong>link</strong> allows the user to navigate from page to page.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -49,6 +49,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -56,14 +61,17 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">heading.should { have text(<span class="string"><span class="delimiter">'</span><span class="content">Heading</span><span class="delimiter">'</span></span>)}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">link.should {
+    have text(<span class="string"><span class="delimiter">'</span><span class="content">My Link to Google</span><span class="delimiter">'</span></span>)
+    have reference(<span class="string"><span class="delimiter">'</span><span class="content">https://www.google.com/</span><span class="delimiter">'</span></span>)
+}</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-07-01 18:06:43 UTC
+Last updated 2022-07-02 02:32:15 UTC
 </div>
 </div>
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
