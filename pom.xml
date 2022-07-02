@@ -22,7 +22,7 @@
 
     <groupId>sc.tyro</groupId>
     <artifactId>tyro-documentation</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <name>Tyro::documentation</name>
 
     <url>http://doc.tyro.sc</url>
