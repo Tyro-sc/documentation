@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Interacting with components</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_interacting_with_components">Interacting with components</a>
+<ul class="sectlevel2">
+<li><a href="#_with_mouse">With Mouse</a></li>
+<li><a href="#_with_keyboard">With Keyboard</a></li>
+<li><a href="#_with_actions">With Actions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_interacting_with_components">Interacting with components</h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p>In Tyro, interacting with components is very easy and powerful.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<div class="title">The following actions are shared by all Tyro components :</div>
+<p>click, rightClick, doubleClick, mouseOver, drag</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_with_mouse">With Mouse</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">clickOn component
+doubleClickOn component
+rightClickOn component
+drag panel on dropZone</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_with_keyboard">With Keyboard</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Field</span> emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>, EmailField)
+
+emailField.should { have value(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>) }
+clickOn emailField <span class="comment">// To get the focus</span>
+type SHIFT + <span class="string"><span class="delimiter">'</span><span class="content">tyro</span><span class="delimiter">'</span></span>
+emailField.should { have value(<span class="string"><span class="delimiter">'</span><span class="content">TYRO</span><span class="delimiter">'</span></span>) }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_with_actions">With Actions</h3>
+<div class="paragraph">
+<p>Tyro offers an advanced interaction feature. It allows a functional way to interact with components.
+It&#8217;s a good way to minimize common side effects on UI tests.</p>
+</div>
+<div class="sect3">
+<h4 id="check">check</h4>
+<div class="paragraph">
+<p>This action does some assertions and verifies that the component is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already in the expected state</strong>.
+So for example, if you try to check a component already checked, an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Checkable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>check &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">CheckBox checkBox = checkbox(<span class="string"><span class="delimiter">'</span><span class="content">Checkbox Label</span><span class="delimiter">'</span></span>)
+checkBox.should { be unchecked }
+
+check checkBox
+
+checkBox.should { be checked }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="uncheck">uncheck</h4>
+<div class="paragraph">
+<p>This action does some assertions and verifies that the component is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already in the expected state</strong>.
+So for example, if you try to uncheck a component already unchecked, an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>UnCheckable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>uncheck &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">checkBox.should { be checked }
+
+uncheck checkBox
+
+checkBox.should { be unchecked }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fill">fill</h4>
+<div class="paragraph">
+<p>With this action you can fill a field directly without passing by the keyboard.
+This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
+In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>fill &lt;<em>field</em>&gt; with &lt;<em>value</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">EmailField emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>)
+
+emailField.should { be empty }
+
+fill emailField with <span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>
+
+emailField.should {
+    be filled
+    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear">clear</h4>
+<div class="paragraph">
+<p>This action is used to clear a field. Here again it&#8217;s done directly without passing by the keyboard (just changing the value of the field).</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>clear &lt;<em>field</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">emailField.should {
+    be filled
+    have value(<span class="string"><span class="delimiter">'</span><span class="content">joe.black@email.org</span><span class="delimiter">'</span></span>)
+}
+
+clear emailField
+
+emailField.should { be empty }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set">set</h4>
+<div class="paragraph">
+<p>This is the same action as <a href="#fill">fill</a>. It&#8217;s just a better word for suite components like Range, DatePicker, ColorPicker&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>This action applies to some <strong>Field</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>set &lt;<em>field</em>&gt; to &lt;<em>value</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">RangeField range = field(<span class="string"><span class="delimiter">'</span><span class="content">Range</span><span class="delimiter">'</span></span>, InputTypeRange)
+
+range.should { have value(<span class="integer">10</span>) }
+
+set range to <span class="integer">20</span>
+
+range.should { have value(<span class="integer">20</span>) }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="submit">submit</h4>
+<div class="paragraph">
+<p>This action is used to <strong>submit</strong> a form. It tries to find the expected submit button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Submissible</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>submit &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">submit myForm</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reset">reset</h4>
+<div class="paragraph">
+<p>This action is used to <strong>reset</strong> a form. It tries to find the expected reset button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Resettable</strong> Components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>reset &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">reset myForm</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switchOn">switchOn</h4>
+<div class="paragraph">
+<p>This is the same action as <a href="#check">check</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Switchable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>switchOn &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">switchOn darkTheme</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switchOff">switchOff</h4>
+<div class="paragraph">
+<p>This is the same action as <a href="#uncheck">uncheck</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>UnSwitchable</strong> components.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>switchOff &lt;<em>component</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">switchOff darkTheme</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select">select</h4>
+<div class="paragraph">
+<p>This action does some assertions and verifies that the item is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already selected</strong>.
+So for example if you try to select an item already selected an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Item</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>select &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">select myItem_1, myItem_2</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="unselect">unselect</h4>
+<div class="paragraph">
+<p>This action does some assertions and verifies that the item is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already unselected</strong>.
+So for example if you try to unselect an item already unselected an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>This action applies on <strong>Item</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>unselect &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">unselect myItem_1, myItem_2</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_on">on</h4>
+<div class="paragraph">
+<p>This action is just a pass through (a function who returns the passed component).
+It&#8217;s here to improve readability of a test.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Syntax is : <strong>on &lt;<em>component</em>&gt; select &lt;<em>item</em>&gt;</strong>   or    <strong>on &lt;<em>component</em>&gt; unselect &lt;<em>item</em>&gt;</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">Dropdown language = dropdown(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
+language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>) }
+
+on language select <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>
+
+language.should { have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>) }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-07-02 02:47:12 UTC
+</div>
+</div>
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</body>
+</html>
