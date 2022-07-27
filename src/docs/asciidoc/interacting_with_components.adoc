@@ -6,12 +6,6 @@
 
 In Tyro, interacting with components is very easy and powerful.
 
-[NOTE]
-====
-.The following actions are shared by all Tyro components :
-click, rightClick, doubleClick, mouseOver, drag
-====
-
 === With Mouse
 
 [source,groovy,indent=0]
@@ -20,6 +14,7 @@ click, rightClick, doubleClick, mouseOver, drag
 include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse,indent=0]
 ----
 
+[[keyboard]]
 === With Keyboard
 
 [source,groovy,indent=0]
@@ -33,13 +28,29 @@ include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=keyboard,ind
 Tyro offers an advanced interaction feature. It allows a functional way to interact with components.
 It's a good way to minimize common side effects on UI tests.
 
+Through an elegant DSL, you can define an action that will be executed on a component.
+
+// TODO review this sentence
+All actions take care of the component, so it can be at least in a minimal expected state before applying action on it:
+
+* [x] available
+* [x] enabled
+* [x] visible
+
+[[Mouse]]
+==== mouse
+These actions apply on *all components*.
+
+[source,groovy,indent=0]
+[subs="verbatim,attributes"]
+----
+include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=mouse-dsl,indent=0]
+----
+
 [[check]]
 ==== check
 
-This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
-So for example, if you try to check a component already checked, an exception is thrown.
-
-This action applies on *Checkable* components. 
+This action applies on *Checkable* components. If the component is already checked, it will throw an exception.
 [NOTE]
 ====
 Syntax is : *check <__component__>*
@@ -54,10 +65,7 @@ include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=check,indent
 [[uncheck]]
 ==== uncheck
 
-This action does some assertions and verifies that the component is *visible*, *not deactivated* and *not already in the expected state*.
-So for example, if you try to uncheck a component already unchecked, an exception is thrown.
-
-This action applies on *UnCheckable* components. 
+This action applies on *UnCheckable* components. If the component is already unchecked, it will throw an exception.
 [NOTE]
 ====
 Syntax is : *uncheck <__component__>*
@@ -69,12 +77,19 @@ Syntax is : *uncheck <__component__>*
 include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,indent=0]
 ----
 
+[[type]]
+==== type
+This action is just a shortcut on the <<keyboard>>.
+
+*type 'some text'* is strictly equivalent to *keyboard.type('some text')*
+
+
 [[fill]]
 ==== fill
 
 With this action you can fill a field directly without passing by the keyboard.
 This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
-In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".
+In the case you want a validation when entering characters in the field, you must use the keyboard action "type".
 
 This action applies on *Field* Components. 
 [NOTE]
@@ -193,10 +208,9 @@ switchOff darkTheme
 [[select]]
 ==== select
 
-This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already selected*.
-So for example if you try to select an item already selected an exception is thrown.
+This action applies on *Item* components. If the Item is already selected, it will throw an exception.
 
-This action applies on *Item*. 
+This action applies on *Item* components.
 [NOTE]
 ====
 Syntax is : *select <__item__>*
@@ -211,10 +225,10 @@ select myItem_1, myItem_2
 [[unselect]]
 ==== unselect
 
-This action does some assertions and verifies that the item is *visible*, *not deactivated* and *not already unselected*.
-So for example if you try to unselect an item already unselected an exception is thrown.
 
-This action applies on *Item*. 
+This action applies on *Item* components. If the Item is already unselected, it will throw an exception.
+
+This action applies on *Item* components.
 [NOTE]
 ====
 Syntax is : *unselect <__item__>*

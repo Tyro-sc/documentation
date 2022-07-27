@@ -11,6 +11,7 @@ import sc.tyro.core.component.Panel
 import sc.tyro.core.component.field.EmailField
 import sc.tyro.core.component.field.Field
 import sc.tyro.core.component.field.RangeField
+import sc.tyro.core.input.Keyboard
 
 import static sc.tyro.core.Tyro.*
 import static sc.tyro.core.input.Key.SHIFT
@@ -29,11 +30,25 @@ class InteractionTest {
         Panel dropZone = $('#drop-zone') as Div
 
         // tag::mouse[]
-        clickOn component
-        doubleClickOn component
-        rightClickOn component
-        drag panel on dropZone
+        component.click()
+
+        component.doubleClick()
+
+        component.rightClick()
+
+        panel.drag().on(dropZone)
         // end::mouse[]
+
+        // tag::mouse-dsl[]
+        clickOn component
+
+        doubleClickOn component
+
+        rightClickOn component
+
+        drag panel on dropZone
+        // end::mouse-dsl[]
+
     }
 
     @Test
@@ -41,14 +56,31 @@ class InteractionTest {
     void keyboard() {
         visit BASE_URL + '/interaction.html'
 
-        // tag::keyboard[]
         Field emailField = field('Email', EmailField)
 
         emailField.should { have value("") }
         clickOn emailField // To get the focus
-        type SHIFT + 'tyro'
-        emailField.should { have value('TYRO') }
+
+        // tag::keyboard[]
+        Keyboard keyboard = new Keyboard()
+
+        keyboard.type([SHIFT, 'tyro'])
         // end::keyboard[]
+
+        clear emailField
+        emailField = field('Email', EmailField)
+
+        emailField.should { have value("") }
+        clickOn emailField // To get the focus
+
+        // tag::keyboard-dsl-1[]
+        type SHIFT + 'tyro'
+        // end::keyboard-dsl-1[]
+        emailField.should { have value('TYRO') }
+
+
+
+
     }
 
     @Test
@@ -74,7 +106,7 @@ class InteractionTest {
         // end::uncheck[]
 
         // tag::fill[]
-        EmailField emailField = field('Email')
+        Field emailField = field('Email')
 
         emailField.should { be empty }
 
@@ -115,7 +147,5 @@ class InteractionTest {
 
         language.should { have selectedItem('FR') }
         // end::on[]
-
-
     }
 }
