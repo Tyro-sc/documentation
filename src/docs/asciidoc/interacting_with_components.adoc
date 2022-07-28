@@ -81,8 +81,10 @@ include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,inde
 ==== type
 This action is just a shortcut on the <<keyboard>>.
 
-*type 'some text'* is strictly equivalent to *keyboard.type('some text')*
-
+[NOTE]
+====
+*type 'some text'* (strictly equivalent to *keyboard.type('some text')*)
+====
 
 [[fill]]
 ==== fill
