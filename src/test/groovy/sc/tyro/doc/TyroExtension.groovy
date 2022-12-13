@@ -23,10 +23,7 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
 
     @Override
     void beforeAll(ExtensionContext extensionContext) throws Exception {
-        app = Javalin.create({
-            config -> config.addStaticFiles("/webapp", CLASSPATH)
-        }).start(0)
-
+        app = Javalin.create({it.staticFiles.add "/webapp", CLASSPATH }).start(0)
 
         BASE_URL = "http://localhost:${app.port()}"
 
