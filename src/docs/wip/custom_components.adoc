@@ -43,10 +43,10 @@ class Dialog extends Div implements TextSupport {
         return config.evaluator.eval(content.id(), "it.text()")
     }
     Button getBt_OK() {
-        find(By.css('button:eq(0)')).get(0) as org.testatoo.bundle.html5.Button
+        find(By.css('button:eq(0)')).get(0) as sc.tyro.bundle.html5.Button
     }
     Button getBt_cancel() {
-        find(By.css('button:eq(1)')).get(0) as org.testatoo.bundle.html5.Button
+        find(By.css('button:eq(1)')).get(0) as sc.tyro.bundle.html5.Button
     }
 }
 

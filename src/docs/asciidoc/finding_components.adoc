@@ -91,7 +91,7 @@ the shortcut *# cannot be used for ids with '.' inside* (_not supported by JQuer
 *The third Button in the page with 'myName' name.*
 [source, groovy]
 ----
-     Button go_button =  $('[name="myName"]:eq(2)') as org.testatoo.bundle.html5.Button
+     Button go_button =  $('[name="myName"]:eq(2)') as sc.tyro.bundle.html5.Button
 ----
 *The first DataGrid in the form with 'myName' name.*
 [source, groovy]
