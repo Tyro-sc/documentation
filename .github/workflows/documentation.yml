@@ -1,8 +1,12 @@
 name: Publish documentation
+
 on:
-  workflow_dispatch:
   push:
     branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   publish:
@@ -14,6 +18,9 @@ jobs:
           java-version: 11
           distribution: 'liberica'
           cache: 'maven'
-
-      - name: Publishing
+      - name: Generate Documentation
         run: .github/actions/documentation.sh ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ../gh-pages
