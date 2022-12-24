@@ -11,12 +11,8 @@
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"
-></script>
-<script src="js/tocbot-3.0.2-min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
 <style>
     html,
     body {
@@ -118,112 +114,113 @@
 <h1>Tyro Reference Documentation</h1>
 <div class="details">
 <span id="author" class="author">David Avenante, Stephanie Parisot</span><br>
+<span id="revnumber">version 1.4.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of contents</div>
 <ul class="sectlevel1">
-<li><a href="#_overview">1. Overview</a>
+<li><a href="#_overview">Overview</a>
 <ul class="sectlevel2">
-<li><a href="#_introduction">1.1. Introduction</a></li>
-<li><a href="#_why_tyro_is_unique">1.2. Why Tyro is unique</a></li>
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_why_tyro_is_unique">Why Tyro is unique</a></li>
 </ul>
 </li>
-<li><a href="#_getting_started">2. Getting started</a>
+<li><a href="#_getting_started">Getting started</a>
 <ul class="sectlevel2">
-<li><a href="#_quick_start_from_a_template">2.1. Quick start from a template</a></li>
+<li><a href="#_quick_start_from_a_template">Quick start from a template</a></li>
 </ul>
 </li>
-<li><a href="#_first_examples">3. First examples</a>
+<li><a href="#_first_examples">First examples</a>
 <ul class="sectlevel2">
-<li><a href="#_a_simple_specification_test">3.1. A simple specification test</a></li>
-<li><a href="#_a_simple_functional_test">3.2. A simple functional test</a></li>
+<li><a href="#_a_simple_specification_test">A simple specification test</a></li>
+<li><a href="#_a_simple_functional_test">A simple functional test</a></li>
 </ul>
 </li>
-<li><a href="#_functional_vs_specification_tests">4. Functional vs Specification tests</a>
+<li><a href="#_functional_vs_specification_tests">Functional vs Specification tests</a>
 <ul class="sectlevel2">
-<li><a href="#_the_functional_tests">4.1. The Functional tests</a></li>
-<li><a href="#_the_specification_tests">4.2. The Specification tests</a></li>
+<li><a href="#_the_functional_tests">The Functional tests</a></li>
+<li><a href="#_the_specification_tests">The Specification tests</a></li>
 </ul>
 </li>
-<li><a href="#_finding_components">5. Finding components</a>
+<li><a href="#_finding_components">Finding components</a>
 <ul class="sectlevel2">
-<li><a href="#_the_function">5.1. The $ function</a>
+<li><a href="#_the_function">The $ function</a>
 <ul class="sectlevel3">
-<li><a href="#_examples">5.1.1. Examples</a></li>
+<li><a href="#_examples">Examples</a></li>
 </ul>
 </li>
-<li><a href="#_the_function_2">5.2. The $$ function</a>
+<li><a href="#_the_function_2">The $$ function</a>
 <ul class="sectlevel3">
-<li><a href="#_examples_2">5.2.1. Examples</a></li>
+<li><a href="#_examples_2">Examples</a></li>
 </ul>
 </li>
-<li><a href="#_using_factories">5.3. Using factories</a></li>
+<li><a href="#_using_factories">Using factories</a></li>
 </ul>
 </li>
-<li><a href="#_interacting_with_components">6. Interacting with components</a>
+<li><a href="#_interacting_with_components">Interacting with components</a>
 <ul class="sectlevel2">
-<li><a href="#_with_mouse">6.1. With Mouse</a></li>
-<li><a href="#_with_keyboard">6.2. With Keyboard</a></li>
-<li><a href="#_with_actions">6.3. With Actions</a>
+<li><a href="#_with_mouse">With Mouse</a></li>
+<li><a href="#_with_keyboard">With Keyboard</a></li>
+<li><a href="#_with_actions">With Actions</a>
 <ul class="sectlevel3">
-<li><a href="#check">6.3.1. check</a></li>
-<li><a href="#uncheck">6.3.2. uncheck</a></li>
-<li><a href="#fill">6.3.3. fill</a></li>
-<li><a href="#clear">6.3.4. clear</a></li>
-<li><a href="#set">6.3.5. set</a></li>
-<li><a href="#submit">6.3.6. submit</a></li>
-<li><a href="#reset">6.3.7. reset</a></li>
-<li><a href="#switchOn">6.3.8. switchOn</a></li>
-<li><a href="#switchOff">6.3.9. switchOff</a></li>
-<li><a href="#select">6.3.10. select</a></li>
-<li><a href="#unselect">6.3.11. unselect</a></li>
-<li><a href="#_on">6.3.12. on</a></li>
+<li><a href="#check">check</a></li>
+<li><a href="#uncheck">uncheck</a></li>
+<li><a href="#fill">fill</a></li>
+<li><a href="#clear">clear</a></li>
+<li><a href="#set">set</a></li>
+<li><a href="#submit">submit</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#switchOn">switchOn</a></li>
+<li><a href="#switchOff">switchOff</a></li>
+<li><a href="#select">select</a></li>
+<li><a href="#unselect">unselect</a></li>
+<li><a href="#_on">on</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_domain_components">7. Domain Components</a>
+<li><a href="#_domain_components">Domain Components</a>
 <ul class="sectlevel2">
-<li><a href="#_button">7.1. Button</a></li>
-<li><a href="#_checkbox">7.2. CheckBox</a></li>
-<li><a href="#_radio">7.3. Radio</a></li>
-<li><a href="#_dropdown">7.4. Dropdown</a></li>
-<li><a href="#_group">7.5. Group</a></li>
-<li><a href="#_listbox">7.6. ListBox</a></li>
-<li><a href="#_listview">7.7. ListView</a></li>
-<li><a href="#_item">7.8. Item</a>
+<li><a href="#_button">Button</a></li>
+<li><a href="#_checkbox">CheckBox</a></li>
+<li><a href="#_radio">Radio</a></li>
+<li><a href="#_dropdown">Dropdown</a></li>
+<li><a href="#_group">Group</a></li>
+<li><a href="#_listbox">ListBox</a></li>
+<li><a href="#_listview">ListView</a></li>
+<li><a href="#_item">Item</a>
 <ul class="sectlevel3">
-<li><a href="#_item_in_listbox_or_dropdown">7.8.1. Item in ListBox or Dropdown</a></li>
-<li><a href="#_item_in_listview">7.8.2. Item in ListView</a></li>
+<li><a href="#_item_in_listbox_or_dropdown">Item in ListBox or Dropdown</a></li>
+<li><a href="#_item_in_listview">Item in ListView</a></li>
 </ul>
 </li>
-<li><a href="#_link">7.9. Link</a></li>
-<li><a href="#_form">7.10. Form</a></li>
-<li><a href="#_field">7.11. Field</a>
+<li><a href="#_link">Link</a></li>
+<li><a href="#_form">Form</a></li>
+<li><a href="#_field">Field</a>
 <ul class="sectlevel3">
-<li><a href="#_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">7.11.1. TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</a></li>
-<li><a href="#_rangefield_and_its_variations_datefield_numberfield">7.11.2. RangeField and its variations (DateField, NumberField)</a></li>
-<li><a href="#_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">7.11.3. Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</a></li>
+<li><a href="#_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</a></li>
+<li><a href="#_rangefield_and_its_variations_datefield_numberfield">RangeField and its variations (DateField, NumberField)</a></li>
+<li><a href="#_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</a></li>
 </ul>
 </li>
-<li><a href="#_panel">7.12. Panel</a></li>
-<li><a href="#_image">7.13. Image</a></li>
-<li><a href="#_heading">7.14. Heading</a></li>
-<li><a href="#_paragraph">7.15. Paragraph</a></li>
-<li><a href="#_datagrid">7.16. Datagrid</a>
+<li><a href="#_panel">Panel</a></li>
+<li><a href="#_image">Image</a></li>
+<li><a href="#_heading">Heading</a></li>
+<li><a href="#_paragraph">Paragraph</a></li>
+<li><a href="#_datagrid">Datagrid</a>
 <ul class="sectlevel3">
-<li><a href="#_column">7.16.1. Column</a></li>
-<li><a href="#_row">7.16.2. Row</a></li>
-<li><a href="#_cell">7.16.3. Cell</a></li>
+<li><a href="#_column">Column</a></li>
+<li><a href="#_row">Row</a></li>
+<li><a href="#_cell">Cell</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_html5_tyro_equivalence">8. Html5 - Tyro equivalence</a>
+<li><a href="#_html5_tyro_equivalence">Html5 - Tyro equivalence</a>
 <ul class="sectlevel2">
-<li><a href="#_html5_tyro_equivalence_2">8.1. Html5 - Tyro equivalence</a>
+<li><a href="#_html5_tyro_equivalence_2">Html5 - Tyro equivalence</a>
 <ul class="sectlevel3">
-<li><a href="#_html5_input_tags">8.1.1. Html5 input tags</a></li>
+<li><a href="#_html5_input_tags">Html5 input tags</a></li>
 </ul>
 </li>
 </ul>
@@ -242,7 +239,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview">1. Overview</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -250,7 +247,7 @@
 It also explains how to write good UI tests scenarios.</p>
 </div>
 <div class="sect2">
-<h3 id="_introduction">1.1. Introduction</h3>
+<h3 id="_introduction">Introduction</h3>
 <div class="paragraph">
 <p><strong>Tyro</strong> is a web user interface testing tool to test any web application.</p>
 </div>
@@ -271,7 +268,7 @@ It also explains how to write good UI tests scenarios.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_tyro_is_unique">1.2. Why Tyro is unique</h3>
+<h3 id="_why_tyro_is_unique">Why Tyro is unique</h3>
 <div class="paragraph">
 <p><strong>Tyro</strong> is the result of numerous real-world observations of developers in the trenches in the area of GUI testing.</p>
 </div>
@@ -295,10 +292,10 @@ Our experience has taught us that this path is a dead-end.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_getting_started">2. Getting started</h2>
+<h2 id="_getting_started">Getting started</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_quick_start_from_a_template">2.1. Quick start from a template</h3>
+<h3 id="_quick_start_from_a_template">Quick start from a template</h3>
 <div class="paragraph">
 <p><strong>Tyro</strong> comes with a <a href="https://github.com/Tyro-sc/tyro-starters">bunch of starters</a> for different combinations of testing tools (<strong>JUnit4, JUni5, Cucumber&#8230;&#8203;</strong>).</p>
 </div>
@@ -309,13 +306,13 @@ Our experience has taught us that this path is a dead-end.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_first_examples">3. First examples</h2>
+<h2 id="_first_examples">First examples</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Let&#8217;s have a look at some simple examples of <strong>Tyro</strong> use.</p>
 </div>
 <div class="sect2">
-<h3 id="_a_simple_specification_test">3.1. A simple specification test</h3>
+<h3 id="_a_simple_specification_test">A simple specification test</h3>
 <div class="paragraph">
 <p>A simple form like this :</p>
 </div>
@@ -368,7 +365,7 @@ dropdown(<span class="string"><span class="delimiter">'</span><span class="conte
 </div>
 </div>
 <div class="sect2">
-<h3 id="_a_simple_functional_test">3.2. A simple functional test</h3>
+<h3 id="_a_simple_functional_test">A simple functional test</h3>
 <div class="paragraph">
 <p>The check/uncheck behavior of the following choice :</p>
 </div>
@@ -405,13 +402,13 @@ radio(<span class="string"><span class="delimiter">&quot;</span><span class="con
 </div>
 </div>
 <div class="sect1">
-<h2 id="_functional_vs_specification_tests">4. Functional vs Specification tests</h2>
+<h2 id="_functional_vs_specification_tests">Functional vs Specification tests</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In the UI test area you need to face with two type of tests: Functional tests and Specification tests.</p>
 </div>
 <div class="sect2">
-<h3 id="_the_functional_tests">4.1. The Functional tests</h3>
+<h3 id="_the_functional_tests">The Functional tests</h3>
 <div class="paragraph">
 <p>This type of tests describes the user intention.</p>
 </div>
@@ -454,7 +451,7 @@ The well-known pattern used is the famous <a href="https://en.wikipedia.org/wiki
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_specification_tests">4.2. The Specification tests</h3>
+<h3 id="_the_specification_tests">The Specification tests</h3>
 <div class="paragraph">
 <p>This type of test describes the design language between the user and the application.</p>
 </div>
@@ -484,7 +481,7 @@ The well-known pattern used is the famous <a href="https://en.wikipedia.org/wiki
 </div>
 </div>
 <div class="sect1">
-<h2 id="_finding_components">5. Finding components</h2>
+<h2 id="_finding_components">Finding components</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -493,7 +490,7 @@ As we discussed earlier, Tyro is based on an abstraction of the UI. So to give y
 to find components. It&#8217;s yours to use what suits your case.</p>
 </div>
 <div class="sect2">
-<h3 id="_the_function">5.1. The $ function</h3>
+<h3 id="_the_function">The $ function</h3>
 <div class="paragraph">
 <p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.</p>
 </div>
@@ -550,7 +547,7 @@ For multiple selection use $$ function.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_examples">5.1.1. Examples</h4>
+<h4 id="_examples">Examples</h4>
 <div class="paragraph">
 <p><strong>A TextField by id.</strong></p>
 </div>
@@ -651,7 +648,7 @@ For multiple selection use $$ function.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_function_2">5.2. The $$ function</h3>
+<h3 id="_the_function_2">The $$ function</h3>
 <div class="paragraph">
 <p>The $$ function follows the sames rules of $ function except it returns a list of components.</p>
 </div>
@@ -670,7 +667,7 @@ For multiple selection use $$ function.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_examples_2">5.2.1. Examples</h4>
+<h4 id="_examples_2">Examples</h4>
 <div class="paragraph">
 <p><strong>A List of Items.</strong></p>
 </div>
@@ -696,7 +693,7 @@ For multiple selection use $$ function.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_using_factories">5.3. Using factories</h3>
+<h3 id="_using_factories">Using factories</h3>
 <div class="paragraph">
 <p>Tyro comes with a bunch of components factories.
 Factories should be used as the first way to find components.
@@ -863,7 +860,7 @@ button.should { be visible }</pre></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_interacting_with_components">6. Interacting with components</h2>
+<h2 id="_interacting_with_components">Interacting with components</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -885,7 +882,7 @@ button.should { be visible }</pre></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_with_mouse">6.1. With Mouse</h3>
+<h3 id="_with_mouse">With Mouse</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">clickOn component
@@ -896,7 +893,7 @@ drag panel on dropZone</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_with_keyboard">6.2. With Keyboard</h3>
+<h3 id="_with_keyboard">With Keyboard</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Field</span> emailField = field(<span class="string"><span class="delimiter">'</span><span class="content">Email</span><span class="delimiter">'</span></span>, EmailField)
@@ -909,13 +906,13 @@ emailField.should { have value(<span class="string"><span class="delimiter">'</s
 </div>
 </div>
 <div class="sect2">
-<h3 id="_with_actions">6.3. With Actions</h3>
+<h3 id="_with_actions">With Actions</h3>
 <div class="paragraph">
 <p>Tyro offers an advanced interaction feature. It allows a functional way to interact with components.
 It&#8217;s a good way to minimize common side effects on UI tests.</p>
 </div>
 <div class="sect3">
-<h4 id="check">6.3.1. check</h4>
+<h4 id="check">check</h4>
 <div class="paragraph">
 <p>This action does some assertions and verifies that the component is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already in the expected state</strong>.
 So for example, if you try to check a component already checked, an exception is thrown.</p>
@@ -949,7 +946,7 @@ checkBox.should { be checked }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="uncheck">6.3.2. uncheck</h4>
+<h4 id="uncheck">uncheck</h4>
 <div class="paragraph">
 <p>This action does some assertions and verifies that the component is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already in the expected state</strong>.
 So for example, if you try to uncheck a component already unchecked, an exception is thrown.</p>
@@ -982,7 +979,7 @@ checkBox.should { be unchecked }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="fill">6.3.3. fill</h4>
+<h4 id="fill">fill</h4>
 <div class="paragraph">
 <p>With this action you can fill a field directly without passing by the keyboard.
 This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
@@ -1021,7 +1018,7 @@ emailField.should {
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear">6.3.4. clear</h4>
+<h4 id="clear">clear</h4>
 <div class="paragraph">
 <p>This action is used to clear a field. Here again it&#8217;s done directly without passing by the keyboard (just changing the value of the field).</p>
 </div>
@@ -1056,7 +1053,7 @@ emailField.should { be empty }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set">6.3.5. set</h4>
+<h4 id="set">set</h4>
 <div class="paragraph">
 <p>This is the same action as <a href="#fill">fill</a>. It&#8217;s just a better word for suite components like Range, DatePicker, ColorPicker&#8230;&#8203;</p>
 </div>
@@ -1090,7 +1087,7 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="submit">6.3.6. submit</h4>
+<h4 id="submit">submit</h4>
 <div class="paragraph">
 <p>This action is used to <strong>submit</strong> a form. It tries to find the expected submit button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
 </div>
@@ -1118,7 +1115,7 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reset">6.3.7. reset</h4>
+<h4 id="reset">reset</h4>
 <div class="paragraph">
 <p>This action is used to <strong>reset</strong> a form. It tries to find the expected reset button attached to the form and clicks on it if it&#8217;s available or fails if it&#8217;s not.</p>
 </div>
@@ -1146,7 +1143,7 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switchOn">6.3.8. switchOn</h4>
+<h4 id="switchOn">switchOn</h4>
 <div class="paragraph">
 <p>This is the same action as <a href="#check">check</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
 </div>
@@ -1174,7 +1171,7 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switchOff">6.3.9. switchOff</h4>
+<h4 id="switchOff">switchOff</h4>
 <div class="paragraph">
 <p>This is the same action as <a href="#uncheck">uncheck</a>. It&#8217;s just a better word to suite components like Switch &#8230;&#8203;</p>
 </div>
@@ -1202,7 +1199,7 @@ range.should { have value(<span class="integer">20</span>) }</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select">6.3.10. select</h4>
+<h4 id="select">select</h4>
 <div class="paragraph">
 <p>This action does some assertions and verifies that the item is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already selected</strong>.
 So for example if you try to select an item already selected an exception is thrown.</p>
@@ -1231,7 +1228,7 @@ So for example if you try to select an item already selected an exception is thr
 </div>
 </div>
 <div class="sect3">
-<h4 id="unselect">6.3.11. unselect</h4>
+<h4 id="unselect">unselect</h4>
 <div class="paragraph">
 <p>This action does some assertions and verifies that the item is <strong>visible</strong>, <strong>not deactivated</strong> and <strong>not already unselected</strong>.
 So for example if you try to unselect an item already unselected an exception is thrown.</p>
@@ -1260,7 +1257,7 @@ So for example if you try to unselect an item already unselected an exception is
 </div>
 </div>
 <div class="sect3">
-<h4 id="_on">6.3.12. on</h4>
+<h4 id="_on">on</h4>
 <div class="paragraph">
 <p>This action is just a pass through (a function who returns the passed component).
 It&#8217;s here to improve readability of a test.</p>
@@ -1294,7 +1291,7 @@ language.should { have selectedItem(<span class="string"><span class="delimiter"
 </div>
 </div>
 <div class="sect1">
-<h2 id="_domain_components">7. Domain Components</h2>
+<h2 id="_domain_components">Domain Components</h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
@@ -1317,7 +1314,7 @@ With them, you have the most useful components to write a UI test.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_button">7.1. Button</h3>
+<h3 id="_button">Button</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Button.png" alt="Button">
@@ -1363,7 +1360,7 @@ like searching for a query at a search engine, or to interact with dialog boxes,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_checkbox">7.2. CheckBox</h3>
+<h3 id="_checkbox">CheckBox</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/CheckBox.png" alt="CheckBox">
@@ -1430,7 +1427,7 @@ checkbox_3.should {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_radio">7.3. Radio</h3>
+<h3 id="_radio">Radio</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Radio.png" alt="Radio">
@@ -1501,7 +1498,7 @@ radio_3.should {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dropdown">7.4. Dropdown</h3>
+<h3 id="_dropdown">Dropdown</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Dropdown.png" alt="Dropdown">
@@ -1565,7 +1562,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 </div>
 <div class="sect2">
-<h3 id="_group">7.5. Group</h3>
+<h3 id="_group">Group</h3>
 <div class="paragraph">
 <p><strong>Group</strong> is used for groups of items in dropDowns.</p>
 </div>
@@ -1624,7 +1621,7 @@ os.group(<span class="string"><span class="delimiter">'</span><span class="conte
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listbox">7.6. ListBox</h3>
+<h3 id="_listbox">ListBox</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/components/ListBox.png" alt="ListBox"></span></p>
 </div>
@@ -1692,7 +1689,7 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listview">7.7. ListView</h3>
+<h3 id="_listview">ListView</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/components/ListView.png" alt="ListView"></span></p>
 </div>
@@ -1732,12 +1729,12 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_item">7.8. Item</h3>
+<h3 id="_item">Item</h3>
 <div class="paragraph">
 <p><strong>Item</strong> is used for the elements listed in Dropdown, ListBox and ListView</p>
 </div>
 <div class="sect3">
-<h4 id="_item_in_listbox_or_dropdown">7.8.1. Item in ListBox or Dropdown</h4>
+<h4 id="_item_in_listbox_or_dropdown">Item in ListBox or Dropdown</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1782,7 +1779,7 @@ cities.item(<span class="string"><span class="delimiter">'</span><span class="co
 </div>
 </div>
 <div class="sect3">
-<h4 id="_item_in_listview">7.8.2. Item in ListView</h4>
+<h4 id="_item_in_listview">Item in ListView</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1816,7 +1813,7 @@ list.item(<span class="string"><span class="delimiter">'</span><span class="cont
 </div>
 </div>
 <div class="sect2">
-<h3 id="_link">7.9. Link</h3>
+<h3 id="_link">Link</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Link.png" alt="Link">
@@ -1864,7 +1861,7 @@ list.item(<span class="string"><span class="delimiter">'</span><span class="cont
 </div>
 </div>
 <div class="sect2">
-<h3 id="_form">7.10. Form</h3>
+<h3 id="_form">Form</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Form.png" alt="Form">
@@ -1910,7 +1907,7 @@ Form elements are filled with different types of input elements, checkboxes, rad
 </div>
 </div>
 <div class="sect2">
-<h3 id="_field">7.11. Field</h3>
+<h3 id="_field">Field</h3>
 <div class="paragraph">
 <p>This is the base component for all types of fields.</p>
 </div>
@@ -1980,7 +1977,7 @@ Form elements are filled with different types of input elements, checkboxes, rad
 </table>
 </div>
 <div class="sect3">
-<h4 id="_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">7.11.1. TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</h4>
+<h4 id="_textfield_and_all_its_variations_emailfield_passwordfield_urlfield_searchfield">TextField and all its variations (EmailField, PasswordField, URLField, SearchField)</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/TextField.png" alt="TextField">
@@ -2027,7 +2024,7 @@ of input may be required.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rangefield_and_its_variations_datefield_numberfield">7.11.2. RangeField and its variations (DateField, NumberField)</h4>
+<h4 id="_rangefield_and_its_variations_datefield_numberfield">RangeField and its variations (DateField, NumberField)</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/RangeField.png" alt="RangeField">
@@ -2083,14 +2080,14 @@ of input may be required.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">7.11.3. Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</h4>
+<h4 id="_other_fields_colorfield_datetimefield_monthfield_weekfield_timefield_phonefield">Other fields (ColorField, DateTimeField, MonthField, WeekField, TimeField, PhoneField)</h4>
 <div class="paragraph">
 <p>No specific states, properties or actions for these.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_panel">7.12. Panel</h3>
+<h3 id="_panel">Panel</h3>
 <div class="quoteblock">
 <blockquote>
 a <strong>panel</strong> is a particular arrangement of information grouped together for presentation to the user.
@@ -2122,7 +2119,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </table>
 </div>
 <div class="sect2">
-<h3 id="_image">7.13. Image</h3>
+<h3 id="_image">Image</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Image.png" alt="Image">
@@ -2162,7 +2159,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect2">
-<h3 id="_heading">7.14. Heading</h3>
+<h3 id="_heading">Heading</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Heading.png" alt="Heading">
@@ -2202,7 +2199,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect2">
-<h3 id="_paragraph">7.15. Paragraph</h3>
+<h3 id="_paragraph">Paragraph</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/Paragraph.png" alt="Paragraph">
@@ -2242,7 +2239,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect2">
-<h3 id="_datagrid">7.16. Datagrid</h3>
+<h3 id="_datagrid">Datagrid</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/components/DataGrid.png" alt="DataGrid">
@@ -2289,7 +2286,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="_column">7.16.1. Column</h4>
+<h4 id="_column">Column</h4>
 <div class="paragraph">
 <p><em>Definition</em>: a <strong>column</strong> is the vertical element of a datagrid ; it is composed of cells and can have a title.</p>
 </div>
@@ -2332,7 +2329,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="_row">7.16.2. Row</h4>
+<h4 id="_row">Row</h4>
 <div class="paragraph">
 <p><em>Definition</em>: a <strong>row</strong> is the horizontal element of a datagrid ; it is composed of cells and can have a title.</p>
 </div>
@@ -2375,7 +2372,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cell">7.16.3. Cell</h4>
+<h4 id="_cell">Cell</h4>
 <div class="paragraph">
 <p><em>Definition</em>: a <strong>cell</strong> is the finest element of a datagrid.</p>
 </div>
@@ -2415,7 +2412,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 </div>
 <div class="sect1">
-<h2 id="_html5_tyro_equivalence">8. Html5 - Tyro equivalence</h2>
+<h2 id="_html5_tyro_equivalence">Html5 - Tyro equivalence</h2>
 <div class="sectionbody">
 <hr>
 <table class="tableblock frame-all grid-all stretch">
@@ -2434,7 +2431,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="_html5_tyro_equivalence_2">8.1. Html5 - Tyro equivalence</h3>
+<h3 id="_html5_tyro_equivalence_2">Html5 - Tyro equivalence</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2680,7 +2677,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_html5_input_tags">8.1.1. Html5 input tags</h4>
+<h4 id="_html5_input_tags">Html5 input tags</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 14.2857%;">
@@ -2849,7 +2846,8 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-21 03:39:17 UTC
+Version 1.4.0-SNAPSHOT<br>
+Last updated 2022-12-23 18:10:00 -0500
 </div>
 </div>
 <script>
