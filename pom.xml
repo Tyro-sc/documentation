@@ -32,7 +32,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
 
-        <groovy.version>3.0.13</groovy.version>
+        <groovy.version>3.0.14</groovy.version>
         <selenium-java.version>4.7.2</selenium-java.version>
 
         <!-- Tests -->
