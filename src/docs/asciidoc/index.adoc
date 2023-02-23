@@ -1,14 +1,12 @@
 = Tyro Reference Documentation
 :author: David Avenante, Stephanie Parisot
+:revnumber: {project-version}
 :homepage: https://www.tyro.sc
 :desc: The Tyro documentation
 :toc:
 :toclevels: 3
-:docinfo1:
+// :docinfo1:
 :toc-title: Table of contents
-:numbered: {project-version}
-:imagesdir: images
-:sourcedir: ../../test
 
 image::logo-white.svg[Tyro,align="left",width="30%"]
 
