@@ -23,7 +23,7 @@ configure_documentation() {
 
 generate_documentation() {
     echo "============ ✅ Generate Documentation ================"
-    ./mvnw --batch-mode clean package
+    ./mvnw --batch-mode clean package -DskipTests
     EXIT_CODE=$?
     if [[ ${EXIT_CODE} -gt 0 ]]; then
         echo "============ 🔴 Documentation generation has failed =="
