@@ -125,13 +125,13 @@ generate_versions_file() {
     sed -i '$ s/.$//' versions.json
     echo "]" >>versions.json
 }
-#
-#push_documentation() {
-#    # Push the gh-pages changes
-#    git add .
-#    git commit -a -m "Update Documentation [skip ci]"
-#    git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
-#}
+
+push_documentation() {
+    # Push the gh-pages changes
+    git add .
+    git commit -a -m "Update Documentation [skip ci]"
+    git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+}
 
 configure_documentation
 generate_documentation
@@ -142,4 +142,4 @@ copy_documentation
 
 generate_current_documentation_link
 generate_versions_file
-#push_documentation
+push_documentation
