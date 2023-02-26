@@ -847,7 +847,7 @@ In TDD approach this will drive your page design with the best semantic and stru
 3
 </pre></td>
   <td class="code"><pre><span class="predefined-type">Panel</span> panel = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#parent</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Div
-<span class="predefined-type">Button</span> button = button(<span class="string"><span class="delimiter">'</span><span class="content">Ok</span><span class="delimiter">'</span></span>, panel) <span class="comment">// =&gt; Find button with text Ok only in the panel</span>
+<span class="predefined-type">Button</span> button = button(<span class="string"><span class="delimiter">'</span><span class="content">Ok</span><span class="delimiter">'</span></span>, on(panel)) <span class="comment">// =&gt; Find button with text Ok only in the panel</span>
 button.should { be visible }</pre></td>
 </tr></table></code></pre>
 </div>
@@ -2847,7 +2847,7 @@ a <strong>panel</strong> is a particular arrangement of information grouped toge
 <div id="footer">
 <div id="footer-text">
 Version 1.4.0-SNAPSHOT<br>
-Last updated 2023-02-23 03:35:35 UTC
+Last updated 2023-02-26 21:15:29 UTC
 </div>
 </div>
 <script>
