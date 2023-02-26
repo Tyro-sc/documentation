@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>CheckBox</title>
+<title>Link</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,26 +113,20 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_checkbox">CheckBox</a></li>
+<li><a href="#_link">Link</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect2">
-<h3 id="_checkbox">CheckBox</h3>
+<h3 id="_link">Link</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/CheckBox.png" alt="CheckBox">
+<img src="images/components/Link.png" alt="Link">
 </div>
 </div>
-<div class="quoteblock">
-<blockquote>
-a <strong>checkBox</strong> is a small box that, when selected by the user, shows that a particular feature has been enabled
-  or a particular option chosen. Check boxes are commonly used when more than one option may need to be selected.
-</blockquote>
-<div class="attribution">
-&#8212; inspired from Oxford dictionaries definition
-</div>
+<div class="paragraph">
+<p><em>Definition</em>:  a <strong>link</strong> allows the user to navigate from page to page.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -149,14 +143,14 @@ a <strong>checkBox</strong> is a small box that, when selected by the user, show
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">checked</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#check">[check]</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unchecked</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#uncheck">[uncheck]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -165,22 +159,9 @@ a <strong>checkBox</strong> is a small box that, when selected by the user, show
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">checkbox_1.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
-    be enabled
-    be unchecked
-}
-
-checkbox_2.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
-    be enabled
-    be checked
-}
-
-checkbox_3.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
-    be disabled
-    be unchecked
+<pre class="CodeRay highlight"><code data-lang="groovy">link.should {
+    have text(<span class="string"><span class="delimiter">'</span><span class="content">My Link to Google</span><span class="delimiter">'</span></span>)
+    have reference(<span class="string"><span class="delimiter">'</span><span class="content">https://www.google.com/</span><span class="delimiter">'</span></span>)
 }</code></pre>
 </div>
 </div>
@@ -188,7 +169,7 @@ checkbox_3.should {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-26 21:17:15 UTC
+Last updated 2023-02-26 21:18:25 UTC
 </div>
 </div>
 <script>

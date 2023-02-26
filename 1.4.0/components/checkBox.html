@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Group</title>
+<title>CheckBox</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,19 +113,25 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_group">Group</a></li>
+<li><a href="#_checkbox">CheckBox</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect2">
-<h3 id="_group">Group</h3>
-<div class="paragraph">
-<p><strong>Group</strong> is used for groups of items in dropDowns.</p>
-</div>
+<h3 id="_checkbox">CheckBox</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Group.png" alt="Group">
+<img src="images/components/CheckBox.png" alt="CheckBox">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>checkBox</strong> is a small box that, when selected by the user, shows that a particular feature has been enabled
+  or a particular option chosen. Check boxes are commonly used when more than one option may need to be selected.
+</blockquote>
+<div class="attribution">
+&#8212; inspired from Oxford dictionaries definition
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -143,14 +149,14 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#check">[check]</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchecked</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#uncheck">[uncheck]</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -159,20 +165,22 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">os.should {
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">OS</span><span class="delimiter">'</span></span>)
-    have <span class="integer">5</span>.items
-    have <span class="integer">2</span>.groups
+<pre class="CodeRay highlight"><code data-lang="groovy">checkbox_1.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
+    be enabled
+    be unchecked
 }
 
-os.group(<span class="string"><span class="delimiter">'</span><span class="content">Linux</span><span class="delimiter">'</span></span>).should {
-    have <span class="integer">3</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">Ubuntu</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Debian</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Gentoo</span><span class="delimiter">'</span></span>)
+checkbox_2.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
+    be enabled
+    be checked
 }
 
-os.group(<span class="string"><span class="delimiter">'</span><span class="content">Windows</span><span class="delimiter">'</span></span>).should {
-    have <span class="integer">2</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">8</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">10</span><span class="delimiter">'</span></span>)
+checkbox_3.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
+    be disabled
+    be unchecked
 }</code></pre>
 </div>
 </div>
@@ -180,7 +188,7 @@ os.group(<span class="string"><span class="delimiter">'</span><span class="conte
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-26 21:17:15 UTC
+Last updated 2023-02-26 21:18:25 UTC
 </div>
 </div>
 <script>

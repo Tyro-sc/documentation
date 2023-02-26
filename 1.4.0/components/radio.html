@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Dropdown</title>
+<title>Radio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,23 +113,26 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_dropdown">Dropdown</a></li>
+<li><a href="#_radio">Radio</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect2">
-<h3 id="_dropdown">Dropdown</h3>
+<h3 id="_radio">Radio</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/components/Dropdown.png" alt="Dropdown">
+<img src="images/components/Radio.png" alt="Radio">
 </div>
 </div>
 <div class="quoteblock">
 <blockquote>
-a <strong>dropdown</strong> allows the user to choose one value from a list. When a dropdown is inactive, it displays a
-single value. When activated, it displays (drops down) a list of values, that can be eventually grouped by a theme, from which the user may select one.
-When the user selects a new value, the control reverts to its inactive state, displaying the selected value.
+a <strong>radio button</strong> allows the user to choose only one of a predefined set of options. Radio buttons are
+arranged in groups of two or more and displayed on screen as, for example, a list of circular holes that can contain
+white space (for unselected) or a dot (for selected). Each radio button is normally accompanied by a label describing
+the choice that the radio button represents.
+The choices are mutually exclusive; when the user selects a radio button, any previously selected radio button in the
+same group becomes deselected (making it so only one can be selected).
 </blockquote>
 <div class="attribution">
 &#8212; inspired from Wikipedia definition
@@ -150,18 +153,13 @@ When the user selects a new value, the control reverts to its inactive state, di
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checked</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#select">[select]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#check">[check]</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchecked</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">groups</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -171,13 +169,22 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">dropdown.should {
-    be visible
-    have label(<span class="string"><span class="delimiter">'</span><span class="content">Language</span><span class="delimiter">'</span></span>)
-    have <span class="integer">2</span>.items
-    have items(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">FR</span><span class="delimiter">'</span></span>)
-    have selectedItem(<span class="string"><span class="delimiter">'</span><span class="content">EN</span><span class="delimiter">'</span></span>)
-    <span class="integer">0</span>.groups
+<pre class="CodeRay highlight"><code data-lang="groovy">radio_1.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>)
+    be enabled
+    be unchecked
+}
+
+radio_2.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">2</span><span class="delimiter">'</span></span>)
+    be enabled
+    be checked
+}
+
+radio_3.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">3 (disabled)</span><span class="delimiter">'</span></span>)
+    be disabled
+    be unchecked
 }</code></pre>
 </div>
 </div>
@@ -185,7 +192,7 @@ When the user selects a new value, the control reverts to its inactive state, di
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-26 21:17:15 UTC
+Last updated 2023-02-26 21:18:25 UTC
 </div>
 </div>
 <script>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Image</title>
+<title>ListBox</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,20 +113,25 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
-<li><a href="#_image">Image</a></li>
+<li><a href="#_listbox">ListBox</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect2">
-<h3 id="_image">Image</h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/components/Image.png" alt="Image">
-</div>
-</div>
+<h3 id="_listbox">ListBox</h3>
 <div class="paragraph">
-<p><em>Definition</em>:  an <strong>image</strong> allows the user to insert an image (gif, jpg, png,&#8230;&#8203;) from a source file</p>
+<p><span class="image"><img src="images/components/ListBox.png" alt="ListBox"></span></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+a <strong>listBox</strong> allows the user to select one or more items from a list contained within a static, multiple line
+text box. The user clicks inside the box on an item to select it, sometimes in combination with the ⇧ Shift or Ctrl
+in order to make multiple selections. "Control-clicking" an item that has already been selected, unselects it.
+</blockquote>
+<div class="attribution">
+&#8212; Wikipedia definition
+</div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -144,7 +149,22 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#select">[select]</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">selectedItems</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visibleItems</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -154,14 +174,22 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">image.should { have reference(BASE_URL + <span class="string"><span class="delimiter">'</span><span class="content">/img/seahorse.jpg</span><span class="delimiter">'</span></span>)}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">cities.should {
+    have label(<span class="string"><span class="delimiter">'</span><span class="content">Cities</span><span class="delimiter">'</span></span>)
+    have <span class="integer">4</span>.items
+    have <span class="integer">4</span>.visibleItems
+    have items(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Montreal</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+    have selectedItems(<span class="string"><span class="delimiter">'</span><span class="content">Montpellier</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Boston</span><span class="delimiter">'</span></span>)
+}
+
+cities.item(<span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>).should { be disabled }</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-26 21:17:15 UTC
+Last updated 2023-02-26 21:18:25 UTC
 </div>
 </div>
 <script>
