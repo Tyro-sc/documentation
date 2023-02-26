@@ -74,7 +74,7 @@ include::{sourcedir}/groovy/sc/tyro/doc/InteractionTest.groovy[tags=uncheck,inde
 
 With this action you can fill a field directly without passing by the keyboard.
 This must be the preferred way to set value on a field in a form, because most of the time the validation is needed when you leave the field.
-In the case you want a validation when entering caracters in the field, you must use the keyboard action "type".
+In the case you want a validation when entering characters in the field, you must use the keyboard action "type".
 
 This action applies on *Field* Components. 
 [NOTE]
