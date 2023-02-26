@@ -5,15 +5,10 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import sc.tyro.bundle.html5.Div
-import sc.tyro.core.Tyro
 import sc.tyro.core.component.Button
 import sc.tyro.core.component.Panel
 
-import static sc.tyro.core.Tyro.$
-import static sc.tyro.core.Tyro.button
-import static sc.tyro.core.Tyro.getVisible
-import static sc.tyro.core.Tyro.text
-import static sc.tyro.core.Tyro.visit
+import static sc.tyro.core.Tyro.*
 import static sc.tyro.doc.TyroExtension.BASE_URL
 
 @ExtendWith(TyroExtension)
@@ -36,7 +31,7 @@ class FactoryTest {
     void findButtonInParent() {
         // tag::factory[]
         Panel panel = $('#parent') as Div
-        Button button = button('Ok', panel) // => Find button with text Ok only in the panel
+        Button button = button('Ok', on(panel)) // => Find button with text Ok only in the panel
         button.should { be visible }
         // end::factory[]
     }
