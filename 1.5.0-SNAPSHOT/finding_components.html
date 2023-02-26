@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Finding components</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<style>
+    html,
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+    }
+
+    #header {
+        top: 0;
+        background: white;
+        z-index: 9;
+    }
+
+    #header .details {
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    #header .details #revnumber {
+        display: flex;
+        flex: 1;
+    }
+
+    #header .details #select-container {
+        margin-left: 30em;
+        flex: 0;
+        position: relative;
+    }
+
+    #header .details #select-container:after {
+        content: "▶";
+        font-size: 10px;
+        font-family: sans-serif;
+        font-weight: 500;
+        color: #a6a6a6;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        right: 12px;
+        top: 8px;
+        padding: 0 0 2px;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    #header .details #select-container #select-dropdown {
+        display: flex;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 5px 25px 5px 10px;
+        width: auto;
+        left: 25em;
+    }
+
+    #tocbot a.toc-link.node-name--H1 {
+        font-style: italic
+    }
+
+    @media screen {
+        #tocbot > ul.toc-list {
+            margin-bottom: 0.5em;
+            margin-left: 0.125em
+        }
+
+        #tocbot ul.sectlevel0, #tocbot a.toc-link.node-name--H1 + ul {
+            padding-left: 0
+        }
+
+        #tocbot a.toc-link {
+            height: 100%
+        }
+
+        .is-collapsible {
+            max-height: 3000px;
+            overflow: hidden;
+        }
+
+        .is-collapsed {
+            max-height: 0
+        }
+
+        .is-active-link {
+            font-weight: 700
+        }
+    }
+
+    @media print {
+        #tocbot a.toc-link.node-name--H4 {
+            display: none
+        }
+    }
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_finding_components">Finding components</a>
+<ul class="sectlevel2">
+<li><a href="#_the_function">The $ function</a></li>
+<li><a href="#_the_function_2">The $$ function</a></li>
+<li><a href="#_using_factories">Using factories</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_finding_components">Finding components</h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p>One of the most important Tyro&#8217;s features is its flexibility and power to find UI components.
+As we discussed earlier, Tyro is based on an abstraction of the UI. So to give you the best experience Tyro has many ways
+to find components. It&#8217;s yours to use what suits your case.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_function">The $ function</h3>
+<div class="paragraph">
+<p>The $ function is the access point for fetching components on the page. The $ function accepts a selector to target your component.</p>
+</div>
+<div class="paragraph">
+<p>The expression is pretty simple and always follows the same pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Abstraction component = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">*the selector*</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Implementation</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Tyro</strong> is typed.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>$</strong> selector is to find/locate the component, the <strong>as</strong> is to verify that the component is the expected type.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Tyro is based on an abstraction but comes with a default implementation: the Web implementation based on Selenium.</p>
+</div>
+<div class="paragraph">
+<p>This base implementation accepts the powerful <a href="https://api.jquery.com/category/selectors/">JQuery selectors</a> to find components in your page.</p>
+</div>
+<div class="paragraph">
+<p>Our experience demonstrated that <strong>we never need complex selector.</strong> Especially if you write tests first, a simple finding expression will push you to write clean html components (example : only one button with a given label in the same page).</p>
+</div>
+<div class="paragraph">
+<p>In the code, this is reflected by a custom tag, the sequence in the page, a role attribute, or an id. In all these cases, a css3 selector is more than enough.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The $ function <strong>NEEDS</strong> to target a <strong>UNIQUE</strong> component. If Tyro finds several components for the selector, it simply fails!
+For multiple selection use $$ function.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_examples">Examples</h4>
+<div class="paragraph">
+<p><strong>A TextField by id.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[id=&quot;myId&quot;]</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText
+    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#myId</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText <span class="comment">// Shortcut</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong><span class="green">TextField</span></strong> is the abstraction and <strong><span class="blue">InputTypeText</span></strong> is the implementation for the targeted technology (in this case Html5)</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>the shortcut <strong># cannot be used for ids with '.' inside</strong> (<em>not supported by JQuery</em>)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>A TextField by class.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[class=&quot;myClass&quot;]</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText
+    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.myClass</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText <span class="comment">// Shortcut</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>A TextField by name.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[name=&quot;myName&quot;]</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>A TextField by data-role.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> textfield = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[data-role=&quot;myRole&quot;]</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>The second TextField in the page corresponding to an input html tag with type = 'text'.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">TextField</span> last_name = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">input:eq(1)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> InputTypeText</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>The first Heading element in the page corresponding to an h3 html tag.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Heading sectionSubTitle = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">h3:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> H3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>The third Button in the page with 'myName' name.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">     <span class="predefined-type">Button</span> go_button =  <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">[name=&quot;myName&quot;]:eq(2)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> sc.tyro.bundle.html5.Button</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>The first DataGrid in the form with 'myName' name.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">      DataGrid getOperationTable = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">form[name=&quot;myName&quot;] &gt; table:eq(0)</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Table</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The selected component <strong>MUST BE TYPED</strong> through the <strong>"as"</strong> keyword.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_function_2">The $$ function</h3>
+<div class="paragraph">
+<p>The $$ function follows the sames rules of $ function except it returns a list of components.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These components need to be of the same type.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_examples_2">Examples</h4>
+<div class="paragraph">
+<p><strong>A List of Items.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html">  <span class="tag">&lt;html&gt;</span>
+    <span class="tag">&lt;select&gt;</span>
+      <span class="tag">&lt;option&gt;</span>New-York<span class="tag">&lt;/option&gt;</span>
+      <span class="tag">&lt;option&gt;</span>Montpellier<span class="tag">&lt;/option&gt;</span>
+      <span class="tag">&lt;option&gt;</span>Chicago<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;/select&gt;</span>
+  <span class="tag">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">List</span>&lt;Item&gt; items = <span class="error">$</span><span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">select option</span><span class="delimiter">'</span></span>, <span class="predefined-type">Option</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example we take the list of Html5 Option components under the Html5 Select component (the 3 towns) and we return them as a list of Items.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_factories">Using factories</h3>
+<div class="paragraph">
+<p>Tyro comes with a bunch of components factories.
+Factories should be used as the first way to find components.
+In TDD approach this will drive your page design with the best semantic and structure.</p>
+</div>
+<div class="paragraph">
+<p><strong>Find Button using its text.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Button</span> button = button(<span class="string"><span class="delimiter">'</span><span class="content">Submit</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Radio using its label or placeholder.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Radio radio = radio(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find CheckBox using its label or placeholder.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    CheckBox checkbox = checkbox(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Dropdown using its label or placeholder.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Dropdown dropdown = dropdown(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Field using its label or placeholder.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Field</span> field = field(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>)
+    <span class="predefined-type">TextField</span> field = field(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>, <span class="predefined-type">TextField</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find ListBox using its label or placeholder.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    ListBox listBox = listBox(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Group using its value.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Group</span> group = group(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Item using its value.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Item item = item(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Heading using its text.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Heading heading = heading(<span class="string"><span class="delimiter">'</span><span class="content">text</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Panel using its title.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Panel</span> panel = panel(<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Link using its text.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    Link link = link(<span class="string"><span class="delimiter">'</span><span class="content">text</span><span class="delimiter">'</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its text.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Component</span> myComponent = findByText(<span class="string"><span class="delimiter">'</span><span class="content">text</span><span class="delimiter">'</span></span>, <span class="predefined-type">Component</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its label.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Component</span> myComponent = findByLabel(<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>, <span class="predefined-type">Component</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its value.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Component</span> myComponent = findByValue(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>, <span class="predefined-type">Component</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its title.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">    <span class="predefined-type">Component</span> myComponent = findByTitle(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>, <span class="predefined-type">Component</span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Sometimes the UI can contain more than one item with the same test/value/label &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p><strong>Example: Two button with text 'Ok'</strong></p>
+</div>
+<div class="paragraph">
+<p>In this case you can scope your search by passing the parent context to the factory method.</p>
+</div>
+<div class="paragraph">
+<p><strong>Find Component using its title scoped in parent context</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="predefined-type">Panel</span> panel = <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#parent</span><span class="delimiter">'</span></span>) <span class="keyword">as</span> Div
+<span class="predefined-type">Button</span> button = button(<span class="string"><span class="delimiter">'</span><span class="content">Ok</span><span class="delimiter">'</span></span>, on(panel)) <span class="comment">// =&gt; Find button with text Ok only in the panel</span>
+button.should { be visible }</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-02-26 21:28:58 UTC
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        function compare(a, b) {
+            const versiona = a.version.toUpperCase();
+            const versionb = b.version.toUpperCase();
+            return versiona > versionb ? 1 : versiona < versionb ? -1 : 0;
+        }
+
+        $.getJSON("../versions.json").done(data => {
+            const selectContainer = document.createElement("div");
+            selectContainer.setAttribute("id", "select-container");
+
+            const selectDropdown = document.createElement("select");
+            selectDropdown.setAttribute("id", "select-dropdown");
+
+            const currentVersionDisplayed = $("#revnumber")
+                .text()
+                .replace("version ", "");
+
+            selectContainer.append(selectDropdown);
+
+            $("#header .details").append(selectContainer);
+
+            data.sort(compare);
+            data.reverse();
+
+            $.each(data, (index, value) => {
+                selectDropdown.append(
+                    new Option(
+                        value.version,
+                        value.version,
+                        false,
+                        currentVersionDisplayed === value.version
+                    )
+                );
+            });
+
+            $("#select-dropdown").on("change", event => {
+                window.location.href = `../${event.target.value}`;
+            });
+        });
+    });
+
+    /* Tocbot dynamic TOC */
+    let oldtoc = document.getElementById('toctitle').nextElementSibling;
+    let newtoc = document.createElement('div');
+    newtoc.setAttribute('id', 'tocbot');
+    newtoc.setAttribute('class', 'js-toc');
+    oldtoc.parentNode.replaceChild(newtoc, oldtoc);
+    tocbot.init(
+        {
+            contentSelector: '#content',
+            headingSelector: 'h1, h2, h3, h4',
+            smoothScroll: false
+        }
+    );
+    let handleTocOnResize = function () {
+        let width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+        if (width < 768) {
+            tocbot.refresh({
+                contentSelector: '#content',
+                headingSelector: 'h1, h2, h3, h4',
+                collapseDepth: 6,
+                activeLinkClass: 'ignoreactive',
+                throttleTimeout: 1000,
+                smoothScroll: false
+            });
+        } else {
+            tocbot.refresh({
+                contentSelector: '#content',
+                headingSelector: 'h1, h2, h3, h4',
+                smoothScroll: false
+            });
+        }
+    };
+    window.addEventListener('resize', handleTocOnResize);
+    handleTocOnResize();
+</script>
+</body>
+</html>
