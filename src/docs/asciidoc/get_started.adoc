@@ -4,7 +4,7 @@
 
 === Quick start from a template
 
-*Tyro* comes with a https://github.com/Tyro-sc/tyro-starters[bunch of starters] for different combinations of testing tools (*JUnit4, JUni5, Cucumber...*).
+*Tyro* comes with a https://github.com/Tyro-sc/tyro-starters[bunch of starters] for different combinations of testing tools (*JUni5, Cucumber...*).
 
 These starters give you a good taste of the power and flexibility of *Tyro*.
 
