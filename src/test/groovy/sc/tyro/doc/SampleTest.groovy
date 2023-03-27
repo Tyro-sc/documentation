@@ -12,7 +12,7 @@ import static sc.tyro.doc.TyroExtension.BASE_URL
 class SampleTest {
     @Test
     void sample_1() {
-        visit BASE_URL + '/sample_1.html'
+        visit BASE_URL + 'sample_1.html'
 
         // tag::sample_1[]
         field('Email').should {
@@ -36,7 +36,7 @@ class SampleTest {
 
     @Test
     void sample_2() {
-        visit BASE_URL + '/sample_2.html'
+        visit BASE_URL + 'sample_2.html'
 
         // tag::sample_2[]
         radio("Male").should { be checked }

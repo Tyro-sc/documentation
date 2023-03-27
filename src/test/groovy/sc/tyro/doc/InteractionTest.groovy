@@ -22,7 +22,7 @@ class InteractionTest {
     @Test
     @DisplayName("Mouse")
     void mouse() {
-        visit BASE_URL + '/interaction.html'
+        visit BASE_URL + 'interaction.html'
 
         Field component = field('Email', EmailField)
         Panel panel = $('#drag') as Div
@@ -39,7 +39,7 @@ class InteractionTest {
     @Test
     @DisplayName("Keyboard")
     void keyboard() {
-        visit BASE_URL + '/interaction.html'
+        visit BASE_URL + 'interaction.html'
 
         // tag::keyboard[]
         Field emailField = field('Email', EmailField)
@@ -54,7 +54,7 @@ class InteractionTest {
     @Test
     @DisplayName("Intention")
     void intention() {
-        visit BASE_URL + '/interaction.html'
+        visit BASE_URL + 'interaction.html'
 
         // tag::check[]
         CheckBox checkBox = checkbox('Checkbox Label')

@@ -16,7 +16,7 @@ import static sc.tyro.doc.TyroExtension.BASE_URL
 class FactoryTest {
     @BeforeAll
     static void before() {
-        visit BASE_URL + '/components.html'
+        visit BASE_URL + 'components.html'
     }
 
     @Test

@@ -44,7 +44,7 @@ import static sc.tyro.doc.TyroExtension.BASE_URL
 class ComponentTest {
     @BeforeAll
     static void before() {
-        visit BASE_URL + '/components.html'
+        visit BASE_URL + 'components.html'
     }
 
     @Test
@@ -251,7 +251,7 @@ class ComponentTest {
     void image() {
         Image image = $('#image') as Img
         // tag::image[]
-        image.should { have reference(BASE_URL + '/img/seahorse.jpg')}
+        image.should { have reference(BASE_URL + 'img/seahorse.jpg')}
         // end::image[]
     }
 
