@@ -6,20 +6,22 @@ import org.junit.jupiter.api.extension.AfterAllCallback
 import org.junit.jupiter.api.extension.BeforeAllCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.openqa.selenium.WebDriver
-import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
 import sc.tyro.web.WebBundle
 
+import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver
+import static io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver
 import static io.javalin.http.staticfiles.Location.CLASSPATH
-import static org.openqa.selenium.remote.BrowserType.CHROME
-import static org.openqa.selenium.remote.BrowserType.FIREFOX
+import static java.lang.Boolean.valueOf
+import static java.lang.System.getenv
 
 class TyroExtension implements BeforeAllCallback, AfterAllCallback {
     public static String BASE_URL
     private static Javalin app
     private static WebDriver webDriver
+    private static WebDriverManager wdm
+    private boolean isCI = valueOf(getenv('CI'))
 
     @Override
     void beforeAll(ExtensionContext extensionContext) throws Exception {
@@ -27,33 +29,42 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
 
         BASE_URL = "http://localhost:${app.port()}"
 
-        // Add -DbrowserType=firefox/chrome/... to you VM Option to select the browser
-        String browser = System.getProperty("browserType")
+        // Add -Dbrowser=firefox/chrome/... to you VM Option to select the browser
+        String browser = System.getProperty("browser")
+        System.setProperty("webdriver.http.factory", "jdk-http-client")
         if (!browser) {
             println "No browser selected. Use Chrome"
-            browser = FIREFOX
+            browser = "chrome"
         }
 
         switch (browser) {
-            case FIREFOX:
-                WebDriverManager.firefoxdriver().setup()
+            case "firefox":
+                wdm = firefoxdriver()
                 FirefoxOptions options = new FirefoxOptions()
-                options.setHeadless(true)
-                webDriver = new FirefoxDriver(options)
+                wdm.capabilities(options)
                 break
-            case CHROME:
-                WebDriverManager.chromedriver().setup()
+            case "chrome":
+                wdm = chromedriver()
                 ChromeOptions options = new ChromeOptions()
-                options.setHeadless(true)
-                webDriver = new ChromeDriver()
+                wdm.capabilities(options)
                 break
+            default:
+                throw new IllegalStateException("Fail to set browser: " + browser)
+
         }
+
+        if (isCI) {
+            wdm.browserInDocker()
+        }
+
+        webDriver = wdm.create()
         WebBundle.init(webDriver)
     }
 
     @Override
     void afterAll(ExtensionContext extensionContext) throws Exception {
         webDriver.quit()
+        wdm.quit()
         app.stop()
     }
 }
