@@ -61,7 +61,7 @@ class TyroExtension implements BeforeAllCallback, AfterAllCallback {
         }
 
         if (isCI) {
-            wdm.browserInDocker().enableVnc()
+            wdm.browserInDocker()
         }
 
         webDriver = wdm.create()
