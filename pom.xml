@@ -45,7 +45,7 @@
 
         <!-- Plugins -->
         <gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
-        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.1</maven-surefire-plugin.version>
         <asciidoctor-maven-plugin.version>2.2.4</asciidoctor-maven-plugin.version>
     </properties>
 
