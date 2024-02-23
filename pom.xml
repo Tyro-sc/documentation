@@ -36,7 +36,7 @@
         <selenium-java.version>4.13.0</selenium-java.version>
 
         <!-- Tests -->
-        <junit.version>5.10.1</junit.version>
+        <junit.version>5.10.2</junit.version>
         <tyro-web.version>1.6.0</tyro-web.version>
         <slf4j-simple.verion>2.0.11</slf4j-simple.verion>
         <javalin.version>6.1.0</javalin.version>
