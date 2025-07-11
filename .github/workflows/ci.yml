@@ -22,5 +22,6 @@ jobs:
             ${{ runner.os }}-maven-
       - uses: actions/setup-java@v4
         with:
+          java-version: 21
           distribution: 'liberica'
       - run: ./mvnw test
