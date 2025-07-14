@@ -40,7 +40,7 @@
         <tyro-web.version>1.7.0</tyro-web.version>
         <slf4j-simple.verion>2.0.13</slf4j-simple.verion>
         <javalin.version>6.7.0</javalin.version>
-        <webdrivermanager.version>6.1.0</webdrivermanager.version>
+        <webdrivermanager.version>6.1.1</webdrivermanager.version>
         <selenium-java.version>4.8.1</selenium-java.version>
 
         <!-- Plugins -->
